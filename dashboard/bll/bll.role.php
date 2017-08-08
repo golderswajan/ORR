@@ -3,12 +3,12 @@
 *  UNIVERSITY BUISENESS LOGIC LAYER
 *  CONNECTS BETWEEN DATA ACCESS LAYER AND PRESENTATION LAYER
 */
-include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.university.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.role.php');
 
 // To activate the constructior crating an object. 
-$University = new BLLUniversity;
+$Role = new BLLRole;
 
-class BLLUniversity
+class BLLRole
 {
 
 	function __construct()
@@ -20,20 +20,20 @@ class BLLUniversity
 		  session_start();
 		}
 
-		$University = new DALUniversity;
+		$Role = new DALRole;
 
 		if(isset($_POST['submit_insert']))
 		{
-			$name = $_POST['name'];
-			if (ctype_space($name))
+			$roleName = $_POST['roleName'];
+			if (ctype_space($roleName))
 			{
 				$_SESSION['message'] = "Contains spaces only.";
-				header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/university.php');
+				header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/role.php');
 				exit();
 				return false;
 			}
 			// Else insert 
-			$response = $University->insert($name);
+			$response = $Role->insert($roleName);
 
 			if($response)
 			{
@@ -47,23 +47,23 @@ class BLLUniversity
 
 			// Redirect to call page as soon as task done.
 
-			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/university.php');
+			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/role.php');
 			exit();
 		}
 		if(isset($_POST['submit_update']))
 		{
 			$id = $_POST['id'];
-			$name = $_POST['name'];
+			$roleName = $_POST['roleName'];
 
-			if (ctype_space($name))
+			if (ctype_space($roleName))
 			{
 				$_SESSION['message'] = "Contains spaces only.";
-				header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/university.php');
+				header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/role.php');
 				exit();
 				return false;
 			}
 
-			$response = $University->update($id,$name);
+			$response = $Role->update($id,$roleName);
 			// Redirect to call page as soon as task done.
 			if($response)
 			{
@@ -74,7 +74,7 @@ class BLLUniversity
 				$_SESSION['message'] = "Can't Update.";
 			}
 			// Redirect to call page as soon as task done.
-			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/university.php');
+			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/role.php');
 			exit();
 
 		}
@@ -83,7 +83,7 @@ class BLLUniversity
 		if(isset($_GET['submit_delete']))
 		{
 			$id = $_GET['submit_delete'];
-			$response = $University->delete($id);
+			$response = $Role->delete($id);
 			
 			// Redirect to call page as soon as task done.
 			if($response)
@@ -96,7 +96,7 @@ class BLLUniversity
 			}
 			// Redirect to call page as soon as task done.
 			
-			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/university.php');
+			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/role.php');
 			exit();
 		}
 
@@ -105,16 +105,16 @@ class BLLUniversity
 	// Display the list of libraries
 	public function show()
 	{
-		$University = new DALuniversity;
-		$result = $University->get();
+		$Role = new DALrole;
+		$result = $Role->get();
 
 		$post = "";
 		while ($res = mysqli_fetch_assoc($result))
 		 {
 		 	$post.= '<tr>';
-			$post.= '<td>'.$res["name"].'</td>';
-			$post.= '<td><button class="btn btn-link" id="btnEdit'.$res["id"].'" onclick="EditUniversity('.$res["id"].')">Edit</button></td>';
-			$post.= '<td><button id="delete_btn" class="btn btn-link" onclick="delete_btn_click('.$res['id'].',\'/se/dashboard/bll/bll.university.php\')">Delete</button></td>';
+			$post.= '<td>'.$res["roleName"].'</td>';
+			$post.= '<td><button class="btn btn-link" id="btnEdit'.$res["id"].'" onclick="EditRole('.$res["id"].')">Edit</button></td>';
+			$post.= '<td><button id="delete_btn" class="btn btn-link" onclick="delete_btn_click('.$res['id'].',\'/se/dashboard/bll/bll.role.php\')">Delete</button></td>';
 			$post.= '<td style="display: none" id="row_id'.$res["id"].'">'.$res["id"].'</td>';
 		 	$post.= '</tr>';
 

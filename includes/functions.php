@@ -2,6 +2,7 @@
 	/**
 	*  Main page functions, Login, Registration etc
 	*/
+	$function = new Index;
 	class Index
 	{
 		
@@ -84,6 +85,8 @@
 				return false;
 			}
 		}
+
+	
 
 	}
 ?>

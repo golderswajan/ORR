@@ -1,7 +1,9 @@
 <html>
 <head>
-<meta name="viewport" width="device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!--http-equiv is for testing perpouse only-->
+<!--meta http-equiv="refresh" content="10"-->
 <?php
 echo '<link rel="stylesheet" type="text/css" href="/se/resources/css/dashboardsidebar.css">';
 echo '<link rel="stylesheet" type="text/css" href="/se/resources/css/bootstrap.css">';
@@ -33,13 +35,23 @@ function closeNav() {
 <ul class="nav nav-pills nav-stacked">
 
   <li> <a href="javascript:void(0)" class="expandbtn" onclick="closeNav()"><span class="glyphicon glyphicon-align-justify"></span></a></li>
-  <li> <a href="dashboard.php"><span class="glyphicon glyphicon-dashboard"></span>  Dashboard</a></li>
-  <li> <a href="library.php"><span class="glyphicon glyphicon-globe"></span>  Library</a></li>
-  <li> <a href="#"><span class="glyphicon glyphicon-glyphicon glyphicon glyphicon-sort-by-alphabet"></span>  Category</a></li>
-  <li> <a href="#"><span class="glyphicon glyphicon glyphicon-shopping-cart"></span>  Shelf</a></li>
-  <li> <a href="#"><span class="glyphicon glyphicon-book"></span>  Book</a></li>
-  <li> <a href="#"><span class="glyphicon glyphicon-user"></span>  User</a></li>
-  <li> <a href="#"><span class="glyphicon glyphicon-envelope"></span>  Transacton</a></li>
+
+  <?php
+    function DashboardMenu()
+    {
+      $xml = simplexml_load_file($_SERVER['DOCUMENT_ROOT'].'/se/settings/menu.xml');
+      $menu = "";
+      foreach($xml->items as $item)
+      {
+        $menu .= '<li> <a href="'.$item->link.'"><span class="'.$item->icon.'"></span> '.$item->title.'</a></li>';
+      }
+      return $menu;
+      
+    }
+    echo DashboardMenu();
+
+  ?>
+
 </ul>
 
 </div>
@@ -49,13 +61,22 @@ function closeNav() {
 <ul class="nav nav-pills nav-stacked">
   <li> <a href="javascript:void(0)" class="expandbtn" onclick="expandNav()"><span class="glyphicon glyphicon-align-justify"></span></a></li>
 
-  <li> <a href="dashboard.php" data-toggle="tooltip" data-placement="right" title="Dashboard"><span class="glyphicon glyphicon-dashboard"></span></a></li>
-  <li> <a href="library.php" data-toggle="tooltip" data-placement="right" title="Library"><span class="glyphicon glyphicon-globe"></span></a></li>
-  <li> <a href="#" data-toggle="tooltip" data-placement="right" title="Category"><span class="glyphicon glyphicon-glyphicon glyphicon glyphicon-sort-by-alphabet" ></span></a></li>
-  <li> <a href="#" data-toggle="tooltip" data-placement="right" title="Shelf"><span class="glyphicon glyphicon glyphicon-shopping-cart"></span></a></li>
-  <li> <a href="#" data-toggle="tooltip" data-placement="right" title="Books"><span class="glyphicon glyphicon-book"></span></a></li>
-  <li> <a href="#" data-toggle="tooltip" data-placement="right" title="User Profile"><span class="glyphicon glyphicon-user"></span></a></li>
-  <li> <a href="#" data-toggle="tooltip" data-placement="right" title="Issuance"><span class="glyphicon glyphicon-envelope"></span></a></li>
+ <?php
+
+    function DashboardMenuSmall()
+    {
+      $xml = simplexml_load_file($_SERVER['DOCUMENT_ROOT'].'/se/settings/menu.xml');
+      $menu = "";
+      foreach($xml->items as $item)
+      {
+        $menu .= '<li> <a href="'.$item->link.'" data-toggle="tooltip" data-placement="right" title="'.$item->title.'"><span class="'.$item->icon.'"></span></a></li>';
+      }
+      return $menu;
+      
+    }
+    echo DashboardMenuSmall();
+
+  ?>
 </ul>
 
 </div>

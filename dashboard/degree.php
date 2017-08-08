@@ -18,18 +18,18 @@ if(isset($_SESSION['message']))
 <div id="table">
     <table class="table">
         <thead>
-            <tr id="university_list">
-                <th colspan="2"><h3 class="text-center">University Information</h3></th>
+            <tr id="degree_list">
+                <th colspan="2"><h3 class="text-center">Degree Information</h3></th>
             </tr>
-              <tr id="university_list">
+              <tr id="degree_list">
                 <th >Name</th>
                 <th colspan="2"> Operation</th>
             </tr>
         </thead>
         <tbody>
            <?php
-           require_once("bll/bll.university.php");
-           $content = $University->show();
+           require_once("bll/bll.degree.php");
+           $content = $Degree->show();
            echo $content;
            ?>
         </tbody>
@@ -46,7 +46,7 @@ if(isset($_SESSION['message']))
 <!-- Add new Modal-->
  <link rel="stylesheet" href="/se/resources/css/modal.css">
 
- <button id="myBtn" class="btn btn-primary">Crate New University</button>
+ <button id="myBtn" class="btn btn-primary">Crate New Degree</button>
 
 <!-- Modal for insertion -->
  <!-- The Modal -->
@@ -55,13 +55,13 @@ if(isset($_SESSION['message']))
    <div class="modal-content">
      <div class="modal-header">
        <span class="close">&times;</span>
-       <h2>Add New University</h2>    </div>
+       <h2>Add New Degree</h2>    </div>
 
      <div class="modal-body">
-      <form action="bll/bll.university.php" method="POST" onsubmit="reload_page();">
+      <form action="bll/bll.degree.php" method="POST" onsubmit="reload_page();">
       
          <span class="badge badge-success">Name</span>
-         <input id="name" type="text" class="form-control" name="name" placeholder="Name of the University" required>
+         <input id="name" type="text" class="form-control" name="name" placeholder="Name of the Degree" required>
         <br>
         
         <input type="submit" name="submit_insert" value="Submit" class="btn btn-primary pull-right">
@@ -83,14 +83,14 @@ if(isset($_SESSION['message']))
    <div class="modal-content">
      <div class="modal-header">
        <span class="close">&times;</span>
-       <h2>Edit University</h2>    </div>
+       <h2>Edit Degree</h2>    </div>
 
      <div class="modal-body">
-      <form action="bll/bll.university.php" method="POST" onsubmit="reload_page();">
+      <form action="bll/bll.degree.php" method="POST" onsubmit="reload_page();">
          <input id="id_update" type="text"  name="id" style="display: none";>
           
          <span class="badge badge-success">Name</span>
-         <input id="name_update" type="text" class="form-control" name="name" placeholder="Name of the University" required>
+         <input id="name_update" type="text" class="form-control" name="name" placeholder="Name of the Degree" required>
 
         <br>
 
@@ -122,7 +122,7 @@ if(isset($_SESSION['message']))
 <script type="text/javascript">
 
 // Function that call from bll to edit items
-function EditUniversity(id)
+function EditDegree(id)
 {
   modalUpdate.style.display = "block"; // show the modal
 

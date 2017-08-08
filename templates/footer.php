@@ -1,15 +1,16 @@
 
+<!--Including the js files-->
+<script type="text/javascript" src="/se/resources/js/jquery.js"></script>
+<script type="text/javascript" src="/se/resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="/se/resources/js/edit_modal.js"></script>
+<script type="text/javascript" src="/se/resources/js/jquery-ui.js"></script>
+<script type="text/javascript" src="/se/resources/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/se/resources/js/confirm_delete.js"></script>
 
-</form>
- <!-- pdf form end-->
-        <script src="public/js/jquery.js"></script>
-        <script src="public/js/bootstrap.min.js"></script>
 
-        <script>
-            $("#menu-toggle").click(function (e) {
-                e.preventDefault();
-                $("#wrapper").toggleClass("toggled");
-            });
-    </script>
-</body>
+    </div>
+    <!--Container-->
+    </div>
+    <!--Page Content-->
+    </body>
 </html>

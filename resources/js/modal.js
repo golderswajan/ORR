@@ -23,3 +23,9 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+function reload_page()
+{
+	 setTimeout(function () {
+        location.reload(true)
+    }, 300);
+}

@@ -1,21 +1,20 @@
 <?php
 	/**
-	*  University CRUD
+	*  Department CRUD
 	*/
 	require_once($_SERVER['DOCUMENT_ROOT'].'/se/includes/connect.php');
-	class DALUniversity
+	class DALDepartment
 	{
 		
 		function __construct()
 		{
-
 			
 		}
 
 		public function get()
 		{
 			global $con;
-			$sql = "SELECT * FROM varsity WHERE 1 ORDER BY name ASC";
+			$sql = "SELECT * FROM dept WHERE 1 ORDER BY name ASC";
 			$result = mysqli_query($con,$sql);
 
 			return $result;
@@ -24,7 +23,7 @@
 		public function insert($name)
 		{
 			global $con;
-			$sql = "INSERT INTO varsity VALUES('','$name')";
+			$sql = "INSERT INTO dept VALUES('','$name')";
 			$result = mysqli_query($con,$sql);
 			if($result)
 			{
@@ -40,7 +39,7 @@
 		public function update($id,$name)
 		{
 			global $con;
-			$sql = "UPDATE varsity SET name = '$name' WHERE id=$id";
+			$sql = "UPDATE dept SET name = '$name' WHERE id=$id";
 			$result = mysqli_query($con,$sql);
 			if($result)
 			{
@@ -54,7 +53,7 @@
 		public function delete($id)
 		{
 			global $con;
-			$sql = "DELETE FROM varsity WHERE id = $id";
+			$sql = "DELETE FROM dept WHERE id = $id";
 			$result = mysqli_query($con,$sql);
 			if($result)
 			{
