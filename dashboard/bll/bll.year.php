@@ -113,8 +113,8 @@ class BLLYear
 		 {
 		 	$post.= '<tr>';
 			$post.= '<td>'.$res["year"].'</td>';
-			$post.= '<td><button class="btn btn-link" id="btnEdit'.$res["id"].'" onclick="EditYear('.$res["id"].')">Edit</button></td>';
-			$post.= '<td><button id="delete_btn" class="btn btn-link" onclick="delete_btn_click('.$res['id'].',\'/se/dashboard/bll/bll.year.php\')">Delete</button></td>';
+			$post.= '<td class="text-right"><button class="btn btn-link" id="btnEdit'.$res["id"].'" onclick="EditYear('.$res["id"].')">Edit</button></td>';
+			$post.= '<td class="text-right"><button id="delete_btn" class="btn btn-link" onclick="delete_btn_click('.$res['id'].',\'/se/dashboard/bll/bll.year.php\')">Delete</button></td>';
 			$post.= '<td style="display: none" id="row_id'.$res["id"].'">'.$res["id"].'</td>';
 		 	$post.= '</tr>';
 

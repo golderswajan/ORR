@@ -9,6 +9,9 @@ echo '<link rel="stylesheet" type="text/css" href="/se/resources/css/dashboardsi
 echo '<link rel="stylesheet" type="text/css" href="/se/resources/css/bootstrap.css">';
 echo '<link rel="stylesheet" type="text/css" href="/se/resources/css/bootstrap.min.css">';
 echo '<link rel="stylesheet" type="text/css" href="/se/resources/css/jquery-ui.css">';
+echo '<link rel="stylesheet" type="text/css" href="/se/resources/css/font-awesome.min.css">';
+echo '<link rel="stylesheet" type="text/css" href="/se/resources/css/font-awesome.css">';
+echo '<link rel="stylesheet" type="text/css" href="/se/resources/css/custom.css">';
 
 ?>
 <script type="text/javascript" >

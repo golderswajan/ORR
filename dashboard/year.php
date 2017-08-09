@@ -23,7 +23,8 @@ if(isset($_SESSION['message']))
             </tr>
               <tr id="year_list">
                 <th >Name</th>
-                <th colspan="2"> Operation</th>
+                <th  class="text-right"> Edit</th>
+                <th  class="text-right"> Delete</th>
             </tr>
         </thead>
         <tbody>
