@@ -14,12 +14,6 @@ class BLLRole
 	function __construct()
 	{
 
-		// Starting session to exchance server messages.
-		if(!isset($_SESSION))
-		{
-		  session_start();
-		}
-
 		$Role = new DALRole;
 
 		if(isset($_POST['submit_insert']))

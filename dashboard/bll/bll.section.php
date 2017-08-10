@@ -3,31 +3,33 @@
 *  UNIVERSITY BUISENESS LOGIC LAYER
 *  CONNECTS BETWEEN DATA ACCESS LAYER AND PRESENTATION LAYER
 */
-include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.term.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.section.php');
 
 // To activate the constructior crating an object. 
-$Term = new BLLTerm;
+$Section = new BLLSection;
 
-class BLLTerm
+class BLLSection
 {
 
 	function __construct()
 	{
 
-		$Term = new DALTerm;
+
+		$Section = new DALSection;
 
 		if(isset($_POST['submit_insert']))
 		{
-			$term = $_POST['term'];
-			if (ctype_space($term))
+			$name = $_POST['name'];
+			$type = $_POST['type'];
+			if (ctype_space($name) || ctype_space($type))
 			{
 				$_SESSION['message'] = "Contains spaces only.";
-				header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/term.php');
+				header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/section.php');
 				exit();
 				return false;
 			}
 			// Else insert 
-			$response = $Term->insert($term);
+			$response = $Section->insert($name,$type);
 
 			if($response)
 			{
@@ -41,23 +43,23 @@ class BLLTerm
 
 			// Redirect to call page as soon as task done.
 
-			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/term.php');
+			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/section.php');
 			exit();
 		}
 		if(isset($_POST['submit_update']))
 		{
 			$id = $_POST['id'];
-			$term = $_POST['term'];
-
-			if (ctype_space($term))
+			$name = $_POST['name'];
+			$type = $_POST['type'];
+			if (ctype_space($name) || ctype_space($type))
 			{
 				$_SESSION['message'] = "Contains spaces only.";
-				header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/term.php');
+				header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/section.php');
 				exit();
 				return false;
 			}
-
-			$response = $Term->update($id,$term);
+			// Else insert 
+			$response = $Section->update($id,$name,$type);
 			// Redirect to call page as soon as task done.
 			if($response)
 			{
@@ -68,7 +70,7 @@ class BLLTerm
 				$_SESSION['message'] = "Can't Update.";
 			}
 			// Redirect to call page as soon as task done.
-			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/term.php');
+			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/section.php');
 			exit();
 
 		}
@@ -77,7 +79,7 @@ class BLLTerm
 		if(isset($_GET['submit_delete']))
 		{
 			$id = $_GET['submit_delete'];
-			$response = $Term->delete($id);
+			$response = $Section->delete($id);
 			
 			// Redirect to call page as soon as task done.
 			if($response)
@@ -90,7 +92,7 @@ class BLLTerm
 			}
 			// Redirect to call page as soon as task done.
 			
-			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/term.php');
+			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/section.php');
 			exit();
 		}
 
@@ -99,39 +101,23 @@ class BLLTerm
 	// Display the list of libraries
 	public function show()
 	{
-		$Term = new DALTerm;
-		$result = $Term->get();
+		$Section = new DALSection;
+		$result = $Section->get();
 
 		$post = "";
 		while ($res = mysqli_fetch_assoc($result))
 		 {
 		 	$post.= '<tr>';
-			$post.= '<td>'.$res["term"].'</td>';
-			$post.= '<td class="text-right"><button class="btn btn-link" id="btnEdit'.$res["id"].'" onclick="EditTerm('.$res["id"].')">Edit</button></td>';
-			$post.= '<td class="text-right"><button id="delete_btn" class="btn btn-link" onclick="delete_btn_click('.$res['id'].',\'/se/dashboard/bll/bll.term.php\')">Delete</button></td>';
+			$post.= '<td>'.$res["name"].'</td>';
+			$post.= '<td>'.$res["type"].'</td>';
+			$post.= '<td class="text-right"><button class="btn btn-link" id="btnEdit'.$res["id"].'" onclick="EditSection('.$res["id"].')">Edit</button></td>';
+			$post.= '<td class="text-right"><button id="delete_btn" class="btn btn-link" onclick="delete_btn_click('.$res['id'].',\'/se/dashboard/bll/bll.section.php\')">Delete</button></td>';
 			$post.= '<td style="display: none" id="row_id'.$res["id"].'">'.$res["id"].'</td>';
 		 	$post.= '</tr>';
 
 		 }
 		 return $post;
 	}
-
-	// Give the id, will return the name/[]Name dealing with DAL.
-	public function getTerm($id)
-	{
-		$Term = new DALTerm;
-		$result = $Term->getById($id);
-
-		$data = "";
-		while ($res = mysqli_fetch_assoc($result))
-		 {
-			$data.= $res["term"];
-			
-
-		 }
-		 return $data;
-	}
-
 
 }
 

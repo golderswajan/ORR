@@ -1,10 +1,6 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'].'/se/templates/dashboardsidebar.php');
 
-if(!isset($_SESSION))
-{
-  session_start();
-}
 if(isset($_SESSION['message']))
 {
   $msg = "<div class='alert alert-success'>";

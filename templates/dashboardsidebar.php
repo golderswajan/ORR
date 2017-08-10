@@ -5,6 +5,10 @@
 <!--http-equiv is for testing perpouse only-->
 <!--meta http-equiv="refresh" content="10"-->
 <?php
+if(!isset($_SESSION))
+  {
+      session_start();
+  }
 echo '<link rel="stylesheet" type="text/css" href="/se/resources/css/dashboardsidebar.css">';
 echo '<link rel="stylesheet" type="text/css" href="/se/resources/css/bootstrap.css">';
 echo '<link rel="stylesheet" type="text/css" href="/se/resources/css/bootstrap.min.css">';

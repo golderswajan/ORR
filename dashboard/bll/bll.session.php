@@ -14,12 +14,6 @@ class BLLSession
 	function __construct()
 	{
 
-		// Starting session to exchance server messages.
-		if(!isset($_SESSION))
-		{
-		  session_start();
-		}
-
 		$Session = new DALSession;
 
 		if(isset($_POST['submit_insert']))
@@ -121,6 +115,23 @@ class BLLSession
 		 }
 		 return $post;
 	}
+
+	// Give the id, will return the name/[]Name dealing with DAL.
+	public function getSessionName($id)
+	{
+		$Session = new DALsession;
+		$result = $Session->getById($id);
+
+		$data = "";
+		while ($res = mysqli_fetch_assoc($result))
+		 {
+			$data.= $res["sessionName"];
+			
+
+		 }
+		 return $data;
+	}
+
 
 }
 

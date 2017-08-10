@@ -14,11 +14,6 @@ class BLLCourse
 	function __construct()
 	{
 
-		// Starting session to exchance server messages.
-		if(!isset($_SESSION))
-		{
-		  session_start();
-		}
 
 		$Course = new DALCourse;
 
@@ -30,11 +25,12 @@ class BLLCourse
 			$course_no = $_POST['course_no'];
 			$course_title = $_POST['course_title'];
 			$credit  = $_POST['credit'];
+			$prerequisite = $_POST['prerequisite'];
 			$yearId  = $_POST['yearId'];
 			$termId  = $_POST['termId'];
-			$prerequisite = $_POST['prerequisite'];
 			$varsityId = $_POST['varsityId'];
 			$deptId = $_POST['deptId'];
+			$degreeId = $_POST['degreeId'];
 
 			if (ctype_space($prefix) || ctype_space($course_no) ||ctype_space($course_title)||ctype_space($credit))
 			{
@@ -45,7 +41,7 @@ class BLLCourse
 			}
 			else
 			{
-				$response = $Course->insert($prefix,$course_no,$course_title,$credit,$yearId,$termId,$prerequisite,$varsityId,$deptId);
+				$response = $Course->insert($prefix,$course_no,$course_title,$credit,$prerequisite,$yearId,$termId,$varsityId,$deptId,$degreeId);
 			}
 
 
@@ -55,6 +51,7 @@ class BLLCourse
 			}
 			else
 			{
+
 				$_SESSION['message'] = "Can't Insert.";
 			}
 
@@ -62,7 +59,7 @@ class BLLCourse
 			// Redirect to call page as soon as task done.
 
 			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/Course.php');
-			exit();
+			//exit();
 		}
 		if(isset($_POST['submit_update']))
 		{
@@ -73,11 +70,13 @@ class BLLCourse
 			$course_no = $_POST['course_no'];
 			$course_title = $_POST['course_title'];
 			$credit  = $_POST['credit'];
+			$prerequisite = $_POST['prerequisite'];
 			$yearId  = $_POST['yearId'];
 			$termId  = $_POST['termId'];
-			$prerequisite = $_POST['prerequisite'];
 			$varsityId = $_POST['varsityId'];
 			$deptId = $_POST['deptId'];
+			$degreeId = $_POST['degreeId'];
+
 
 			if (ctype_space($prefix) || ctype_space($course_no) ||ctype_space($course_title)||ctype_space($credit))
 			{
@@ -88,7 +87,7 @@ class BLLCourse
 			}
 			else
 			{
-				$response = $Course->update($id,$prefix,$course_no,$course_title,$credit,$yearId,$termId,$prerequisite,$varsityId,$deptId);
+				$response = $Course->update($id,$prefix,$course_no,$course_title,$credit,$prerequisite,$yearId,$termId,$varsityId,$deptId,$degreeId);
 
 			}
 			// Redirect to call page as soon as task done.
@@ -143,10 +142,10 @@ class BLLCourse
 			$post.= '<td>'.$res['course_no'].'</td>';
 			$post.= '<td>'.$res["course_title"].'</td>';
 			$post.= '<td>'.$res["credit"].'</td>';
-			$post.= '<td>'.$res["yearId"].'</td>';
-			$post.= '<td>'.$res["termId"].'</td>';
+			//$post.= '<td>'.$res["yearId"].'</td>';
+			//$post.= '<td>'.$res["termId"].'</td>';
 
-			$post.= '<td class="text-right"><button class="btn btn-link" id="btnEdit'.$res["id"].'" onclick="EditCourse('.$res["id"].','.$res["yearId"].','.$res["termId"].','.$res["varsityId"].','.$res["deptId"].','.$res["prerequisite"].')">Edit</button></td>';
+			$post.= '<td class="text-right"><button class="btn btn-link" id="btnEdit'.$res["id"].'" onclick="EditCourse('.$res["id"].','.$res["yearId"].','.$res["termId"].','.$res["varsityId"].','.$res["deptId"].','.$res["degreeId"].','.$res["prerequisite"].')">Edit</button></td>';
 			$post.= '<td class="text-right"><button id="delete_btn" class="btn btn-link" onclick="delete_btn_click('.$res['id'].',\'/se/dashboard/bll/bll.Course.php\')">Delete</button></td>';
 			$post.= '<td style="display: none" id="row_id'.$res["id"].'">'.$res["id"].'</td>';
 		 	$post.= '</tr>';

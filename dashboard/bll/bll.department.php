@@ -13,11 +13,7 @@ class BLLDepartment
 
 	function __construct()
 	{
-		// Starting session to exchance server messages.
-		if(!isset($_SESSION))
-		{
-		  session_start();
-		}
+
 		$Department = new DALDepartment;
 
 		if(isset($_POST['submit_insert']))
@@ -101,6 +97,22 @@ class BLLDepartment
 
 		 }
 		 return $post;
+	}
+
+	// Give the id, will return the name/[]Name dealing with DAL.
+	public function getName($id)
+	{
+		$Department = new DALDepartment;
+		$result = $Department->getById($id);
+
+		$data = "";
+		while ($res = mysqli_fetch_assoc($result))
+		 {
+			$data.= $res["name"];
+			
+
+		 }
+		 return $data;
 	}
 
 }

@@ -4,8 +4,9 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.university.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.term.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.year.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.department.php');
-include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.course.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.termoffer.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.degree.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.session.php');
 
 if(isset($_SESSION['message']))
 {
@@ -20,24 +21,23 @@ if(isset($_SESSION['message']))
 <div id="table">
     <table class="table">
         <thead>
-            <tr id="course_list">
-                <th colspan="2"><h3 class="text-center">Course Information</h3></th>
+            <tr id="termoffer_list">
+                <th colspan="2"><h3 class="text-center">Term Offer Information</h3></th>
             </tr>
-              <tr id="course_list">
-                <th >Course</th>
-                <th >No</th>
-                <th >Title</th>
-                <th >Credit</th>
-                <!--th >Year</th>
-                <th >Term</th-->
+              <tr id="termoffer_list">
+                <th >University</th>
+                <th >Degree</th>
+                <th >Session</th>
+                <th >Term</th>
+                <th >Status</th>
                 <th class="text-right"> Edit</th>
                 <th class="text-right"> Delete</th>
             </tr>
         </thead>
         <tbody>
            <?php
-           require_once("bll/bll.course.php");
-           $content = $Course->show();
+           require_once("bll/bll.termoffer.php");
+           $content = $TermOffer->show();
            echo $content;
            ?>
         </tbody>
@@ -54,7 +54,7 @@ if(isset($_SESSION['message']))
 <!-- Add new Modal-->
  <link rel="stylesheet" href="/se/resources/css/modal.css">
 
- <button id="myBtn" class="btn btn-primary">Crate New Course</button>
+ <button id="myBtn" class="btn btn-primary">Offer New Term</button>
 
 <!-- Modal for insertion -->
  <!-- The Modal -->
@@ -63,23 +63,11 @@ if(isset($_SESSION['message']))
    <div class="modal-content">
      <div class="modal-header">
        <span class="close">&times;</span>
-       <h2>Add New Course</h2>    </div>
+       <h2>Offer New Term</h2>    </div>
 
      <div class="modal-body">
-      <form action="bll/bll.course.php" method="POST" onsubmit="reload_page();">
-      
-         <span class="badge badge-success">Prefix</span>
-         <input id="prefix" type="text" class="form-control" name="prefix" placeholder="Prefix" required>
-
-         <span class="badge badge-success">Course No</span>
-         <input id="course_no" type="text" class="form-control" name="course_no" placeholder="Course No" required>
-
-         <span class="badge badge-success">Title</span>
-         <input id="course_title" type="text" class="form-control" name="course_title" placeholder="Title" required>
-
-         <span class="badge badge-success">Credit</span>
-         <input id="credit" type="text" class="form-control" name="credit" placeholder="Credit" required>
-
+      <form action="bll/bll.termoffer.php" method="POST" onsubmit="reload_page();">
+      <input id="id" type="text"  name="id" style="display: none";>
          <span class="badge badge-success">University</span>
          <select class="form-control" id="varsityId" name="varsityId">
          <?php
@@ -149,16 +137,16 @@ if(isset($_SESSION['message']))
          ?>
         </select>
 
-        <span class="badge badge-success">Prerequisite</span>
-         <select class="form-control" id="prerequisite" name="prerequisite">
-         <option value="null"> No Prerequisite </option>
+        <span class="badge badge-success">Session</span>
+         <select class="form-control" id="sessionId" name="sessionId">
+      
          <?php
           $options = "";
-          $obj = new DALCourse;
+          $obj = new DALSession;
           $result = $obj->get();
           while($res = mysqli_fetch_assoc($result))
           {
-            $options .= '<option value="'.$res['id'].'">'.$res['prefix'].' '.$res['course_no'].'=>'.$res['course_title'].'</option>';
+            $options .= '<option value="'.$res['id'].'">'.$res['sessionName'].'</option>';
           }
           echo $options;
          ?>
@@ -186,23 +174,12 @@ if(isset($_SESSION['message']))
    <div class="modal-content">
      <div class="modal-header">
        <span class="close">&times;</span>
-       <h2>Edit Course</h2>    </div>
+       <h2>Edit Term Offered</h2>    </div>
 
 <div class="modal-body">
-      <form action="bll/bll.course.php" method="POST" onsubmit="reload_page();">
+      <form action="bll/bll.termoffer.php" method="POST" onsubmit="reload_page();">
         <input id="id_update" type="text"  name="id" style="display: none";>
-         <span class="badge badge-success">Prefix</span>
-         <input id="prefix_update" type="text" class="form-control" name="prefix" placeholder="Prefix" required>
-
-         <span class="badge badge-success">Course No</span>
-         <input id="course_no_update" type="text" class="form-control" name="course_no" placeholder="Course No" required>
-
-         <span class="badge badge-success">Title</span>
-         <input id="course_title_update" type="text" class="form-control" name="course_title" placeholder="Title" required>
-
-         <span class="badge badge-success">Credit</span>
-         <input id="credit_update" type="text" class="form-control" name="credit" placeholder="Credit" required>
-
+        
          <span class="badge badge-success">University</span>
          <select class="form-control" id="varsityId_update" name="varsityId">
          <?php
@@ -272,22 +249,27 @@ if(isset($_SESSION['message']))
          ?>
         </select>
 
-        <span class="badge badge-success">Prerequisite</span>
-         <select class="form-control" id="prerequisite_update" name="prerequisite">
-         <option value="0"> No Prerequisite </option>
+        <span class="badge badge-success">Session</span>
+         <select class="form-control" id="sessionId_update" name="sessionId">
+      
          <?php
           $options = "";
-          $obj = new DALCourse;
+          $obj = new DALSession;
           $result = $obj->get();
           while($res = mysqli_fetch_assoc($result))
           {
-            $options .= '<option value="'.$res['id'].'">'.$res['prefix'].' '.$res['course_no'].'=>'.$res['course_title'].'</option>';
+            $options .= '<option value="'.$res['id'].'">'.$res['sessionName'].'</option>';
           }
           echo $options;
          ?>
         </select>
 
-        
+        <span class="badge badge-success">Status</span>
+         <select class="form-control" id="status_update" name="status">
+           <option value="0">End</option>
+           <option value="1">Running</option>
+          </select>
+
         <br>
         
         <input type="submit" name="submit_update" value="Submit" class="btn btn-primary pull-right">
@@ -318,7 +300,7 @@ if(isset($_SESSION['message']))
 <script type="text/javascript">
 
 // Function that call from bll to edit items
-function EditCourse(id,yearId,termId,varsityId,deptId,degreeId,prerequisiteId)
+function EditTermOffer(id,yearId,termId,varsityId,deptId,degreeId,sessionId)
 {
 
   modalUpdate.style.display = "block"; // show the modal
@@ -329,27 +311,16 @@ function EditCourse(id,yearId,termId,varsityId,deptId,degreeId,prerequisiteId)
     } 
 
   // Data retriving form table to modal
-  var $row = $('#row_id'+id+'').closest("tr");
-
-  // Get values into variable
-  $prefix = $row.find("td:nth-child(1)");
-  $course_no = $row.find("td:nth-child(2)");
-  $course_title = $row.find("td:nth-child(3)");
-  $credit = $row.find("td:nth-child(4)");
-
+  //var $row = $('#row_id'+id+'').closest("tr");
 
   // Update value into textbox
   $('#id_update').attr('value',id);
-  $('#prefix_update').attr('value',$($prefix).text());
-  $('#course_no_update').attr('value',$($course_no).text());
-  $('#course_title_update').attr('value',$($course_title).text());
-  $('#credit_update').attr('value',$($credit).text());
   $('#varsityId_update').val(varsityId);
   $('#deptId_update').val(deptId);
   $('#yearId_update').val(yearId);
   $('#termId_update').val(termId);
   $('#degreeId_update').val(degreeId);
-  $('#prerequisite_update').val(prerequisiteId);
+  $('#sessionId_update').val(sessionId);
 
 }
 

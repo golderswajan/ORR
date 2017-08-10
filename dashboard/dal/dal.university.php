@@ -3,6 +3,8 @@
 	*  University CRUD
 	*/
 	require_once($_SERVER['DOCUMENT_ROOT'].'/se/includes/connect.php');
+	require_once($_SERVER['DOCUMENT_ROOT'].'/se/includes/session.php');
+	
 	class DALUniversity
 	{
 		
@@ -20,6 +22,15 @@
 
 			return $result;
 		}
+		public function getById($id)
+		{
+			global $con;
+			$sql = "SELECT * FROM varsity WHERE id=".$id;
+			$result = mysqli_query($con,$sql);
+
+			return $result;
+		}
+
 
 		public function insert($name)
 		{

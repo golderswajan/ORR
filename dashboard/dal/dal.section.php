@@ -1,11 +1,11 @@
 <?php
 	/**
-	*  Degree CRUD
+	*  Section CRUD
 	*/
 	require_once($_SERVER['DOCUMENT_ROOT'].'/se/includes/connect.php');
 	require_once($_SERVER['DOCUMENT_ROOT'].'/se/includes/session.php');
 	
-	class DALDegree
+	class DALSection
 	{
 		
 		function __construct()
@@ -17,7 +17,7 @@
 		public function get()
 		{
 			global $con;
-			$sql = "SELECT * FROM degree WHERE 1 ORDER BY name ASC";
+			$sql = "SELECT * FROM section WHERE 1 ORDER BY name ASC";
 			$result = mysqli_query($con,$sql);
 
 			return $result;
@@ -25,17 +25,17 @@
 		public function getById($id)
 		{
 			global $con;
-			$sql = "SELECT * FROM degree WHERE id=".$id;
+			$sql = "SELECT * FROM section WHERE id=".$id;
 			$result = mysqli_query($con,$sql);
 
 			return $result;
 		}
 
 
-		public function insert($name)
+		public function insert($name,$type)
 		{
 			global $con;
-			$sql = "INSERT INTO degree VALUES('','$name')";
+			$sql = "INSERT INTO section VALUES('','".$name."','".$type."')";
 			$result = mysqli_query($con,$sql);
 			if($result)
 			{
@@ -48,10 +48,10 @@
 			}
 		}
 
-		public function update($id,$name)
+		public function update($id,$name,$type)
 		{
 			global $con;
-			$sql = "UPDATE degree SET name = '$name' WHERE id=$id";
+			$sql = "UPDATE section SET name = '".$name."',type='".$type."' WHERE id=".$id;
 			$result = mysqli_query($con,$sql);
 			if($result)
 			{
@@ -65,7 +65,7 @@
 		public function delete($id)
 		{
 			global $con;
-			$sql = "DELETE FROM degree WHERE id = $id";
+			$sql = "DELETE FROM section WHERE id = $id";
 			$result = mysqli_query($con,$sql);
 			if($result)
 			{

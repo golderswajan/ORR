@@ -14,19 +14,20 @@ if(isset($_SESSION['message']))
 <div id="table">
     <table class="table">
         <thead>
-            <tr id="term_list">
-                <th colspan="2"><h3 class="text-center">Term Information</h3></th>
+            <tr id="section_list">
+                <th colspan="2"><h3 class="text-center">Section Information</h3></th>
             </tr>
-              <tr id="term_list">
+              <tr id="section_list">
                 <th >Name</th>
-                <th  class="text-right"> Edit</th>
-                <th  class="text-right"> Delete</th>
+                <th >Type</th>
+                <th class="text-right"> Edit</th>
+                <th class="text-right"> Delete</th>
             </tr>
         </thead>
         <tbody>
            <?php
-           require_once("bll/bll.term.php");
-           $content = $Term->show();
+           require_once("bll/bll.section.php");
+           $content = $Section->show();
            echo $content;
            ?>
         </tbody>
@@ -43,7 +44,7 @@ if(isset($_SESSION['message']))
 <!-- Add new Modal-->
  <link rel="stylesheet" href="/se/resources/css/modal.css">
 
- <button id="myBtn" class="btn btn-primary">Crate New Term</button>
+ <button id="myBtn" class="btn btn-primary">Crate New Section</button>
 
 <!-- Modal for insertion -->
  <!-- The Modal -->
@@ -52,13 +53,19 @@ if(isset($_SESSION['message']))
    <div class="modal-content">
      <div class="modal-header">
        <span class="close">&times;</span>
-       <h2>Add New Term</h2>    </div>
+       <h2>Add New Section</h2>    </div>
 
      <div class="modal-body">
-      <form action="bll/bll.term.php" method="POST" onsubmit="reload_page();">
+      <form action="bll/bll.section.php" method="POST" onsubmit="reload_page();">
       
          <span class="badge badge-success">Name</span>
-         <input id="term" type="text" class="form-control" name="term" placeholder="Enter Term (ex. 2)" required>
+         <input id="name" type="text" class="form-control" name="name" placeholder="Name of the Section" required>
+
+         <span class="badge badge-success" >Type</span>
+         <select class="form-control" name="type" id="type">
+           <option value="Sessional">Sessional</option>
+           <option value="Theory">Theory</option>
+         </select>
         <br>
         
         <input type="submit" name="submit_insert" value="Submit" class="btn btn-primary pull-right">
@@ -80,15 +87,20 @@ if(isset($_SESSION['message']))
    <div class="modal-content">
      <div class="modal-header">
        <span class="close">&times;</span>
-       <h2>Edit Term</h2>    </div>
+       <h2>Edit Section</h2>    </div>
 
      <div class="modal-body">
-      <form action="bll/bll.term.php" method="POST" onsubmit="reload_page();">
+      <form action="bll/bll.section.php" method="POST" onsubmit="reload_page();">
          <input id="id_update" type="text"  name="id" style="display: none";>
           
          <span class="badge badge-success">Name</span>
-         <input id="term_update" type="text" class="form-control" name="term" placeholder="Enter Term (ex. 2)" required>
+         <input id="name_update" type="text" class="form-control" name="name" placeholder="Name of the Section" required>
 
+        <span class="badge badge-success" >Type</span>
+         <select class="form-control" name="type" id="type">
+           <option value="Sessional">Sessional</option>
+           <option value="Theory">Theory</option>
+         </select>
         <br>
 
         <input type="submit" name="submit_update"  value="Submit" class="btn btn-primary pull-right" >
@@ -119,8 +131,9 @@ if(isset($_SESSION['message']))
 <script type="text/javascript">
 
 // Function that call from bll to edit items
-function EditTerm(id)
+function EditSection(id)
 {
+
   modalUpdate.style.display = "block"; // show the modal
 
   // Data retriving form table to modal
@@ -128,10 +141,12 @@ function EditTerm(id)
 
   // Get values into variable
   $Name = $row.find("td:nth-child(1)"); 
+  $Type = $row.find("td:nth-child(2)"); 
 
   // Update value into textbox
   $('#id_update').attr('value',id);
-  $('#term_update').attr('value',$($Name).text());
+  $('#name_update').attr('value',$($Name).text());
+  //$('#type_update').val(course_type+'');
 
 }
 

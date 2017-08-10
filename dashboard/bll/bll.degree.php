@@ -14,12 +14,6 @@ class BLLDegree
 	function __construct()
 	{
 
-		// Starting session to exchance server messages.
-		if(!isset($_SESSION))
-		{
-		  session_start();
-		}
-
 		$Degree = new DALDegree;
 
 		if(isset($_POST['submit_insert']))
@@ -121,6 +115,23 @@ class BLLDegree
 		 }
 		 return $post;
 	}
+
+	// Give the id, will return the name/[]Name dealing with DAL.
+	public function getDegree($id)
+	{
+		$Degree = new DALDegree;
+		$result = $Degree->getById($id);
+
+		$data = "";
+		while ($res = mysqli_fetch_assoc($result))
+		 {
+			$data.= $res["name"];
+			
+
+		 }
+		 return $data;
+	}
+
 
 }
 

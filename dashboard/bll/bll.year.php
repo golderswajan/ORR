@@ -14,12 +14,6 @@ class BLLYear
 	function __construct()
 	{
 
-		// Starting session to exchance server messages.
-		if(!isset($_SESSION))
-		{
-		  session_start();
-		}
-
 		$Year = new DALYear;
 
 		if(isset($_POST['submit_insert']))
@@ -121,6 +115,23 @@ class BLLYear
 		 }
 		 return $post;
 	}
+
+	// Give the id, will return the name/[]Name dealing with DAL.
+	public function getYear($id)
+	{
+		$Year = new DALYear;
+		$result = $Year->getById($id);
+
+		$data = "";
+		while ($res = mysqli_fetch_assoc($result))
+		 {
+			$data.= $res["year"];
+			
+
+		 }
+		 return $data;
+	}
+
 
 }
 

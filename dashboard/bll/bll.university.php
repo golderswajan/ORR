@@ -14,12 +14,6 @@ class BLLUniversity
 	function __construct()
 	{
 
-		// Starting session to exchance server messages.
-		if(!isset($_SESSION))
-		{
-		  session_start();
-		}
-
 		$University = new DALUniversity;
 
 		if(isset($_POST['submit_insert']))
@@ -120,6 +114,22 @@ class BLLUniversity
 
 		 }
 		 return $post;
+	}
+	
+	// Give the id, will return the name/[]Name dealing with DAL.
+	public function getName($id)
+	{
+		$University = new DALuniversity;
+		$result = $University->getById($id);
+
+		$data = "";
+		while ($res = mysqli_fetch_assoc($result))
+		 {
+			$data.= $res["name"];
+			
+
+		 }
+		 return $data;
 	}
 
 }

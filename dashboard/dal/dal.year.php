@@ -3,6 +3,8 @@
 	*  Year CRUD
 	*/
 	require_once($_SERVER['DOCUMENT_ROOT'].'/se/includes/connect.php');
+	require_once($_SERVER['DOCUMENT_ROOT'].'/se/includes/session.php');
+	
 	class DALYear
 	{
 		
@@ -14,7 +16,16 @@
 		public function get()
 		{
 			global $con;
-			$sql = "SELECT * FROM year WHERE 1 order BY year DESC";
+			$sql = "SELECT * FROM year WHERE 1 order BY year ASC";
+			$result = mysqli_query($con,$sql);
+
+			return $result;
+		}
+
+		public function getById($id)
+		{
+			global $con;
+			$sql = "SELECT * FROM year WHERE id=".$id;
 			$result = mysqli_query($con,$sql);
 
 			return $result;
