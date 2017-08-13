@@ -35,15 +35,6 @@ class BLLTermOffer
 			$termId  = $_POST['termId'];
 			$varsityId = $_POST['varsityId'];
 			$deptId = $_POST['deptId'];
-			
-
-			/*if (ctype_space($prefix) || ctype_space($course_no) ||ctype_space($course_title)||ctype_space($credit))
-			{
-				$_SESSION['message'] = "One or more field contains spaces only.";
-				header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/termoffer.php');
-				exit();
-				return false;
-			}*/
 
 			$response = $TermOffer->insert($degreeId,$sessionId,$yearId,$termId,$varsityId,$deptId);
 
@@ -54,7 +45,8 @@ class BLLTermOffer
 			}
 			else
 			{
-
+				//global $con;
+				//echo mysqli_error($con);
 				$_SESSION['message'] = "Can't Insert.";
 			}
 
@@ -62,7 +54,7 @@ class BLLTermOffer
 			// Redirect to call page as soon as task done.
 
 			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/termoffer.php');
-			//exit();
+			exit();
 		}
 		if(isset($_POST['submit_update']))
 		{
@@ -77,15 +69,6 @@ class BLLTermOffer
 			$deptId = $_POST['deptId'];
 			$status = $_POST['status'];
 
-
-			/*if (ctype_space($prefix) || ctype_space($course_no) ||ctype_space($course_title)||ctype_space($credit))
-			{
-				$_SESSION['message'] = "One or more field contains spaces only.";
-				header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/termoffer.php');
-				exit();
-				return false;
-			}*/
-
 			$response = $TermOffer->update($id,$degreeId,$sessionId,$yearId,$termId,$varsityId,$deptId,$status);
 
 			// Redirect to call page as soon as task done.
@@ -96,18 +79,21 @@ class BLLTermOffer
 			else
 			{
 
-				$_SESSION['message'] = "Can't Update.";
+				echo mysqli_error($con);
+
+				$_SESSION['message'] = "Can't Update.".mysqli_error($con);
 			}
 			// Redirect to call page as soon as task done.
-			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/termoffer.php');
-			exit();
+			//header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/termoffer.php');
+			//exit();
 
 		}
 		
 		//	Actually geting this request form confirm_delete.js
 		if(isset($_GET['submit_delete']))
 		{
-			$id = $_GET['submit_delete'];
+			$TermOffer = new DALTermOffer;
+			$id = $_GET['id'];
 			$response = $TermOffer->delete($id);
 			
 			// Redirect to call page as soon as task done.
@@ -169,7 +155,6 @@ class BLLTermOffer
 			$post.= '<td>'.$session.'</td>';
 			$post.= '<td>'.$year.' - '.$term.'</td>';
 			$post.= '<td>'.$status.'</td>';
-;
 
 			$post.= '<td class="text-right"><button class="btn btn-link" id="btnEdit'.$res["id"].'" onclick="EditTermOffer('.$res["id"].','.$res["yearId"].','.$res["termId"].','.$res["varsityId"].','.$res["deptId"].','.$res["degreeId"].','.$res["sessionId"].')">Edit</button></td>';
 			$post.= '<td class="text-right"><button id="delete_btn" class="btn btn-link" onclick="delete_btn_click('.$res['id'].',\'/se/dashboard/bll/bll.termoffer.php\')">Delete</button></td>';

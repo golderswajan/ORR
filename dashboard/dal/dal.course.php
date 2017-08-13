@@ -29,7 +29,6 @@
 
 			return $result;
 		}
-		
 
 		public function insert($prefix,$course_no,$course_title,$credit,$prerequisite,$yearId,$termId,$varsityId,$deptId,$degreeId)
 		{
