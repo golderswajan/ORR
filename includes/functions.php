@@ -2,13 +2,16 @@
 	/**
 	*  Main page functions, Login, Registration etc
 	*/
-	$function = new Index;
-	class Index
+	$functions = new Functions;
+	class Functions
 	{
 		
 		function __construct()
 		{
-			# code...
+			if(!isset($_SESSION))
+			{
+				session_start();	
+			}
 		}
 
 		//***********************************************
@@ -46,37 +49,78 @@
 		}
 
 
+		
+		
+		// Checks the user authentication and return email+userId
+		function auth()
+		{
+			if(isset($_SESSION['userId']))
+			{	
+				$userId = $_SESSION['userId'];
+			}
+			else
+			{
+				$this->redirect('login.php');
+			}
+			return $userId;
+
+		}
+
+		function getRoles()
+		{
+			global $con;
+			$sql = "SELECT * FROM role WHERE 1 ORDER BY roleName ASC";
+			$result = mysqli_query($con,$sql);
+
+			return $result;
+		}
 		//***********************************************
 		// USER CODES HERE
 		//***********************************************
-
-
-		function user_register($username,$fullname,$sex,$email,$password)
+		function userRegister($userType,$username,$fullname,$sex,$email,$password)
 		{
 			global $con;
 			
-			$query_user = "INSERT INTO usermeta VALUES('','".$username."','".$fullname."','".$email."','".$sex."','".$password."')";
-			$result_user =mysqli_query($con,$query_user);
-			confirm_query($result_user);
+			$queryUser = "INSERT INTO user(id,userName,fullName,email,password,sex,roleId,active) VALUES('','".$username."','".$fullname."','".$email."','".$password."','".$sex."',".$userType.",0)";
+			$resultUser =mysqli_query($con,$queryUser);
 			
-			if($result_user)
+			
+			if($resultUser)
 			{
 				return true;
 			}
-			return false;
+			else
+			{
+				//echo mysqli_error($con);
+				return false;
+			}
+			
 		}
 
-		function user_login($username,$password)
+		function userLogin($email,$password)
 		{
 			global $con;
-			$query_user = "SELECT usermeta.id,usermeta.userName,usermeta.fullName,usermeta.email,usermeta.sex,usermeta.password,user.id as userId FROM usermeta,user WHERE usermeta.id = user.metaId AND usermeta.email = '".$username."' AND password = '".$password."'";
-			$result_user =mysqli_query($con,$query_user);
-			$confirmation =mysqli_fetch_assoc($result_user);
-			//echo $confirmation['email'];
-			
-			if($confirmation['email']==$username && $confirmation['password']== $password)
+			$sql = "SELECT * FROM user WHERE email = '".$email."' AND password = '".$password."'";
+			$resultUser =mysqli_query($con,$sql);
+
+
+
+			//echo mysqli_error($con);
+
+			$emailD ="";
+			$passD ="";
+			$userId = "";
+			while ($res = mysqli_fetch_assoc($resultUser)) 
 			{
-				$_SESSION['userId'] = $confirmation['userId'];
+				$emailD = $res['email'];
+				$passD = $res['password'];
+				$userId = $res['id'];
+			}
+
+			if($emailD==$email && $passD== $password)
+			{
+				// Universal Session never clear it until logged out.
+				$_SESSION['userId'] = $userId;
 				return true;
 			}
 			else
@@ -86,7 +130,23 @@
 			}
 		}
 
-	
+		public function getUserInfo($userId)
+		{
+			global $con;
+
+			$sql = "SELECT * FROM user WHERE user.id = ".$userId;
+			$result = mysqli_query($con,$sql);
+			return $result;
+		}
+
+		public function updateUser($userId,$userName,$fullName,$email)
+		{
+			global $con;
+
+			$sql = "UPDATE user SET userName ='".$userName."', fullname ='".$fullName."', email ='".$email."' WHERE id = ".$userId;
+			$result = mysqli_query($con,$sql);
+			return $result;
+		}
 
 	}
 ?>

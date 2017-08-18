@@ -6,7 +6,7 @@
 include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.section.php');
 
 // To activate the constructior crating an object. 
-$Section = new BLLSection;
+$bllSection = new BLLSection;
 
 class BLLSection
 {
@@ -15,7 +15,7 @@ class BLLSection
 	{
 
 
-		$Section = new DALSection;
+		$dalSection = new DALSection;
 
 		if(isset($_POST['submit_insert']))
 		{
@@ -29,7 +29,7 @@ class BLLSection
 				return false;
 			}
 			// Else insert 
-			$response = $Section->insert($name,$type);
+			$response = $dalSection->insert($name,$type);
 
 			if($response)
 			{
@@ -59,7 +59,7 @@ class BLLSection
 				return false;
 			}
 			// Else insert 
-			$response = $Section->update($id,$name,$type);
+			$response = $dalSection->update($id,$name,$type);
 			// Redirect to call page as soon as task done.
 			if($response)
 			{
@@ -79,7 +79,7 @@ class BLLSection
 		if(isset($_GET['submit_delete']))
 		{
 			$id = $_GET['submit_delete'];
-			$response = $Section->delete($id);
+			$response = $dalSection->delete($id);
 			
 			// Redirect to call page as soon as task done.
 			if($response)
@@ -101,8 +101,8 @@ class BLLSection
 	// Display the list of libraries
 	public function show()
 	{
-		$Section = new DALSection;
-		$result = $Section->get();
+		$dalSection = new DALSection;
+		$result = $dalSection->get();
 
 		$post = "";
 		while ($res = mysqli_fetch_assoc($result))

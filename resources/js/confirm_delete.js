@@ -1,5 +1,5 @@
-function delete_btn_click(id,url){
-    url = url+"?submit_delete="+id; // Formation of get request .. silly .. not using post request :-(
+function delete_btn_click(id,url,string='submit_delete'){
+    url = url+"?"+string+"="+id; // Formation of get request .. silly .. not using post request :-(
 	$('#dialog').attr('title','Confirmation').text("Are you sure to delete this?").dialog({
 		buttons:{'Delete':function(){
 			$(this).dialog('close');
@@ -16,6 +16,7 @@ function delete_btn_click(id,url){
 		modal:true,
 	});
 }
+
 
 function reload_page()
 {

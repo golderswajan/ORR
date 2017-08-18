@@ -26,7 +26,7 @@ if(isset($_SESSION['message']))
         <tbody>
            <?php
            require_once("bll/bll.role.php");
-           $content = $Role->show();
+           $content = $bllRole->show();
            echo $content;
            ?>
         </tbody>

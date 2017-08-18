@@ -25,7 +25,7 @@ if(isset($_SESSION['message']))
         <tbody>
            <?php
            require_once("bll/bll.department.php");
-           $content = $Department->show();
+           $content = $bllDepartment->show();
            echo $content;
            ?>
         </tbody>
@@ -42,7 +42,7 @@ if(isset($_SESSION['message']))
 <!-- Add new Modal-->
  <link rel="stylesheet" href="/se/resources/css/modal.css">
 
- <button id="myBtn" class="btn btn-primary">Crate New Department</button>
+ <button id="myBtn" class="btn btn-primary">Add New Department</button>
 
 <!-- Modal for insertion -->
  <!-- The Modal -->

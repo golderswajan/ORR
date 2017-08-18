@@ -28,6 +28,8 @@ if(isset($_SESSION['message']))
                 <th >No</th>
                 <th >Title</th>
                 <th >Credit</th>
+                <th >University</th>
+                <th >Department</th>
                 <!--th >Year</th>
                 <th >Term</th-->
                 <th class="text-right"> Edit</th>
@@ -37,7 +39,7 @@ if(isset($_SESSION['message']))
         <tbody>
            <?php
            require_once("bll/bll.course.php");
-           $content = $Course->show();
+           $content = $bllCourse->show();
            echo $content;
            ?>
         </tbody>
@@ -158,7 +160,7 @@ if(isset($_SESSION['message']))
           $result = $obj->get();
           while($res = mysqli_fetch_assoc($result))
           {
-            $options .= '<option value="'.$res['id'].'">'.$res['prefix'].' '.$res['course_no'].'=>'.$res['course_title'].'</option>';
+            $options .= '<option value="'.$res['id'].'">'.$res['prefix'].' '.$res['courseNo'].'=>'.$res['courseTitle'].'</option>';
           }
           echo $options;
          ?>
@@ -167,7 +169,7 @@ if(isset($_SESSION['message']))
         
         <br>
         
-        <input type="submit" name="submit_insert" value="Submit" class="btn btn-primary pull-right">
+        <input type="submit" name="submit_insert_course" value="Submit" class="btn btn-primary pull-right">
         <br>
        </form>
        <div >
@@ -274,14 +276,14 @@ if(isset($_SESSION['message']))
 
         <span class="badge badge-success">Prerequisite</span>
          <select class="form-control" id="prerequisite_update" name="prerequisite">
-         <option value="0"> No Prerequisite </option>
+         <option value="NULL"> No Prerequisite </option>
          <?php
           $options = "";
           $obj = new DALCourse;
           $result = $obj->get();
           while($res = mysqli_fetch_assoc($result))
           {
-            $options .= '<option value="'.$res['id'].'">'.$res['prefix'].' '.$res['course_no'].'=>'.$res['course_title'].'</option>';
+            $options .= '<option value="'.$res['id'].'">'.$res['prefix'].' '.$res['courseNo'].'=>'.$res['courseTitle'].'</option>';
           }
           echo $options;
          ?>
@@ -290,7 +292,7 @@ if(isset($_SESSION['message']))
         
         <br>
         
-        <input type="submit" name="submit_update" value="Submit" class="btn btn-primary pull-right">
+        <input type="submit" name="submit_update_course" value="Submit" class="btn btn-primary pull-right">
         <br>
        </form>
        <div >
@@ -325,7 +327,7 @@ function EditCourse(id,yearId,termId,varsityId,deptId,degreeId,prerequisiteId)
 
   // Handle no prerequisite
    if (prerequisiteId === undefined) {
-          prerequisiteId = 0;
+          prerequisiteId = "NULL";
     } 
 
   // Data retriving form table to modal

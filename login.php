@@ -2,26 +2,32 @@
 require_once('includes/connect.php');
 require_once("includes/functions.php");
 
-if(!isset($_SESSION))
+
+if(isset($_SESSION['message']))
 {
-	session_start();
+	$info = "<div class=\"alert alert-danger fade in\">";
+	$info .= $_SESSION['message'];
+	$info .= "</div>";
+	
+	echo $info;
+	session_unset($_SESSION['message']);
 }
 
 if(isset($_POST['submit'])){
 	
 
-	$username = $_POST["Email"];
-	$rawPassword = $_POST["Password"];
-	$password = md5($rawPassword);
+	$email = $_POST["email"];
+	$password = $_POST["password"];
+	//$password = md5($rawPassword);
 	
 
-	$user_found = user_login($username,$password);
+	$response = $functions->userLogin($email,$password);
 	
 	 
-	if($user_found)
+	if($response)
 	{
-		$_SESSION['logged_in'] = $username;
-		redirect("index.php");
+		$_SESSION['logged_in'] = $email;
+		$functions->redirect("index.php");
 	}
 	else
 	{
@@ -31,12 +37,11 @@ if(isset($_POST['submit'])){
 	
 }
 
-
-
 ?>
+
 <html>
 <head>
-<link rel="stylesheet" href="public/css/bootstrap.css">
+<link rel="stylesheet" href="resources/css/bootstrap.css">
 </head>
 <body>
   <div class="container">
@@ -44,19 +49,20 @@ if(isset($_POST['submit'])){
 	<div id="popUpWindow">
 		<div class="modal-dialog">
 			<div class="modal-content">
-                <div class="modal-header text-center">
+			 <div class="modal-header text-center">
 
 
 				<form name="loginform" action="login.php" method="POST" onsubmit="return validateForm()">
 					<fieldset>
 					<legend><h3>  <span class="glyphicon glyphicon-log-in"></span> Login </h3></legend>
 				  <div class="input-group">
+
 					  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-					  <input id="email" type="text" class="form-control" name="Email" placeholder="Email">
+					  <input id="email" type="text" class="form-control" name="email" placeholder="Email">
 					</div>
 					<div class="input-group">
 					  <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-					  <input id="password" type="password" class="form-control" name="Password" placeholder="Password">
+					  <input id="password" type="password" class="form-control" name="password" placeholder="Password">
 					</div>
 					<div class="text-left">  <input type="checkbox" checked="checked">   Keep me logged in </div>
 					<input type="submit" name="submit" value="&nbsp;&nbsp; Login &nbsp; &nbsp;" class="btn btn-primary btn-block"  > <br><br>
@@ -78,8 +84,8 @@ if(isset($_POST['submit'])){
 <script>
 
 function validateForm() {
-    var x = document.forms["loginform"]["Email"].value;
-	var y = document.forms["loginform"]["Password"].value;
+    var x = document.forms["loginform"]["email"].value;
+	var y = document.forms["loginform"]["password"].value;
     if (x == "") {
         alert("Please input email");
         return false;

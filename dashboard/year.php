@@ -26,7 +26,7 @@ if(isset($_SESSION['message']))
         <tbody>
            <?php
            require_once("bll/bll.year.php");
-           $content = $Year->show();
+           $content = $bllYear->show();
            echo $content;
            ?>
         </tbody>

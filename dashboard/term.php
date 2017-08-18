@@ -26,7 +26,7 @@ if(isset($_SESSION['message']))
         <tbody>
            <?php
            require_once("bll/bll.term.php");
-           $content = $Term->show();
+           $content = $bllTerm->show();
            echo $content;
            ?>
         </tbody>

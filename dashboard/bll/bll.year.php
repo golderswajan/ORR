@@ -6,7 +6,7 @@
 include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.year.php');
 
 // To activate the constructior crating an object. 
-$Year = new BLLYear;
+$bllYear = new BLLYear;
 
 class BLLYear
 {
@@ -14,7 +14,7 @@ class BLLYear
 	function __construct()
 	{
 
-		$Year = new DALYear;
+		$dalYear = new DALYear;
 
 		if(isset($_POST['submit_insert']))
 		{
@@ -27,7 +27,7 @@ class BLLYear
 				return false;
 			}
 			// Else insert 
-			$response = $Year->insert($year);
+			$response = $dalYear->insert($year);
 
 			if($response)
 			{
@@ -57,7 +57,7 @@ class BLLYear
 				return false;
 			}
 
-			$response = $Year->update($id,$year);
+			$response = $dalYear->update($id,$year);
 			// Redirect to call page as soon as task done.
 			if($response)
 			{
@@ -77,7 +77,7 @@ class BLLYear
 		if(isset($_GET['submit_delete']))
 		{
 			$id = $_GET['submit_delete'];
-			$response = $Year->delete($id);
+			$response = $dalYear->delete($id);
 			
 			// Redirect to call page as soon as task done.
 			if($response)
@@ -99,8 +99,8 @@ class BLLYear
 	// Display the list of libraries
 	public function show()
 	{
-		$Year = new DALyear;
-		$result = $Year->get();
+		$dalYear = new DALyear;
+		$result = $dalYear->get();
 
 		$post = "";
 		while ($res = mysqli_fetch_assoc($result))
@@ -119,8 +119,8 @@ class BLLYear
 	// Give the id, will return the name/[]Name dealing with DAL.
 	public function getYear($id)
 	{
-		$Year = new DALYear;
-		$result = $Year->getById($id);
+		$dalYear = new DALYear;
+		$result = $dalYear->getById($id);
 
 		$data = "";
 		while ($res = mysqli_fetch_assoc($result))

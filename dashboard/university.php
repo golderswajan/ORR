@@ -26,7 +26,7 @@ if(isset($_SESSION['message']))
         <tbody>
            <?php
            require_once("bll/bll.university.php");
-           $content = $University->show();
+           $content = $bllUniversity->show();
            echo $content;
            ?>
         </tbody>
@@ -43,7 +43,7 @@ if(isset($_SESSION['message']))
 <!-- Add new Modal-->
  <link rel="stylesheet" href="/se/resources/css/modal.css">
 
- <button id="myBtn" class="btn btn-primary">Crate New University</button>
+ <button id="myBtn" class="btn btn-primary">Add New University</button>
 
 <!-- Modal for insertion -->
  <!-- The Modal -->
@@ -72,6 +72,8 @@ if(isset($_SESSION['message']))
 
  </div>
  </div>
+
+
 
  <!-- Modal for updating -->
  <!-- The Modal -->
@@ -102,6 +104,7 @@ if(isset($_SESSION['message']))
  </div>
  </div>
 <!--Modal end-->
+
 
 <!--Delete confirmation dialog-->
 <div id="dialog" title="delete"></div>

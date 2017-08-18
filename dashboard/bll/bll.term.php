@@ -6,7 +6,7 @@
 include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.term.php');
 
 // To activate the constructior crating an object. 
-$Term = new BLLTerm;
+$bllTerm = new BLLTerm;
 
 class BLLTerm
 {
@@ -14,7 +14,7 @@ class BLLTerm
 	function __construct()
 	{
 
-		$Term = new DALTerm;
+		$dalTerm = new DALTerm;
 
 		if(isset($_POST['submit_insert']))
 		{
@@ -27,7 +27,7 @@ class BLLTerm
 				return false;
 			}
 			// Else insert 
-			$response = $Term->insert($term);
+			$response = $dalTerm->insert($term);
 
 			if($response)
 			{
@@ -57,7 +57,7 @@ class BLLTerm
 				return false;
 			}
 
-			$response = $Term->update($id,$term);
+			$response = $dalTerm->update($id,$term);
 			// Redirect to call page as soon as task done.
 			if($response)
 			{
@@ -77,7 +77,7 @@ class BLLTerm
 		if(isset($_GET['submit_delete']))
 		{
 			$id = $_GET['submit_delete'];
-			$response = $Term->delete($id);
+			$response = $dalTerm->delete($id);
 			
 			// Redirect to call page as soon as task done.
 			if($response)
@@ -99,8 +99,8 @@ class BLLTerm
 	// Display the list of libraries
 	public function show()
 	{
-		$Term = new DALTerm;
-		$result = $Term->get();
+		$dalTerm = new DALTerm;
+		$result = $dalTerm->get();
 
 		$post = "";
 		while ($res = mysqli_fetch_assoc($result))
@@ -119,8 +119,8 @@ class BLLTerm
 	// Give the id, will return the name/[]Name dealing with DAL.
 	public function getTerm($id)
 	{
-		$Term = new DALTerm;
-		$result = $Term->getById($id);
+		$dalTerm = new DALTerm;
+		$result = $dalTerm->getById($id);
 
 		$data = "";
 		while ($res = mysqli_fetch_assoc($result))

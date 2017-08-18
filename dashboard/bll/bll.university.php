@@ -6,7 +6,7 @@
 include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.university.php');
 
 // To activate the constructior crating an object. 
-$University = new BLLUniversity;
+$bllUniversity = new BLLUniversity;
 
 class BLLUniversity
 {
@@ -14,7 +14,7 @@ class BLLUniversity
 	function __construct()
 	{
 
-		$University = new DALUniversity;
+		$dalUniversity = new DALUniversity;
 
 		if(isset($_POST['submit_insert']))
 		{
@@ -27,7 +27,7 @@ class BLLUniversity
 				return false;
 			}
 			// Else insert 
-			$response = $University->insert($name);
+			$response = $dalUniversity->insert($name);
 
 			if($response)
 			{
@@ -57,7 +57,7 @@ class BLLUniversity
 				return false;
 			}
 
-			$response = $University->update($id,$name);
+			$response = $dalUniversity->update($id,$name);
 			// Redirect to call page as soon as task done.
 			if($response)
 			{
@@ -77,7 +77,7 @@ class BLLUniversity
 		if(isset($_GET['submit_delete']))
 		{
 			$id = $_GET['submit_delete'];
-			$response = $University->delete($id);
+			$response = $dalUniversity->delete($id);
 			
 			// Redirect to call page as soon as task done.
 			if($response)
@@ -99,8 +99,8 @@ class BLLUniversity
 	// Display the list of libraries
 	public function show()
 	{
-		$University = new DALuniversity;
-		$result = $University->get();
+		$dalUniversity = new DALuniversity;
+		$result = $dalUniversity->get();
 
 		$post = "";
 		while ($res = mysqli_fetch_assoc($result))
@@ -119,8 +119,8 @@ class BLLUniversity
 	// Give the id, will return the name/[]Name dealing with DAL.
 	public function getName($id)
 	{
-		$University = new DALuniversity;
-		$result = $University->getById($id);
+		$dalUniversity = new DALUniversity;
+		$result = $dalUniversity->getById($id);
 
 		$data = "";
 		while ($res = mysqli_fetch_assoc($result))

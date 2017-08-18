@@ -6,7 +6,7 @@
 include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.degree.php');
 
 // To activate the constructior crating an object. 
-$Degree = new BLLDegree;
+$bllDegree = new BLLDegree;
 
 class BLLDegree
 {
@@ -14,7 +14,7 @@ class BLLDegree
 	function __construct()
 	{
 
-		$Degree = new DALDegree;
+		$dalDegree = new DALDegree;
 
 		if(isset($_POST['submit_insert']))
 		{
@@ -27,7 +27,7 @@ class BLLDegree
 				return false;
 			}
 			// Else insert 
-			$response = $Degree->insert($name);
+			$response = $dalDegree->insert($name);
 
 			if($response)
 			{
@@ -57,7 +57,7 @@ class BLLDegree
 				return false;
 			}
 
-			$response = $Degree->update($id,$name);
+			$response = $dalDegree->update($id,$name);
 			// Redirect to call page as soon as task done.
 			if($response)
 			{
@@ -77,7 +77,7 @@ class BLLDegree
 		if(isset($_GET['submit_delete']))
 		{
 			$id = $_GET['submit_delete'];
-			$response = $Degree->delete($id);
+			$response = $dalDegree->delete($id);
 			
 			// Redirect to call page as soon as task done.
 			if($response)
@@ -99,8 +99,8 @@ class BLLDegree
 	// Display the list of libraries
 	public function show()
 	{
-		$Degree = new DALdegree;
-		$result = $Degree->get();
+		$dalDegree = new DALdegree;
+		$result = $dalDegree->get();
 
 		$post = "";
 		while ($res = mysqli_fetch_assoc($result))
@@ -119,8 +119,8 @@ class BLLDegree
 	// Give the id, will return the name/[]Name dealing with DAL.
 	public function getDegree($id)
 	{
-		$Degree = new DALDegree;
-		$result = $Degree->getById($id);
+		$dalDegree = new DALDegree;
+		$result = $dalDegree->getById($id);
 
 		$data = "";
 		while ($res = mysqli_fetch_assoc($result))

@@ -27,7 +27,7 @@ if(isset($_SESSION['message']))
         <tbody>
            <?php
            require_once("bll/bll.section.php");
-           $content = $Section->show();
+           $content = $bllSection->show();
            echo $content;
            ?>
         </tbody>

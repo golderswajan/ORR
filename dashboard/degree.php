@@ -26,7 +26,7 @@ if(isset($_SESSION['message']))
         <tbody>
            <?php
            require_once("bll/bll.degree.php");
-           $content = $Degree->show();
+           $content = $bllDegree->show();
            echo $content;
            ?>
         </tbody>

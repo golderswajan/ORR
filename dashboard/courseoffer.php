@@ -1,8 +1,7 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'].'/se/templates/dashboardsidebar.php');
-include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/bll/bll.courseoffer.php');
-include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.course.php');
-
+require_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/bll/bll.courseoffer.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.course.php');
 
 
 if(isset($_SESSION['message']))
@@ -20,96 +19,56 @@ if(isset($_SESSION['message']))
     <!--Input part -->
   <div class="row">
     <div class="col-lg-12">
-      <form>
-      <div class="form-group">
+    
+      <!--This form submit to self as session retrive data 
+      no need to add action since included once bll.courseoffer.php-->
+      
+      <form class="form-group" id="terms" method="POST">
         <label for="terms">Select a Term</label>
-        <select class="form form-control" name="term_select_submit" required onchange="this.form.submit()>  
+        <select class="form form-control" name="term_select_submit" required onchange="this.form.submit()";>  
+        <option value="null"> Select a term </option>
          <?php
-          $obj = new BLLCourseOffer;
-          $result = $obj->offeredTermInfo();
+          $bllCourseOffer = new BLLCourseOffer;
+          $result = $bllCourseOffer->offeredTermInfo();
           echo $result;
-         
          ?>
+
          </select>
-      </div>
-      <div class="form-group">
-        <label for="_course">Select Courses</label>
-        <select class="form form-control" name="courses" required multiple>  
+      </form>
+      <form class="form-group" method="POST">
+        <label for="courses">Select Courses</label>
+        
          <?php
-          if($_SESSION['term_select_submited'])
+          if(isset($_SESSION['term_select_submited']))
           {
-            $obj = new DALCourse;
-            $result = $obj->get();
-            $post = "";
+            $dalCourse = new DALCourse;
+            $result = $dalCourse->getyByOfferedTerm($_SESSION['term_select_submited']);
+            $post = "<select class='form form-control' name='courses' required multiple>  ";
             while ($res = mysqli_fetch_assoc($result))
             {
               $post.= '<option value='.$res['id'].'>';
-              $post.= $res["prefix"].' '.$res['course_no'];
-              $post.= ' -> '.$res["course_title"];
+              $post.= $res["prefix"].' '.$res['courseNo'];
+              $post.= ' -> '.$res["courseTitle"];
               $post.= ' -> '.$res["credit"];
               $post.= '</tr>';
             }
+            $post.= " </select>";
             echo $post;  
+
+            $id = '<input  type="text"  name="offered_term_id" value="'.$_SESSION['term_select_submited'].'" style="display: none";>';
+            echo $id;
+
           }
          ?>
-         </select>
-      </div>
-    </form>
+        
+         <input type="submit" class="btn btn-primary pull-right" name="insert_submit_courseoffer" value="Submit" >
+      </form>
+   
     </div>
   </div>
 
 
 
-  <!--Display part -->
-  <div class="row">
-   <div class="col-lg-12">
-     <label for="_term">Offerd Terms</label>
-     <form action="bll/bll.courseoffer.php" id="_term">
-         <select class="form form-control" name="term_select" onchange="this.form.submit()">  
-         <option> Select a term </option>
-         <?php
-          $obj = new BLLCourseOffer;
-          $result = $obj->offeredTermInfo();
-          echo $result;
-         
-         ?>
-         </select>
-     </form>
-   </div>
-   </div>
-   <div class="row">
-     <div class="col-lg-12">
-     <label for="_course">Available Courses Under Selected Term</label>
-        <table id="_course" class="table table-condensed">
-        <tr>
-          <th>Cours No</th>
-          <th>Title</th>
-          <th>Credit</th>
-        </tr>
-         <?php
-
-            if(isset($_SESSION['term_submitted']))
-            {
-
-            $obj = new DALCourse;
-            $result = $obj->get();
-            $post = "";
-            while ($res = mysqli_fetch_assoc($result))
-            {
-              $post.= '<tr>';
-              $post.= '<td  style="display: none">'.$res['id'].'</td>';
-              $post.= '<td >'.$res["prefix"].' '.$res['course_no'].'</td>';
-              $post.= '<td >'.$res["course_title"].'</td>';
-              $post.= '<td >'.$res["credit"].'</td>';
-              $post.= '</tr>';
-            }
-            echo $post;
-          }
-         ?>
-
-     </table>
-     </div>
-   </div>
 </div>
 
 

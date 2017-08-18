@@ -7,7 +7,7 @@ if(!isset($_SESSION))
 }
 session_destroy();
 
-redirect("index.php");
+$functions->redirect("index.php");
 
 
 ?>

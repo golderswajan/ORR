@@ -31,13 +31,13 @@ if(isset($_SESSION['message']))
                 <th >Term</th>
                 <th >Status</th>
                 <th class="text-right"> Edit</th>
-                <th class="text-right"> Delete</th>
+                <!--th class="text-right"> Delete</th-->
             </tr>
         </thead>
         <tbody>
            <?php
            require_once("bll/bll.termoffer.php");
-           $content = $TermOffer->show();
+           $content = $bllTermOffer->show();
            echo $content;
            ?>
         </tbody>
@@ -155,7 +155,7 @@ if(isset($_SESSION['message']))
         
         <br>
         
-        <input type="submit" name="submit_insert" value="Submit" class="btn btn-primary pull-right">
+        <input type="submit" name="submit_insert_termoffer" value="Submit" class="btn btn-primary pull-right">
         <br>
        </form>
        <div >
@@ -178,7 +178,7 @@ if(isset($_SESSION['message']))
 
 <div class="modal-body">
       <form action="bll/bll.termoffer.php" method="POST" onsubmit="reload_page();">
-        <input id="id_update" type="text"  name="id" style="display: none";>
+        <input  type="text" id="id_update" name="id" style="display: none";>
         
          <span class="badge badge-success">University</span>
          <select class="form-control" id="varsityId_update" name="varsityId">
@@ -272,7 +272,7 @@ if(isset($_SESSION['message']))
 
         <br>
         
-        <input type="submit" name="submit_update" value="Submit" class="btn btn-primary pull-right">
+        <input type="submit" name="submit_update_termoffer" value="Submit" class="btn btn-primary pull-right">
         <br>
        </form>
        <div >
@@ -304,11 +304,6 @@ function EditTermOffer(id,yearId,termId,varsityId,deptId,degreeId,sessionId)
 {
 
   modalUpdate.style.display = "block"; // show the modal
-
-  // Handle no prerequisite
-   if (prerequisiteId === undefined) {
-          prerequisiteId = 0;
-    } 
 
   // Data retriving form table to modal
   //var $row = $('#row_id'+id+'').closest("tr");

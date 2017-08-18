@@ -3,10 +3,13 @@
 *  Course BUISENESS LOGIC LAYER
 *  CONNECTS BETWEEN DATA ACCESS LAYER AND PRESENTATION LAYER
 */
-include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.Course.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.course.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/bll/bll.university.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/bll/bll.department.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.assigndept.php');
 
 // To activate the constructior crating an object. 
-$Course = new BLLCourse;
+$bllCourse = new BLLCourse;
 
 class BLLCourse
 {
@@ -15,15 +18,15 @@ class BLLCourse
 	{
 
 
-		$Course = new DALCourse;
+		$dalCourse = new DALCourse;
 
-		if(isset($_POST['submit_insert']))
+		if(isset($_POST['submit_insert_course']))
 		{
 			$response="";
 
 			$prefix = $_POST['prefix'];
-			$course_no = $_POST['course_no'];
-			$course_title = $_POST['course_title'];
+			$courseNo = $_POST['course_no'];
+			$courseTitle = $_POST['course_title'];
 			$credit  = $_POST['credit'];
 			$prerequisite = $_POST['prerequisite'];
 			$yearId  = $_POST['yearId'];
@@ -32,16 +35,16 @@ class BLLCourse
 			$deptId = $_POST['deptId'];
 			$degreeId = $_POST['degreeId'];
 
-			if (ctype_space($prefix) || ctype_space($course_no) ||ctype_space($course_title)||ctype_space($credit))
+			if (ctype_space($prefix) || ctype_space($courseNo) ||ctype_space($courseTitle)||ctype_space($credit))
 			{
 				$_SESSION['message'] = "One or more field contains spaces only.";
-				header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/Course.php');
+				header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/course.php');
 				exit();
 				return false;
 			}
 			else
 			{
-				$response = $Course->insert($prefix,$course_no,$course_title,$credit,$prerequisite,$yearId,$termId,$varsityId,$deptId,$degreeId);
+				$response = $dalCourse->insert($prefix,$courseNo,$courseTitle,$credit,$prerequisite,$yearId,$termId,$varsityId,$deptId,$degreeId);
 			}
 
 
@@ -58,17 +61,17 @@ class BLLCourse
 
 			// Redirect to call page as soon as task done.
 
-			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/Course.php');
-			//exit();
+			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/course.php');
+			exit();
 		}
-		if(isset($_POST['submit_update']))
+		if(isset($_POST['submit_update_course']))
 		{
 			$id = $_POST['id'];
 			$response="";
 
 			$prefix = $_POST['prefix'];
-			$course_no = $_POST['course_no'];
-			$course_title = $_POST['course_title'];
+			$courseNo = $_POST['course_no'];
+			$courseTitle = $_POST['course_title'];
 			$credit  = $_POST['credit'];
 			$prerequisite = $_POST['prerequisite'];
 			$yearId  = $_POST['yearId'];
@@ -78,16 +81,16 @@ class BLLCourse
 			$degreeId = $_POST['degreeId'];
 
 
-			if (ctype_space($prefix) || ctype_space($course_no) ||ctype_space($course_title)||ctype_space($credit))
+			if (ctype_space($prefix) || ctype_space($courseNo) ||ctype_space($courseTitle)||ctype_space($credit))
 			{
 				$_SESSION['message'] = "One or more field contains spaces only.";
-				header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/Course.php');
+				header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/course.php');
 				exit();
 				return false;
 			}
 			else
 			{
-				$response = $Course->update($id,$prefix,$course_no,$course_title,$credit,$prerequisite,$yearId,$termId,$varsityId,$deptId,$degreeId);
+				$response = $dalCourse->update($id,$prefix,$courseNo,$courseTitle,$credit,$prerequisite,$yearId,$termId,$varsityId,$deptId,$degreeId);
 
 			}
 			// Redirect to call page as soon as task done.
@@ -97,19 +100,20 @@ class BLLCourse
 			}
 			else
 			{
+
 				$_SESSION['message'] = "Can't Update.";
 			}
 			// Redirect to call page as soon as task done.
-			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/Course.php');
+			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/course.php');
 			exit();
 
 		}
 		
 		//	Actually geting this request form confirm_delete.js
-		if(isset($_GET['submit_delete']))
+		if(isset($_GET['submit_delete_course']))
 		{
-			$id = $_GET['submit_delete'];
-			$response = $Course->delete($id);
+			$id = $_GET['submit_delete_course'];
+			$response = $dalCourse->delete($id);
 			
 			// Redirect to call page as soon as task done.
 			if($response)
@@ -122,7 +126,7 @@ class BLLCourse
 			}
 			// Redirect to call page as soon as task done.
 			
-			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/Course.php');
+			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/course.php');
 			exit();
 		}
 
@@ -131,22 +135,38 @@ class BLLCourse
 	// Display the list of libraries
 	public function show()
 	{
-		$Course = new DALCourse;
-		$result = $Course->get();
+		$dalCourse = new DALCourse;
+		$result = $dalCourse->get();
 
 		$post = "";
 		while ($res = mysqli_fetch_assoc($result))
 		 {
+
+		 	// Extracting varsityId and deptId form varsityDeptId first.
+			$dalAssignDept = new DALAssignDept;
+			$bllUniversity = new BLLUniversity;
+			$bllDepartment = new BLLDepartment;
+
+		 	$varsityId ="";
+		 	$deptId ="";
+			$result2 = $dalAssignDept->getById($res['varsityDeptId']);
+			while ($res2 = mysqli_fetch_assoc($result2)) 
+			{
+				$varsityId = $res2['varsityId'];
+				$deptId = $res2['deptId'];
+			}
+
 		 	$post.= '<tr>';
 			$post.= '<td>'.$res["prefix"].'</td>';
-			$post.= '<td>'.$res['course_no'].'</td>';
-			$post.= '<td>'.$res["course_title"].'</td>';
+			$post.= '<td>'.$res['courseNo'].'</td>';
+			$post.= '<td>'.$res["courseTitle"].'</td>';
 			$post.= '<td>'.$res["credit"].'</td>';
-			//$post.= '<td>'.$res["yearId"].'</td>';
-			//$post.= '<td>'.$res["termId"].'</td>';
+			$post.= '<td>'.$bllUniversity->getName($varsityId).'</td>';
+			$post.= '<td>'.$bllDepartment->getName($deptId).'</td>';
+			
 
-			$post.= '<td class="text-right"><button class="btn btn-link" id="btnEdit'.$res["id"].'" onclick="EditCourse('.$res["id"].','.$res["yearId"].','.$res["termId"].','.$res["varsityId"].','.$res["deptId"].','.$res["degreeId"].','.$res["prerequisite"].')">Edit</button></td>';
-			$post.= '<td class="text-right"><button id="delete_btn" class="btn btn-link" onclick="delete_btn_click('.$res['id'].',\'/se/dashboard/bll/bll.Course.php\')">Delete</button></td>';
+			$post.= '<td class="text-right"><button class="btn btn-link" id="btnEdit'.$res["id"].'" onclick="EditCourse('.$res["id"].','.$res["yearId"].','.$res["termId"].','.$varsityId.','.$deptId.','.$res["degreeId"].','.$res["prerequisite"].')">Edit</button></td>';
+			$post.= '<td class="text-right"><button id="delete_btn" class="btn btn-link" onclick="delete_btn_click('.$res['id'].',\'/se/dashboard/bll/bll.course.php\',\'submit_delete_course\')">Delete</button></td>';
 			$post.= '<td style="display: none" id="row_id'.$res["id"].'">'.$res["id"].'</td>';
 		 	$post.= '</tr>';
 

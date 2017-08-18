@@ -5,6 +5,7 @@
 */
 include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.courseoffer.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.termoffer.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.assigndept.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/bll/bll.university.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/bll/bll.department.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/bll/bll.session.php');
@@ -13,7 +14,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/bll/bll.term.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/bll/bll.degree.php');
 
 // To activate the constructior crating an object. 
-$CourseOffer = new BLLCourseOffer;
+$bllCourseOffer = new BLLCourseOffer;
 
 class BLLCourseOffer
 {
@@ -21,16 +22,61 @@ class BLLCourseOffer
 	function __construct()
 	{
 
-		$CourseOffer = new DALCourseOffer;
+		$dalCourseOffer = new DALCourseOffer;
+
+
+		// Submit form to insert data 
+		if(isset($_POST['term_select_submit']))
+		{
+			$offeredTermId = $_POST['term_select_submit'];
+			$response = $dalCourseOffer->getById($offeredTermId);
+			
+			if($response)
+			{
+				$_SESSION['term_select_submited'] = $offeredTermId;
+				$_SESSION['message'] = "Successfully Retrived.";
+			}
+			else
+			{
+				$_SESSION['message'] = "Can't Retrive Courses.";
+			}
+
+
+			// Redirect to call page as soon as task done.
+
+			//header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/courseoffer.php');
+			//exit();
+		}
+		if(isset($_POST['insert_submit_courseoffer']))
+		{
+			$offeredTermId = $_POST['offered_term_id'];
+			$courses = $_POST['courses'];
+
+			$response = $dalCourseOffer->insertMultiple($offeredTermId,$courses);
+
+			if($response)
+			{
+				session_unset();
+
+				$_SESSION['message'] = "Successfully Inserted.";
+			}
+			else
+			{
+				$_SESSION['message'] = "Can't Insert.";
+			}
+
+			//header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/courseoffer.php');
+			//exit();
+		}
 
 		if(isset($_GET['term_select']))
 		{
-			$offered_term_id = $_GET['term_select'];
-			$response = $CourseOffer->getById($offered_term_id);
+			$offeredTermId = $_GET['term_select'];
+			$response = $dalCourseOffer->getById($offeredTermId);
 			
 			if($response)
 			{
-				$_SESSION['term_submitted'] = $offered_term_id;
+				$_SESSION['term_submitted'] = $offeredTermId;
 				$_SESSION['message'] = "Successfully Retrived.";
 			}
 			else
@@ -40,38 +86,15 @@ class BLLCourseOffer
 
 
 			// Redirect to call page as soon as task done.
-
-			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/courseoffer.php');
-			exit();
-		}
-		// Submit form to insert data 
-		if(isset($_GET['term_select_submit']))
-		{
-			$offered_term_id = $_GET['term_select_submit'];
-			$response = $CourseOffer->getById($offered_term_id);
-			
-			if($response)
-			{
-				$_SESSION['term_select_submited'] = $offered_term_id;
-				$_SESSION['message'] = "Successfully Retrived.";
-			}
-			else
-			{
-				$_SESSION['message'] = "Can't Retrive Courses.";
-			}
-
-
-			// Redirect to call page as soon as task done.
-
-			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/courseoffer.php');
-			exit();
+			//header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/courseoffer.php');
+			//exit();
 		}
 		
 		//	Actually geting this request form confirm_delete.js
 		if(isset($_GET['submit_delete']))
 		{
 			$id = $_GET['submit_delete'];
-			$response = $CourseOffer->delete($id);
+			$response = $dalCourseOffer->delete($id);
 			
 			// Redirect to call page as soon as task done.
 			if($response)
@@ -93,8 +116,8 @@ class BLLCourseOffer
 	// Display the list of libraries
 	public function show()
 	{
-		$CourseOffer = new DALcourseoffer;
-		$result = $CourseOffer->get();
+		$dalCourseOffer = new DALCourseOffer;
+		$result = $dalCourseOffer->get();
 
 		$post = "";
 		while ($res = mysqli_fetch_assoc($result))
@@ -113,8 +136,8 @@ class BLLCourseOffer
 	// Give the id, will return the name/[]Name dealing with DAL.
 	public function getName($id)
 	{
-		$CourseOffer = new DALcourseoffer;
-		$result = $CourseOffer->getById($id);
+		$dalCourseOffer = new DALCourseOffer;
+		$result = $dalCourseOffer->getById($id);
 
 		$data = "";
 		while ($res = mysqli_fetch_assoc($result))
@@ -129,8 +152,8 @@ class BLLCourseOffer
 	public function getOfferedTermCourses($id)
 	{
 
-		$CourseOffer = new DALCourseOffer;
-		$result = $CourseOffer->get();
+		$dalCourseOffer = new DALCourseOffer;
+		$result = $dalCourseOffer->get();
 
 		$post = "";
 		while ($res = mysqli_fetch_assoc($result))
@@ -163,11 +186,21 @@ class BLLCourseOffer
 		$post = "";
 		while ($res = mysqli_fetch_assoc($result))
 		 {
+		 	// Extracting varsityId and deptId form varsityDeptId first.
+			$assignDept = new DALAssignDept;
 
+		 	$varsityId ="";
+		 	$deptId ="";
+			$result2 = $assignDept->getById($res['varsityDeptId']);
+			while ($res2 = mysqli_fetch_assoc($result2)) 
+			{
+				$varsityId = $res2['varsityId'];
+				$deptId = $res2['deptId'];
+			}
 
 		 	// Get the text against all the id's.
-		 	$varsity = $Varsity->getName($res["varsityId"]);
-			$dept = $Dept->getName($res["deptId"]);
+		 	$varsity = $Varsity->getName($varsityId);
+			$dept = $Dept->getName($deptId);
 			$session = $Session->getSessionName($res["sessionId"]);
 			$term = $Term->getTerm($res["termId"]);
 			$year = $Year->getYear($res["yearId"]);

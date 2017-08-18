@@ -3,29 +3,25 @@
 require_once('includes/connect.php');
 require_once("includes/functions.php");
 
-if(!isset($_SESSION))
-{
-	session_start();
-}
-
 if(isset($_POST['submit'])){
 	
+	$userType = $_POST["userType"];
+	$username = $_POST["username"];
+	$fullname = $_POST['fullName'];
+	$sex = $_POST['sex'];
+	$email = $_POST['email'];
+	$password = $_POST["password"];
+	//$password = md5($rawPassword);
 	
-	$username = $_POST["Username"];
-	$fullname = $_POST['Full_Name'];
-	$sex = $_POST['Sex'];
-	$email = $_POST['Email'];
-	$rawPassword = $_POST["Password"];
-	$password = md5($rawPassword);
-	
-	
-	if(user_register($username,$fullname,$sex,$email,$password))
+	$response = $functions->userRegister($userType,$username,$fullname,$sex,$email,$password);
+	if($response)
 	{
 		$_SESSION['message'] = "Registration Successful !";
-		redirect("login.php");
+		$functions->redirect("login.php");
 		
 	}
-	else{
+	else
+	{
 		$info = "<div class=\"alert alert-danger fade in\">";
 		$info .= "<a href = '#' class=\"close\" data-dismiss=\"alert\" aria-lebel=\"close\">&times;</a> Registration failed / User already exists.";
 		$info .= "</div>";
@@ -43,7 +39,7 @@ if(isset($_POST['submit'])){
 
 <html>
 <head>
-<link rel="stylesheet" href="public/css/bootstrap.css">
+<link rel="stylesheet" href="resources/css/bootstrap.css">
 
 
 </head>
@@ -59,26 +55,47 @@ if(isset($_POST['submit'])){
 				<form name="regform" action="registration.php" method="POST" onsubmit="return validateForm()">
 					<fieldset>
 					<legend><h3> <span class="glyphicon glyphicon-edit"></span>  Registration </h3></legend>
-					<table class="table table-condensed">
+					<table class="table table-striped">
 					
 						<tr>
-							<td>Username *</td><td><input type="text" name="Username" placeholder="Username" class="form-control"></td>
+							<td>Register As *</td><td>
+							<select name="userType" class="form form-control">
+							<?php
+							
+
+							 $roles = $functions->getRoles();
+							 while ($role = mysqli_fetch_assoc($roles)) 
+							 {
+							 	$post = "";
+							 	$post .= "<option value=".$role['id'].">";
+							 	$post .= $role['roleName'];
+							 	$post .= "</option>"; 
+							 	echo $post;
+							 }
+							 
+							?>
+							</select>
+							
+							</td>
 						</tr>
 						<tr>
-							<td>Full Name *</td><td><input type="text" name="Full_Name" placeholder="Full Name" class="form-control"></td>
+							<td>Username *</td><td><input type="text" name="username" placeholder="Username" class="form-control"></td>
 						</tr>
 						<tr>
-							<td>Sex *</td><td><select name="Sex" class="from form-control">
+							<td>Full Name *</td><td><input type="text" name="fullName" placeholder="Full Name" class="form-control"></td>
+						</tr>
+						<tr>
+							<td>Sex *</td><td><select name="sex" class="from form-control">
 							<option value="Female">Female</option>
 							<option value="Male">Male</option>
 							</select></td>
 						</tr>
 						<tr>
-							<td>Email *</td><td><input type="email" name="Email" placeholder="Email" class="form-control"></td>
+							<td>Email *</td><td><input type="email" name="email" placeholder="Email" class="form-control"></td>
 						</tr>
 						
 						<tr>
-							<td>Password *</td><td><input type="password" name="Password" placeholder="Password" class="form-control"></td>
+							<td>Password *</td><td><input type="password" name="password" placeholder="Password" class="form-control"></td>
 						</tr>
 						<tr>
 							<td></td><td><input type="submit" name="submit" value="&nbsp;&nbsp; Register &nbsp; &nbsp;" class="btn btn-primary btn-block"  ></td>
@@ -101,7 +118,7 @@ if(isset($_POST['submit'])){
 </head>
 
 <?php
-	include('includes/footer.php');
+	include('templates/footer.php');
 ?>
 <script>
 

@@ -5,7 +5,7 @@
 	require_once($_SERVER['DOCUMENT_ROOT'].'/se/includes/connect.php');
 	require_once($_SERVER['DOCUMENT_ROOT'].'/se/includes/session.php');
 	
-	class DALCourseOffer
+	class DALAssignDept
 	{
 		
 		function __construct()
@@ -17,7 +17,15 @@
 		public function get()
 		{
 			global $con;
-			$sql = "SELECT * FROM offeredcourse WHERE 1 ORDER BY id ASC";
+			$sql = "SELECT * FROM varsitydept WHERE 1 ORDER BY id ASC";
+			$result = mysqli_query($con,$sql);
+
+			return $result;
+		}
+		public function getId($varsityId,$deptId)
+		{
+			global $con;
+			$sql = "SELECT * FROM varsitydept WHERE varsityId =".$varsityId." && deptId = ".$deptId."";
 			$result = mysqli_query($con,$sql);
 
 			return $result;
@@ -25,17 +33,25 @@
 		public function getById($id)
 		{
 			global $con;
-			$sql = "SELECT * FROM  offeredcourse WHERE id=".$id;
+			$sql = "SELECT * FROM  varsitydept WHERE id=".$id;
+			$result = mysqli_query($con,$sql);
+
+			return $result;
+		}
+		public function getByUniversityId($varsityId)
+		{
+			global $con;
+			$sql = "SELECT * FROM varsitydept WHERE varsityId =".$varsityId;
 			$result = mysqli_query($con,$sql);
 
 			return $result;
 		}
 
 
-		public function insert($name)
+		public function insert($varsityId,$deptId)
 		{
 			global $con;
-			$sql = "INSERT INTO varsity VALUES('','$name')";
+			$sql = "INSERT INTO varsitydept VALUES('',".$varsityId.",".$deptId.")";
 			$result = mysqli_query($con,$sql);
 			if($result)
 			{
@@ -47,19 +63,10 @@
 				return false;
 			}
 		}
-		public function insertMultiple($offered_term_id,$courses)
+		public function exeSql($sql)
 		{
 			global $con;
-			$count = count($courses);
-
-			$sql = "INSERT INTO offeredcourse VALUES ";
-			for($i=0;$i<$count-1;$i++)
-			{
-				$sql .= " (' ',".$offered_term_id.",".$courses[$i]."), ";
-			}
-			// For the last value no comma(,) 
-			$sql .= " (' ',".$offered_term_id.",".$courses[$count-1].") ";
-
+			
 			$result = mysqli_query($con,$sql);
 			if($result)
 			{
@@ -74,10 +81,10 @@
 
 		}
 
-		public function update($id,$name)
+		public function update($id,$varsityId,$deptId)
 		{
 			global $con;
-			$sql = "UPDATE varsity SET name = '$name' WHERE id=$id";
+			$sql = "UPDATE varsitydept SET varsityId = ".$varsityId.", deptId = ".$deptId." WHERE id=$id";
 			$result = mysqli_query($con,$sql);
 			if($result)
 			{
@@ -91,7 +98,7 @@
 		public function delete($id)
 		{
 			global $con;
-			$sql = "DELETE FROM varsity WHERE id = $id";
+			$sql = "DELETE FROM varsitydept WHERE id = ".$id;
 			$result = mysqli_query($con,$sql);
 			if($result)
 			{

@@ -6,7 +6,7 @@
 include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.session.php');
 
 // To activate the constructior crating an object. 
-$Session = new BLLSession;
+$bllSession = new BLLSession;
 
 class BLLSession
 {
@@ -14,7 +14,7 @@ class BLLSession
 	function __construct()
 	{
 
-		$Session = new DALSession;
+		$dalSession = new DALSession;
 
 		if(isset($_POST['submit_insert']))
 		{
@@ -27,7 +27,7 @@ class BLLSession
 				return false;
 			}
 			// Else insert 
-			$response = $Session->insert($sessionName);
+			$response = $dalSession->insert($sessionName);
 
 			if($response)
 			{
@@ -57,7 +57,7 @@ class BLLSession
 				return false;
 			}
 
-			$response = $Session->update($id,$sessionName);
+			$response = $dalSession->update($id,$sessionName);
 			// Redirect to call page as soon as task done.
 			if($response)
 			{
@@ -77,7 +77,7 @@ class BLLSession
 		if(isset($_GET['submit_delete']))
 		{
 			$id = $_GET['submit_delete'];
-			$response = $Session->delete($id);
+			$response = $dalSession->delete($id);
 			
 			// Redirect to call page as soon as task done.
 			if($response)
@@ -99,8 +99,8 @@ class BLLSession
 	// Display the list of libraries
 	public function show()
 	{
-		$Session = new DALsession;
-		$result = $Session->get();
+		$dalSession = new DALsession;
+		$result = $dalSession->get();
 
 		$post = "";
 		while ($res = mysqli_fetch_assoc($result))
@@ -119,15 +119,14 @@ class BLLSession
 	// Give the id, will return the name/[]Name dealing with DAL.
 	public function getSessionName($id)
 	{
-		$Session = new DALsession;
-		$result = $Session->getById($id);
+		$dalSession = new DALsession;
+		$result = $dalSession->getById($id);
 
 		$data = "";
 		while ($res = mysqli_fetch_assoc($result))
 		 {
 			$data.= $res["sessionName"];
 			
-
 		 }
 		 return $data;
 	}

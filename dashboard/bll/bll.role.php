@@ -6,7 +6,7 @@
 include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.role.php');
 
 // To activate the constructior crating an object. 
-$Role = new BLLRole;
+$bllRole = new BLLRole;
 
 class BLLRole
 {
@@ -14,7 +14,7 @@ class BLLRole
 	function __construct()
 	{
 
-		$Role = new DALRole;
+		$dalRole = new DALRole;
 
 		if(isset($_POST['submit_insert']))
 		{
@@ -27,7 +27,7 @@ class BLLRole
 				return false;
 			}
 			// Else insert 
-			$response = $Role->insert($roleName);
+			$response = $dalRole->insert($roleName);
 
 			if($response)
 			{
@@ -57,7 +57,7 @@ class BLLRole
 				return false;
 			}
 
-			$response = $Role->update($id,$roleName);
+			$response = $dalRole->update($id,$roleName);
 			// Redirect to call page as soon as task done.
 			if($response)
 			{
@@ -77,7 +77,7 @@ class BLLRole
 		if(isset($_GET['submit_delete']))
 		{
 			$id = $_GET['submit_delete'];
-			$response = $Role->delete($id);
+			$response = $dalRole->delete($id);
 			
 			// Redirect to call page as soon as task done.
 			if($response)
@@ -99,8 +99,8 @@ class BLLRole
 	// Display the list of libraries
 	public function show()
 	{
-		$Role = new DALrole;
-		$result = $Role->get();
+		$dalRole = new DALRole;
+		$result = $dalRole->get();
 
 		$post = "";
 		while ($res = mysqli_fetch_assoc($result))

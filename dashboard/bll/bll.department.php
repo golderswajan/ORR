@@ -6,7 +6,7 @@
 include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.department.php');
 
 // To activate the constructior crating an object. 
-$Department = new BLLDepartment;
+$bllDepartment = new BLLDepartment;
 
 class BLLDepartment
 {
@@ -14,13 +14,13 @@ class BLLDepartment
 	function __construct()
 	{
 
-		$Department = new DALDepartment;
+		$dalDepartment = new DALDepartment;
 
 		if(isset($_POST['submit_insert']))
 		{
 			$name = $_POST['name'];
 			
-			$response = $Department->insert($name);
+			$response = $dalDepartment->insert($name);
 			if($response)
 			{
 				$_SESSION['message'] = "Successfully Inserted.";
@@ -40,7 +40,7 @@ class BLLDepartment
 			$id = $_POST['id'];
 			$name = $_POST['name'];
 
-			$response = $Department->update($id,$name);
+			$response = $dalDepartment->update($id,$name);
 			// Redirect to call page as soon as task done.
 			if($response)
 			{
@@ -60,7 +60,7 @@ class BLLDepartment
 		if(isset($_GET['submit_delete']))
 		{
 			$id = $_GET['submit_delete'];
-			$response = $Department->delete($id);
+			$response = $dalDepartment->delete($id);
 			
 			// Redirect to call page as soon as task done.
 			if($response)
@@ -81,8 +81,8 @@ class BLLDepartment
 	// Display the list of libraries
 	public function show()
 	{
-		$Department = new DALDepartment;
-		$result = $Department->get();
+		$dalDepartment = new DALDepartment;
+		$result = $dalDepartment->get();
 
 		$post = "";
 		while ($res = mysqli_fetch_assoc($result))
@@ -102,8 +102,8 @@ class BLLDepartment
 	// Give the id, will return the name/[]Name dealing with DAL.
 	public function getName($id)
 	{
-		$Department = new DALDepartment;
-		$result = $Department->getById($id);
+		$dalDepartment = new DALDepartment;
+		$result = $dalDepartment->getById($id);
 
 		$data = "";
 		while ($res = mysqli_fetch_assoc($result))
