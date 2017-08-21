@@ -158,6 +158,21 @@ class BLLAssignDept
 		 }
 		 return $post;
 	}
+	// Return varsity and dept name as an associative array (ex. profile.blade.php)
+	public function getVarsityDeptName($varsityDeptId)
+	{
+		$varsityDeptNameArray = "";
+		$dalAssignDept = new DALAssignDept;
+		$varsityDeptName = $dalAssignDept->getVarsityDeptName($varsityDeptId);
+		while ($res = mysqli_fetch_assoc($varsityDeptName))
+		{
+			$varsityDeptNameArray = array(
+				'varsity' => $res['varsityName'], 
+				'dept' =>$res['deptName']
+				);
+			return $varsityDeptNameArray;
+		}
+	}
 
 }
 

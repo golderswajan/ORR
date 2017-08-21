@@ -61,13 +61,16 @@
 
   <div class="panel panel-info">
     <div class="panel-heading">
-      <h3 class="panel-title">Basic Information</h3>
+      <h3 class="panel-title"><?php echo $fullName; ?></h3>
     </div>
     <div class="panel-body">
       <div class="row">
         <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://cdn.slidesharecdn.com/profile-photo-shahidcseku-48x48.jpg" class="img-circle img-responsive"> </div>
     
         <div class=" col-md-9 col-lg-9 "> 
+        <div class="panel-heading alert-success">
+         <h3 class="panel-title">Basic Information</h3>
+        </div>
           <table class="table table-user-information">
             <tbody>
               <tr>
@@ -96,7 +99,14 @@
              
             </tbody>
           </table>
-          
+    
+<!--Extra Information Display here-->
+<?php
+   include('./includes/profile.blade.php');
+?>
+
+<!--Extra Information Display end-->
+
 <!-- Modal for updating basic info -->
 <button id="myBtn"  class="btn btn-primary" onclick="EditProfile();">Edit Profile</button>
 
@@ -179,39 +189,7 @@
 </div>
 <!--Modal end-->
 
-<!--Show extra info-->
-<br>
-<div class="panel-heading alert-success">
-      <h3 class="panel-title">Other Information</h3>
-    </div>
-<table class="table table-user-information">
-    <tbody>
-      <tr>
-        <td>Full Name</td>
-        <td id="fullName"><?php echo $fullName; ?></td>
-      </tr>
-      <tr>
-        <td>User Name</td>
-        <td id="userName"><?php echo $userName; ?></td>
-      </tr>
-     <tr>
-        <td>Email</td>
-        <td id="email"><a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></td>
-      </tr>
 
-        <tr>
-        <td>Gender</td>
-        <td id="sex"><?php echo $sex; ?></td>
-      </tr>
-
-        <tr>
-        <td>Phone No</td>
-        <td id="phone"><?php echo "+880 1xxxxxxxxx"; ?></td>
-      </tr>
-      
-     
-    </tbody>
-</table>
 
 <script type="text/javascript">
 var span = document.getElementsByClassName("close")[0];

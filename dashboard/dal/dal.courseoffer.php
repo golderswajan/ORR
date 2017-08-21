@@ -53,7 +53,7 @@
 			$count = count($courses);
 
 			$sql = "INSERT INTO offeredcourse VALUES ";
-			for($i=0;$i<$count-1;$i++)
+			for($i=0;$i<$count-2;$i++)
 			{
 				$sql .= " (' ',".$offered_term_id.",".$courses[$i]."), ";
 			}

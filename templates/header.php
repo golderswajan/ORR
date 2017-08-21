@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php header('Content-Type: text/html; charset=utf-8');
+<?php //header('Content-Type: text/html; charset=utf-8');
 	require('includes/connect.php');
 ?>
 <html >

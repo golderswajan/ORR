@@ -36,21 +36,31 @@ if(isset($_SESSION['message']))
          </select>
       </form>
       <form class="form-group" method="POST">
-        <label for="courses">Select Courses</label>
+        <label for="courses">Select Courses for
+
+         <?php
+          if(isset($_SESSION['term_select_submited'])) 
+          {
+            $result = $bllCourseOffer->offeredTermInfoById($_SESSION['term_select_submited']);
+            echo $result;
+          }
+          
+         ?>
+         </label>
         
          <?php
           if(isset($_SESSION['term_select_submited']))
           {
             $dalCourse = new DALCourse;
             $result = $dalCourse->getyByOfferedTerm($_SESSION['term_select_submited']);
-            $post = "<select class='form form-control' name='courses' required multiple>  ";
+            $post = "<select class='form form-control' name='courses' required multiple size='8'>  ";
             while ($res = mysqli_fetch_assoc($result))
             {
               $post.= '<option value='.$res['id'].'>';
               $post.= $res["prefix"].' '.$res['courseNo'];
               $post.= ' -> '.$res["courseTitle"];
               $post.= ' -> '.$res["credit"];
-              $post.= '</tr>';
+              $post.= '</option>';
             }
             $post.= " </select>";
             echo $post;  
@@ -64,6 +74,50 @@ if(isset($_SESSION['message']))
          <input type="submit" class="btn btn-primary pull-right" name="insert_submit_courseoffer" value="Submit" >
       </form>
    
+    </div>
+    <!--Display offered course-->
+    <div class="col-lg-12">
+    <form class="form-group" method="POST">
+      <label>Offered Courses in
+
+         <?php
+          if(isset($_SESSION['term_select_submited'])) 
+          {
+            $result = $bllCourseOffer->offeredTermInfoById($_SESSION['term_select_submited']);
+            echo $result;
+          }
+          
+         ?>
+         </label>
+      
+       <?php
+        $post = "<select class='form form-control' name='courses' required multiple size='8'>  ";
+          if(isset($_SESSION['term_select_submited']))
+          {
+            $dalCourse = new DALCourse;
+            $result = $dalCourse->getyByOfferedCourse($_SESSION['term_select_submited']);
+           
+            while ($res = mysqli_fetch_assoc($result))
+            {
+              $post.= '<option value='.$res['id'].'>';
+              $post.= $res["prefix"].' '.$res['courseNo'];
+              $post.= ' -> '.$res["courseTitle"];
+              $post.= ' -> '.$res["credit"];
+              $post.= '</option>';
+            }
+            $post.= " </select>";
+            echo $post;  
+            $id = '<input  type="text"  name="offered_term_id" value="'.$_SESSION['term_select_submited'].'" style="display: none";>';
+            echo $id;
+
+            //session_unset($_SESSION['term_select_submited']);
+
+          }
+         ?>
+         <input type="submit" class="btn btn-primary pull-right" name="remove_submit_courseoffer" value="Remove" >
+         </form>
+      </div>
+    </div>
     </div>
   </div>
 

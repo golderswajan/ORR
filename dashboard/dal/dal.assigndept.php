@@ -46,8 +46,15 @@
 
 			return $result;
 		}
+		// Varsity and Dept name separately
+		public function getVarsityDeptName($varsityDeptId)
+		{
+			global $con;
+			$sql = "SELECT varsity.name as varsityName, dept.name as deptName FROM varsity,dept,varsitydept WHERE varsity.id = varsityDept.varsityId && dept.id = varsityDept.deptId && varsitydept.id =".$varsityDeptId;
+			$result = mysqli_query($con,$sql);
 
-
+			return $result;
+		}
 		public function insert($varsityId,$deptId)
 		{
 			global $con;

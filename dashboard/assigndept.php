@@ -52,7 +52,7 @@ if(isset($_SESSION['message']))
          
             $obj = new DALDepartment;
             $result = $obj->get();
-            $post = "<select class='form form-control' name='departments[]'  multiple>  ";
+            $post = "<select class='form form-control' name='departments[]'  multiple size='10'> ";
             while ($res = mysqli_fetch_assoc($result))
             {
               $post.= '<option value='.$res['id'].'>';

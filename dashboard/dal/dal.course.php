@@ -39,6 +39,14 @@
 
 			return $result;
 		}
+		public function getyByOfferedCourse($offeredTermId)
+		{
+			global $con;
+			$sql = "SELECT course.* FROM course,offeredcourse WHERE course.id = offeredcourse.courseId && offeredcourse.offeredTermId=".$offeredTermId;
+			$result = mysqli_query($con,$sql);
+
+			return $result;
+		}
 
 		public function insert($prefix,$courseNo,$courseTitle,$credit,$prerequisite,$yearId,$termId,$varsityId,$deptId,$degreeId)
 		{

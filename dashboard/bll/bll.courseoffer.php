@@ -218,6 +218,54 @@ class BLLCourseOffer
 		 return $post;
 	}
 
+	// Show offered term list in term label.
+	public function offeredTermInfoById($id)
+	{
+		$Varsity = new BLLUniversity;
+		$Dept = new BLLDepartment;
+		$Session = new BLLSession;
+		$Term = new BLLTerm;
+		$Year = new BLLYear;
+		$Degree = new BLLDegree;
+
+		$TermOffer = new DALTermOffer;
+		$result = $TermOffer->getById($id);
+
+		$post = "";
+		while ($res = mysqli_fetch_assoc($result))
+		 {
+		 	// Extracting varsityId and deptId form varsityDeptId first.
+			$assignDept = new DALAssignDept;
+
+		 	$varsityId ="";
+		 	$deptId ="";
+			$result2 = $assignDept->getById($res['varsityDeptId']);
+			while ($res2 = mysqli_fetch_assoc($result2)) 
+			{
+				$varsityId = $res2['varsityId'];
+				$deptId = $res2['deptId'];
+			}
+
+		 	// Get the text against all the id's.
+		 	$varsity = $Varsity->getName($varsityId);
+			$dept = $Dept->getName($deptId);
+			$session = $Session->getSessionName($res["sessionId"]);
+			$term = $Term->getTerm($res["termId"]);
+			$year = $Year->getYear($res["yearId"]);
+			$degree = $Degree->getDegree($res["degreeId"]);
+
+		 	$post.= '<option value="'.$res['id'].'">';
+			$post.= $varsity;
+			$post.= ' -> '.$degree;
+			$post.= ' -> '.$dept;
+			$post.= ' -> '.$session;
+			$post.= ' -> '.$year.' - '.$term;
+		 	$post.= '</option>';
+
+		 }
+		 return $post;
+	}
+
 }
 
 ?>

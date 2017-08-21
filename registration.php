@@ -79,10 +79,10 @@ if(isset($_POST['submit'])){
 							</td>
 						</tr>
 						<tr>
-							<td>Username *</td><td><input type="text" name="username" placeholder="Username" class="form-control"></td>
+							<td>Username *</td><td><input type="text" name="username" placeholder="Username" class="form-control" required></td>
 						</tr>
 						<tr>
-							<td>Full Name *</td><td><input type="text" name="fullName" placeholder="Full Name" class="form-control"></td>
+							<td>Full Name *</td><td><input type="text" name="fullName" placeholder="Full Name" class="form-control" required></td>
 						</tr>
 						<tr>
 							<td>Sex *</td><td><select name="sex" class="from form-control">
@@ -91,11 +91,11 @@ if(isset($_POST['submit'])){
 							</select></td>
 						</tr>
 						<tr>
-							<td>Email *</td><td><input type="email" name="email" placeholder="Email" class="form-control"></td>
+							<td>Email *</td><td><input type="email" name="email" placeholder="Email" class="form-control" required></td>
 						</tr>
 						
 						<tr>
-							<td>Password *</td><td><input type="password" name="password" placeholder="Password" class="form-control"></td>
+							<td>Password *</td><td><input type="password" name="password" placeholder="Password" class="form-control" required></td>
 						</tr>
 						<tr>
 							<td></td><td><input type="submit" name="submit" value="&nbsp;&nbsp; Register &nbsp; &nbsp;" class="btn btn-primary btn-block"  ></td>

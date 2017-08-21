@@ -1,0 +1,1008 @@
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/index.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/login.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/logout.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/profile.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/registration.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/skeleton.php
+------------------------------------------------------
+        $matched = preg_grep('/public/', $lines);
+    $matched = preg_grep('/public/', $lines);
+
+------------------------------------------------------
+E:\Programe files\www\htdocs/index.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/index.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/login.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/logout.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/profile.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/registration.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/skeleton.php
+------------------------------------------------------
+        $matched = preg_grep('/public/', $lines);
+    $matched = preg_grep('/public/', $lines);
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/admin.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/approveuser.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/assigndept.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/course.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/courseoffer.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/degree.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/department.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/index.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/role.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/section.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/session.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/syllabus.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/term.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/termoffer.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/university.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/year.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/admin.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/approveuser.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/assigndept.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/course.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/courseoffer.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/degree.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/department.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/index.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/role.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/section.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/session.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/syllabus.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/term.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/termoffer.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/university.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/year.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/index.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/login.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/logout.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/profile.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/registration.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/skeleton.php
+------------------------------------------------------
+        $matched = preg_grep('/public/', $lines);
+    $matched = preg_grep('/public/', $lines);
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.approveuser.php
+------------------------------------------------------
+	public function show()
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.assigndept.php
+------------------------------------------------------
+	public function show()
+	public function getName($id)
+	public function getVarsityDeptId($varsityId,$deptId)
+	public function showBySelection($varsityId)
+	public function getVarsityDeptName($varsityDeptId)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.course.php
+------------------------------------------------------
+	public function show()
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.courseoffer.php
+------------------------------------------------------
+	public function show()
+	public function getName($id)
+	public function getOfferedTermCourses($id)
+	public function offeredTermInfo()
+	public function offeredTermInfoById($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.degree.php
+------------------------------------------------------
+	public function show()
+	public function getDegree($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.department.php
+------------------------------------------------------
+	public function show()
+	public function getName($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.role.php
+------------------------------------------------------
+	public function show()
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.section.php
+------------------------------------------------------
+	public function show()
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.session.php
+------------------------------------------------------
+	public function show()
+	public function getSessionName($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.syllabus.php
+------------------------------------------------------
+	public function show()
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.term.php
+------------------------------------------------------
+	public function show()
+	public function getTerm($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.termoffer.php
+------------------------------------------------------
+	public function show()
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.university.php
+------------------------------------------------------
+	public function show()
+	public function getName($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.year.php
+------------------------------------------------------
+	public function show()
+	public function getYear($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.approveuser.php
+------------------------------------------------------
+	public function show()
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.assigndept.php
+------------------------------------------------------
+	public function show()
+	public function getName($id)
+	public function getVarsityDeptId($varsityId,$deptId)
+	public function showBySelection($varsityId)
+	public function getVarsityDeptName($varsityDeptId)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.course.php
+------------------------------------------------------
+	public function show()
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.courseoffer.php
+------------------------------------------------------
+	public function show()
+	public function getName($id)
+	public function getOfferedTermCourses($id)
+	public function offeredTermInfo()
+	public function offeredTermInfoById($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.degree.php
+------------------------------------------------------
+	public function show()
+	public function getDegree($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.department.php
+------------------------------------------------------
+	public function show()
+	public function getName($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.role.php
+------------------------------------------------------
+	public function show()
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.section.php
+------------------------------------------------------
+	public function show()
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.session.php
+------------------------------------------------------
+	public function show()
+	public function getSessionName($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.syllabus.php
+------------------------------------------------------
+	public function show()
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.term.php
+------------------------------------------------------
+	public function show()
+	public function getTerm($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.termoffer.php
+------------------------------------------------------
+	public function show()
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.university.php
+------------------------------------------------------
+	public function show()
+	public function getName($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\bll/bll.year.php
+------------------------------------------------------
+	public function show()
+	public function getYear($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/admin.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/approveuser.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/assigndept.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/course.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/courseoffer.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/degree.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/department.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/index.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/role.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/section.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/session.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/syllabus.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/term.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/termoffer.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/university.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/year.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.approveuser.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function approve($id)
+		public function approveAll()
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.assigndept.php
+------------------------------------------------------
+		public function get()
+		public function getId($varsityId,$deptId)
+		public function getById($id)
+		public function getByUniversityId($varsityId)
+		public function getVarsityDeptName($varsityDeptId)
+		public function insert($varsityId,$deptId)
+		public function exeSql($sql)
+		public function update($id,$varsityId,$deptId)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.course.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function getyByOfferedTerm($id)
+		public function getyByOfferedCourse($offeredTermId)
+		public function insert($prefix,$courseNo,$courseTitle,$credit,$prerequisite,$yearId,$termId,$varsityId,$deptId,$degreeId)
+		public function update($id,$prefix,$courseNo,$courseTitle,$credit,$prerequisite,$yearId,$termId,$varsityId,$deptId,$degreeId)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.courseoffer.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function insert($name)
+		public function insertMultiple($offered_term_id,$courses)
+		public function update($id,$name)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.degree.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function insert($name)
+		public function update($id,$name)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.department.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function insert($name)
+		public function update($id,$name)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.role.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function insert($roleName)
+		public function update($id,$roleName)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.section.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function insert($name,$type)
+		public function update($id,$name,$type)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.session.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function insert($name)
+		public function update($id,$name)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.syllabus.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function insert($offeredTermId,$minCredit,$maxCredit)
+		public function update($id,$offeredTermId,$minCredit,$maxCredit)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.term.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function insert($term)
+		public function update($id,$term)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.termoffer.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function insert($degreeId,$sessionId,$yearId,$termId,$varsityId,$deptId)
+		public function update($id,$degreeId,$sessionId,$yearId,$termId,$varsityId,$deptId,$status)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.university.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function insert($name)
+		public function update($id,$name)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.year.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function insert($year)
+		public function update($id,$year)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.approveuser.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function approve($id)
+		public function approveAll()
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.assigndept.php
+------------------------------------------------------
+		public function get()
+		public function getId($varsityId,$deptId)
+		public function getById($id)
+		public function getByUniversityId($varsityId)
+		public function getVarsityDeptName($varsityDeptId)
+		public function insert($varsityId,$deptId)
+		public function exeSql($sql)
+		public function update($id,$varsityId,$deptId)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.course.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function getyByOfferedTerm($id)
+		public function getyByOfferedCourse($offeredTermId)
+		public function insert($prefix,$courseNo,$courseTitle,$credit,$prerequisite,$yearId,$termId,$varsityId,$deptId,$degreeId)
+		public function update($id,$prefix,$courseNo,$courseTitle,$credit,$prerequisite,$yearId,$termId,$varsityId,$deptId,$degreeId)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.courseoffer.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function insert($name)
+		public function insertMultiple($offered_term_id,$courses)
+		public function update($id,$name)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.degree.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function insert($name)
+		public function update($id,$name)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.department.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function insert($name)
+		public function update($id,$name)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.role.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function insert($roleName)
+		public function update($id,$roleName)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.section.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function insert($name,$type)
+		public function update($id,$name,$type)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.session.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function insert($name)
+		public function update($id,$name)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.syllabus.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function insert($offeredTermId,$minCredit,$maxCredit)
+		public function update($id,$offeredTermId,$minCredit,$maxCredit)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.term.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function insert($term)
+		public function update($id,$term)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.termoffer.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function insert($degreeId,$sessionId,$yearId,$termId,$varsityId,$deptId)
+		public function update($id,$degreeId,$sessionId,$yearId,$termId,$varsityId,$deptId,$status)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.university.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function insert($name)
+		public function update($id,$name)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard\dal/dal.year.php
+------------------------------------------------------
+		public function get()
+		public function getById($id)
+		public function insert($year)
+		public function update($id,$year)
+		public function delete($id)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/admin.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/approveuser.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/assigndept.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/course.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/courseoffer.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/degree.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/department.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/index.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/role.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/section.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/session.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/syllabus.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/term.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/termoffer.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/university.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\dashboard/year.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\includes/connect - Copy.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\includes/connect.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\includes/disconnect.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\includes/functions.php
+------------------------------------------------------
+		public function getUserInfo($userId)
+		public function getUserType($userId)
+		public function updateUser($userId,$userName,$fullName,$email)
+		public function getStudentSpecialInfo($userId)
+		public function getTeacherSpecialInfo($userId)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\includes/profile.blade.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\includes/session.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\includes/connect - Copy.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\includes/connect.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\includes/disconnect.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\includes/functions.php
+------------------------------------------------------
+		public function getUserInfo($userId)
+		public function getUserType($userId)
+		public function updateUser($userId,$userName,$fullName,$email)
+		public function getStudentSpecialInfo($userId)
+		public function getTeacherSpecialInfo($userId)
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\includes/profile.blade.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\includes/session.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/index.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/login.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/logout.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/profile.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/registration.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/skeleton.php
+------------------------------------------------------
+        $matched = preg_grep('/public/', $lines);
+    $matched = preg_grep('/public/', $lines);
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/index.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/login.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/logout.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/profile.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/registration.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/skeleton.php
+------------------------------------------------------
+        $matched = preg_grep('/public/', $lines);
+    $matched = preg_grep('/public/', $lines);
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/index.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/login.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/logout.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/profile.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/registration.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/skeleton.php
+------------------------------------------------------
+        $matched = preg_grep('/public/', $lines);
+    $matched = preg_grep('/public/', $lines);
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/index.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/login.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/logout.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/profile.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/registration.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/skeleton.php
+------------------------------------------------------
+        $matched = preg_grep('/public/', $lines);
+    $matched = preg_grep('/public/', $lines);
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\templates/dashboardsidebar.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\templates/footer.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\templates/header.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\templates/dashboardsidebar.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\templates/footer.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se\templates/header.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/index.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/login.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/logout.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/profile.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/registration.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/skeleton.php
+------------------------------------------------------
+        $matched = preg_grep('/public/', $lines);
+    $matched = preg_grep('/public/', $lines);
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/index.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/login.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/logout.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/profile.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/registration.php
+------------------------------------------------------
+
+------------------------------------------------------
+E:\Programe files\www\htdocs\se/skeleton.php
+------------------------------------------------------
+        $matched = preg_grep('/public/', $lines);
+    $matched = preg_grep('/public/', $lines);

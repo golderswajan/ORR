@@ -138,12 +138,56 @@
 			$result = mysqli_query($con,$sql);
 			return $result;
 		}
+		//Return user type i.e. Student, teacher etc.
+		public function getUserType($userId)
+		{
+			global $con;
+
+			// Order: Teacher -> Student
+			// Search Teacher
+			$sqlTeacher = "SELECT * FROM teacher WHERE userId = ".$userId;
+			$resultTeacher = mysqli_query($con,$sqlTeacher);
+			
+			while($res = mysqli_fetch_assoc($resultTeacher))
+			{
+				$arr = array('table' => 'teacher', 'id' => $res['id']);
+				return $arr;
+			}
+
+			// Search Student
+			$sqlStudent = "SELECT * FROM student WHERE userId = ".$userId;
+			$resultStudent = mysqli_query($con,$sqlStudent);
+
+			while($res = mysqli_fetch_assoc($resultStudent))
+			{
+				$arr = array('table' => 'student', 'id' => $res['id']);
+				return $arr;
+			}
+			
+		}
 
 		public function updateUser($userId,$userName,$fullName,$email)
 		{
 			global $con;
 
 			$sql = "UPDATE user SET userName ='".$userName."', fullname ='".$fullName."', email ='".$email."' WHERE id = ".$userId;
+			$result = mysqli_query($con,$sql);
+			return $result;
+		}
+		//***********************************************
+		// USER SPECIFIC INFO CODES HERE
+		//***********************************************
+		public function getStudentSpecialInfo($userId)
+		{
+			global $con;
+			$sql = "SELECT * FROM student WHERE userId = ".$userId;
+			$result = mysqli_query($con,$sql);
+			return $result;
+		}
+		public function getTeacherSpecialInfo($userId)
+		{
+			global $con;
+			$sql = "SELECT * FROM teacher WHERE userId = ".$userId;
 			$result = mysqli_query($con,$sql);
 			return $result;
 		}
