@@ -1,44 +1,32 @@
+
 <?php
-
-// Read all file and folders.
-$path = "E:\Programe files\www\htdocs\se";
-$it = new RecursiveTreeIterator(new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::SKIP_DOTS));
-  foreach($it as $path) {
-  echo $path."<br>";
-}
-
 // Read all subfolders
-$iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator("E:/Programe files/www/htdocs/se"),RecursiveIteratorIterator::SELF_FIRST);
+$iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator("E:/Programe files/www/htdocs/se/dashboard/"),RecursiveIteratorIterator::SELF_FIRST);
 $data = "";
-foreach($iterator as $file)
-{
-  if($file->isDir())
-  {
-    //echo $file->getRealpath()."\n";
-    // Read all files in directory.
+$html = "";
 
-    $all_files = glob($file->getRealpath()."/*.*");
-    //$data .= $file->getRealpath()."";
+foreach($iterator as $folder)
+{
+  if($folder->isDir())
+  {
+    $all_files = glob($folder->getRealpath()."/*.php");
+    $html.= count($all_files);
     for ($i=0; $i<count($all_files); $i++)
     {
       $filename = $all_files[$i];
-      $supported_format = array('php');
-      $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
-      if (in_array($ext, $supported_format))
-      {
-         // Extract functions.
 
-        $lines   = file($filename, FILE_IGNORE_NEW_LINES);
-        $matched = preg_grep('/public/', $lines);
+      $data .= "\n------------------------------------------------------\n".$filename."\n------------------------------------------------------\n";
+      $html .= "<br>------------------------------------------------------<br>".$filename."<br>------------------------------------------------------<br>";
+      $js = "<br>------------------------------------------------------<br>".$filename."<br>------------------------------------------------------<br>";
 
-        $data .= "\n------------------------------------------------------\n".$filename."\n------------------------------------------------------\n";
-        foreach ($matched as $line) 
-        { 
-          $data.= $line."\n";
-        }
-        
-       // $fp = "functions.txt";
-        //file_put_contents($fp, $data, FILE_APPEND | LOCK_EX);
+       // Extract functions.
+      $lines   = file($filename, FILE_IGNORE_NEW_LINES);
+      $matched = preg_grep('/public/', $lines);
+      foreach ($matched as $line) 
+      { 
+        $data.= $line."\n";
+        $html .=  $line."<br>";
+        $js .=  $line."<br>";
       }
     }
     
@@ -48,35 +36,12 @@ foreach($iterator as $file)
   $fp = fopen("functions.txt", 'w');
   fwrite($fp, $data);
 
-// Read all files in directory.
-/*
-$all_files = glob("../bll/*.*");
-$data = "";
-for ($i=0; $i<count($all_files); $i++)
-{
-  $filename = $all_files[$i];
-  $supported_format = array('php');
-  $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
-  if (in_array($ext, $supported_format))
-  {
-     // Extract functions.
 
-    $lines   = file($filename, FILE_IGNORE_NEW_LINES);
-    $matched = preg_grep('/public/', $lines);
+  echo $html;
 
-    $data .= "\n---------------------\n".$filename."\n---------------------\n";
-    foreach ($matched as $line) 
-    { 
-      $data.= $line."\n";
-    }
-    
-   // $fp = "functions.txt";
-    //file_put_contents($fp, $data, FILE_APPEND | LOCK_EX);
-  }
-}
-// Writing the final output
-$fp = fopen("functions.txt", 'w');
-fwrite($fp, $data);*/
-
+  echo "<script type='text/javascript'> var data_ = ".$html."</script>";
 
 ?>
+<script type="text/javascript">
+  document.write(data_+'new line');
+</script>

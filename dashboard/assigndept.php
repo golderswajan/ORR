@@ -42,7 +42,7 @@ if(isset($_SESSION['message']))
          </select>
         <div class="input-group-btn">
         <!-- Load selected university departments-->
-        <button class="btn btn-default" type="submit" name="search_dept"><i class="glyphicon glyphicon-search"></i></button>
+        <button class="btn btn-default" type="submit" name="search_dept" data-toggle="tooltip" title="Click to see Departments"><i class="glyphicon glyphicon-search"></i></button>
         </div>
         </div>
 
@@ -75,7 +75,7 @@ if(isset($_SESSION['message']))
     <table class="table">
         <thead>
             <tr id="varsitydept_list">
-                <th colspan="2"><h3 class="text-center">Department-University Information</h3></th>
+                <th colspan="2"><h3 class="text-center">University-Department Information</h3></th>
             </tr>
               <tr id="varsitydept_list">
                 <th >Department</th>

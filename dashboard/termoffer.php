@@ -30,7 +30,7 @@ if(isset($_SESSION['message']))
                 <th >Session</th>
                 <th >Term</th>
                 <th >Status</th>
-                <th class="text-right"> Edit</th>
+                <th class="text-right"> Edit / End</th>
                 <!--th class="text-right"> Delete</th-->
             </tr>
         </thead>

@@ -61,9 +61,9 @@ class BLLAssignDept
 
 
 		//	Actually geting this request form confirm_delete.js
-		if(isset($_GET['submit_delete']))
+		if(isset($_GET['submit_delete_assigndept']))
 		{
-			$id = $_GET['submit_delete'];
+			$id = $_GET['submit_delete_assigndept'];
 			$response = $dalAssignDept->delete($id);
 			
 			// Redirect to call page as soon as task done.
@@ -96,7 +96,7 @@ class BLLAssignDept
 		 	$post.= '<tr>';
 			$post.= '<td>'.$departmentName->getName($res["deptId"]).'</td>';
 			
-			$post.= '<td class="text-right"><button id="delete_btn" class="btn btn-link" onclick="delete_btn_click('.$res['id'].',\'/se/dashboard/bll/bll.assigndept.php\')">Delete</button></td>';
+			$post.= '<td class="text-right"><button  class="btn btn-link" onclick="delete_btn_click('.$res['id'].',\'/se/dashboard/bll/bll.assigndept.php\')">Delete</button></td>';
 			$post.= '<td style="display: none" id="row_id'.$res["id"].'">'.$res["id"].'</td>';
 		 	$post.= '</tr>';
 
@@ -152,9 +152,11 @@ class BLLAssignDept
 		 	// deptId comes form varsitydept table by exeSql
 			$post.= '<td>'.$departmentName->getName($res["deptId"]).'</td>';
 			
-			$post.= '<td class="text-right"><button id="delete_btn" class="btn btn-link" onclick="delete_btn_click('.$res['id'].',\'/se/dashboard/bll/bll.assigndept.php\')">Delete</button></td>';
+			$post.= '<td class="text-right"><button id="delete_btn" class="btn btn-link" onclick="delete_btn_click('.$res['id'].',\'/se/dashboard/bll/bll.assigndept.php\',\'submit_delete_assigndept\')">Delete</button></td>';
 			$post.= '<td style="display: none" id="row_id'.$res["id"].'">'.$res["id"].'</td>';
 		 	$post.= '</tr>';
+
+		 	// Note: Extra info in delete_btn_click() because of conflict in other bll class operation. i.e. library.bll catch first... 
 		 }
 		 return $post;
 	}

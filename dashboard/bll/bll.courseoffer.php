@@ -49,14 +49,32 @@ class BLLCourseOffer
 		}
 		if(isset($_POST['insert_submit_courseoffer']))
 		{
+			$response=false;
 			$offeredTermId = $_POST['offered_term_id'];
 			$courses = $_POST['courses'];
 
-			$response = $dalCourseOffer->insertMultiple($offeredTermId,$courses);
+			// Block duplicate entry
+			session_unset();
+
+			$count = count($courses);
+
+			for($i=0;$i<$count;$i++)
+			{
+				$sql = "INSERT INTO offeredcourse VALUES(' ',".$offeredTermId.",".$courses[$i].")";
+				$result = $dalCourseOffer->insertMultiple($sql);
+
+				
+				if(!$result)
+				{
+					break;
+				}
+				$response = true;
+				
+			}
 
 			if($response)
 			{
-				session_unset();
+				
 
 				$_SESSION['message'] = "Successfully Inserted.";
 			}
@@ -65,8 +83,8 @@ class BLLCourseOffer
 				$_SESSION['message'] = "Can't Insert.";
 			}
 
-			//header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/courseoffer.php');
-			//exit();
+			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/courseoffer.php');
+			exit();
 		}
 
 		if(isset($_GET['term_select']))

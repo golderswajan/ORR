@@ -47,20 +47,12 @@
 				return false;
 			}
 		}
-		public function insertMultiple($offered_term_id,$courses)
+		public function insertMultiple($sql)
 		{
 			global $con;
-			$count = count($courses);
-
-			$sql = "INSERT INTO offeredcourse VALUES ";
-			for($i=0;$i<$count-2;$i++)
-			{
-				$sql .= " (' ',".$offered_term_id.",".$courses[$i]."), ";
-			}
-			// For the last value no comma(,) 
-			$sql .= " (' ',".$offered_term_id.",".$courses[$count-1].") ";
 
 			$result = mysqli_query($con,$sql);
+			
 			if($result)
 			{
 				return true;
