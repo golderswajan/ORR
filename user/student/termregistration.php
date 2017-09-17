@@ -1,6 +1,6 @@
 <?php
 require_once('../utility.php');
-require_once("bll/bll.termregistration.php");
+include_once("bll/bll.termregistration.php");
 include('header.php');
 if(isset($_SESSION['message']))
 {
@@ -15,19 +15,26 @@ if(isset($_SESSION['message']))
 $studentId=150206;
 $varsityId = "";
 $deptId = "";
+$varsityDeptId = "";
 
 if(isset($_SESSION['logged_in']))
   {
-
     $email = $_SESSION['logged_in'];
     echo "<br>::Test::<br>";
     echo "Email: $email<br>";
     $studentId = $utility->getStudentId($email);
     $varsityId = $utility->getVarsityId($email);
     $deptId = $utility->getDeptId($email);
+    $varsityDeptId = $utility->getVarsityDeptId($email);
     echo "StudentId: $studentId<br>";
     echo "varsityId: $varsityId<br>";
     echo "deptId: $deptId<br>";
+    echo "varsityDeptId: $varsityDeptId<br>";
+    $_SESSION['studentId'] = $studentId;
+  }
+  else
+  {
+    $utility->redirect($_SERVER['DOCUMENT_ROOT'].'/se/index.php');
   }
 ?>
 
@@ -39,8 +46,8 @@ if(isset($_SESSION['logged_in']))
             </tr>
               <tr id="termregistration_list">
                 <th >Term</th>
-                <th >Credit Registered</th>
-                <th >Credit Achieved</th>
+                <th >Total Registered Credit</th>
+                <th >Total Earned Credit</th>
             </tr>
         </thead>
         <tbody>
@@ -73,14 +80,29 @@ if(isset($_SESSION['logged_in']))
       
          <label for="terms">Select a Term</label>
         <select class="form form-control" name="offeredTermId" required> 
-         <?php
-         // $bllCourseOffer = new BLLCourseOffer;
-         // $result = $bllCourseOffer->offeredTermInfo();
-         // echo $result;
-         ?>
+        <?php
+          $option="";
+          $result = $bllTermRegistration->getOfferedTerms($studentId,$varsityDeptId);
+        
+          if($result)
+          {
+            $degree = $utility->getDegreeName($result['degreeId']);
+            $session = $utility->getSessionName($result['sessionId']);
+            $year = $utility->getYearName($result['yearId']);
+            $term = $utility->getTermName($result['termId']);
+            $offeredTermId = $result['offeredTermId'] ;
+            $option .= "<option value=$offeredTermId>$degree->$session->$year-$term Term</option>";
+          }
+          else
+          {
+            $option .= "<option disabled='true' class='alert-danger'>Currently no term offered for you to register !</option>";
+
+          }
+
+          echo $option;
+        ?>
 
          </select>
-
         <br>
         
         <input type="submit" name="submit_insert" value="Submit" class="btn btn-primary pull-right">
