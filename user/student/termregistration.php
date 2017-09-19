@@ -37,13 +37,10 @@ if(isset($_SESSION['logged_in']))
     $utility->redirect($_SERVER['DOCUMENT_ROOT'].'/se/index.php');
   }
 ?>
-
+<h3 class="alert alert-info text-center">Registered Terms</h3>
 <div id="table">
     <table class="table">
         <thead>
-            <tr id="termregistration_list">
-                <th colspan="2"><h3 class="text-center">Registered Term</h3></th>
-            </tr>
               <tr id="termregistration_list">
                 <th >Term</th>
                 <th >Total Registered Credit</th>

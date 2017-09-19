@@ -12,7 +12,11 @@ if(isset($_SESSION['message']))
 	echo $info;
 	session_unset($_SESSION['message']);
 }
-
+// Access denied for logged users
+if(isset($_SESSION['logged_in']))
+{
+	$functions->redirect('index.php');
+}
 if(isset($_POST['submit'])){
 	
 
