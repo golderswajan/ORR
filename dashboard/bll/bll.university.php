@@ -16,7 +16,7 @@ class BLLUniversity
 
 		$dalUniversity = new DALUniversity;
 
-		if(isset($_POST['submit_insert']))
+		if(isset($_POST['submit_insert_university']))
 		{
 			$name = $_POST['name'];
 			if (ctype_space($name))
@@ -44,7 +44,7 @@ class BLLUniversity
 			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/university.php');
 			exit();
 		}
-		if(isset($_POST['submit_update']))
+		if(isset($_POST['submit_update_university']))
 		{
 			$id = $_POST['id'];
 			$name = $_POST['name'];

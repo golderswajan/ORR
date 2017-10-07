@@ -100,7 +100,7 @@
 		function userLogin($email,$password)
 		{
 			global $con;
-			$sql = "SELECT * FROM user WHERE email = '".$email."' AND password = '".$password."'";
+			$sql = "SELECT user.*,role.roleName FROM user,role WHERE user.roleId = role.id && user.email = '".$email."' && user.password = '".$password."'";
 			$resultUser =mysqli_query($con,$sql);
 
 
@@ -110,17 +110,20 @@
 			$emailD ="";
 			$passD ="";
 			$userId = "";
+			$role = "";
 			while ($res = mysqli_fetch_assoc($resultUser)) 
 			{
 				$emailD = $res['email'];
 				$passD = $res['password'];
 				$userId = $res['id'];
+				$role = $res['roleName'];
 			}
 
 			if($emailD==$email && $passD== $password)
 			{
 				// Universal Session never clear it until logged out.
 				$_SESSION['userId'] = $userId;
+				$_SESSION['role'] = $role;
 				return true;
 			}
 			else

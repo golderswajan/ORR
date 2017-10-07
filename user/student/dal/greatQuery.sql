@@ -21,6 +21,10 @@ course.varsityDeptId= offeredterm.varsityDeptId && course.yearId = offeredterm.y
 -- Offeredterm -> registeredterm (which term is registered?)
 && offeredterm.id = registeredterm.offeredTermId
 
+-- Course registration is incompleted 
+-- i.e. registeredterm.registrationCompleted ==0
+&& registeredterm.registrationCompleted = 0
+
 -- Registeredterm owner student (replace 150206 to dinamically handle in php)
 && registeredterm.studentId = student.studentId && student.studentId = 150206
 
@@ -51,3 +55,7 @@ course.id= offeredcourse.courseId && offeredcourse.id = registeredcourse.offered
 && registeredcourse.registeredTermId = registeredterm.id && registeredterm.studentId = student.studentId && student.studentId = 150206
 
 -- And prerequisite is not thesis
+
+-- Course registration is incompleted 
+-- i.e. registeredterm.registrationCompleted ==0
+&& registeredterm.registrationCompleted = 0

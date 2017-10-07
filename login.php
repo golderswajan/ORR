@@ -28,10 +28,24 @@ if(isset($_POST['submit'])){
 	$response = $functions->userLogin($email,$password);
 	
 	 
-	if($response)
+	if($response!=false)
 	{
-		$_SESSION['logged_in'] = $email;
-		$functions->redirect("index.php");
+		
+		if($_SESSION['role'] =='Student')
+		{
+			$_SESSION['student'] = $email;
+			$functions->redirect("index.php");
+		}
+		if($_SESSION['role'] =='GlobalAdmin')
+		{
+			$_SESSION['globaladmin'] = $email;
+			$functions->redirect("dashboard/index.php");
+		}
+		if($_SESSION['role'] =='Admin')
+		{
+			$_SESSION['admin'] = $email;
+			$functions->redirect("index.php");
+		}
 	}
 	else
 	{

@@ -28,6 +28,7 @@ class BLLTermRegistration
 
 			if($response)
 			{
+				
 				$_SESSION['message'] = "Successfully Inserted.";
 			}
 			else

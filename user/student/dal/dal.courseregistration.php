@@ -38,7 +38,7 @@
 		public function getRegisteredCourse($studentId,$registeredTermId)
 		{
 			global $con;
-			$sql = "SELECT course.*,registeredcourse.id as registeredCourseId,year.year as year, term.term as term FROM course,year,term,offeredcourse,registeredterm,registeredcourse WHERE course.yearId = year.id && course.termId = term.id && course.id = offeredcourse.courseId && offeredcourse.id = registeredcourse.offeredCourseId && registeredcourse.registeredTermId = registeredterm.id && registeredterm.id = $registeredTermId && registeredterm.studentId = $studentId";
+			$sql = "SELECT course.*,registeredcourse.id as registeredCourseId,year.year as year, term.term as term FROM course,year,term,offeredcourse,registeredterm,registeredcourse WHERE course.yearId = year.id && course.termId = term.id && course.id = offeredcourse.courseId && offeredcourse.id = registeredcourse.offeredCourseId && registeredcourse.approvedByHead = 1 && registeredcourse.approvedByCoursecoordinator = 1 && registeredcourse.registeredTermId = registeredterm.id && registeredterm.id = $registeredTermId && registeredterm.studentId = $studentId";
 			$result = mysqli_query($con,$sql);
 
 			return $result;
@@ -68,9 +68,10 @@
 			// 4.  + Retake courses
 			// 5. Prerequisite already passed if has prerequisite
 			// 6. Term is running and not locked
-			// 7. Mark table may contain more than one registeredCourseId.Handle it
+			// 7. Mark table contain more than one registeredCourseId Handled it
+			// 8. No courses already registered in current term (not applied)
 			// Query explained in greatQuery.sql
-			$sql = "SELECT course.*,offeredcourse.id as offeredCourseId,registeredterm.id as registeredTermId FROM course,offeredterm,offeredcourse,registeredterm,student WHERE course.varsityDeptId= offeredterm.varsityDeptId && course.yearId = offeredterm.yearId && course.termId = offeredterm.termId && course.degreeId = offeredterm.degreeId && offeredterm.status = 1 && offeredterm.isLocked = 0 && offeredterm.id = offeredcourse.offeredTermId && course.id = offeredcourse.courseId && offeredterm.id = registeredterm.offeredTermId && registeredterm.studentId = student.studentId && student.studentId = $studentId &&(course.prerequisite is NULL || course.prerequisite IN( SELECT course.id FROM course,offeredcourse,registeredcourse,registeredterm WHERE course.id = offeredcourse.courseId && offeredcourse.id = registeredcourse.offeredCourseId && registeredcourse.registeredTermId = registeredterm.id && registeredterm.studentId = student.studentId && student.studentId = $studentId)) UNION SELECT course.*,offeredcourse.id as offeredCourseId,registeredterm.id as registeredTermId FROM course,offeredcourse,registeredcourse,mark,student,registeredterm WHERE course.id= offeredcourse.courseId && offeredcourse.id = registeredcourse.offeredCourseId && registeredcourse.id = mark.registeredCourseId && mark.mark <40 && registeredcourse.registeredTermId = registeredterm.id && registeredterm.studentId = $studentId";
+			$sql = "SELECT course.*,offeredcourse.id as offeredCourseId,registeredterm.id as registeredTermId FROM course,offeredterm,offeredcourse,registeredterm,student WHERE course.varsityDeptId= offeredterm.varsityDeptId && course.yearId = offeredterm.yearId && course.termId = offeredterm.termId && course.degreeId = offeredterm.degreeId && offeredterm.status = 1 && offeredterm.isLocked = 0 && offeredterm.id = offeredcourse.offeredTermId && course.id = offeredcourse.courseId && offeredterm.id = registeredterm.offeredTermId && registeredterm.registrationCompleted = 0 && registeredterm.studentId = student.studentId && student.studentId = $studentId &&(course.prerequisite is NULL || course.prerequisite IN( SELECT course.id FROM course,offeredcourse,registeredcourse,registeredterm WHERE course.id = offeredcourse.courseId && offeredcourse.id = registeredcourse.offeredCourseId && registeredcourse.registeredTermId = registeredterm.id && registeredterm.studentId = student.studentId && student.studentId = $studentId)) UNION SELECT course.*,offeredcourse.id as offeredCourseId,registeredterm.id as registeredTermId FROM course,offeredcourse,registeredcourse,mark,student,registeredterm WHERE course.id= offeredcourse.courseId && offeredcourse.id = registeredcourse.offeredCourseId && registeredcourse.id = mark.registeredCourseId && mark.mark <40 && registeredcourse.registeredTermId = registeredterm.id && registeredterm.registrationCompleted = 0 && registeredterm.studentId = $studentId";
 			$result = mysqli_query($con,$sql);
 
 			return $result;
@@ -80,6 +81,22 @@
 		public function insert($sql)
 		{
 			global $con;
+			$result = mysqli_query($con,$sql);
+			if($result)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		// Completed course registration and block this term
+		public function registrationCompleted($registeredTermId)
+		{
+			global $con;
+			$sql = "UPDATE registeredterm SET registrationCompleted = 1 WHERE registeredterm.id = $registeredTermId";
 			$result = mysqli_query($con,$sql);
 			if($result)
 			{

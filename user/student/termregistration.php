@@ -1,5 +1,4 @@
 <?php
-require_once('../utility.php');
 include_once("bll/bll.termregistration.php");
 include('header.php');
 if(isset($_SESSION['message']))
@@ -8,34 +7,8 @@ if(isset($_SESSION['message']))
   $msg .= ($_SESSION['message']);
   $msg .= "</div>";
   echo $msg;
-  session_unset($_SESSION['message']);
+  unset($_SESSION['message']);
 }
-// Student All information
-
-$studentId=150206;
-$varsityId = "";
-$deptId = "";
-$varsityDeptId = "";
-
-if(isset($_SESSION['logged_in']))
-  {
-    $email = $_SESSION['logged_in'];
-    echo "<br>::Test::<br>";
-    echo "Email: $email<br>";
-    $studentId = $utility->getStudentId($email);
-    $varsityId = $utility->getVarsityId($email);
-    $deptId = $utility->getDeptId($email);
-    $varsityDeptId = $utility->getVarsityDeptId($email);
-    echo "StudentId: $studentId<br>";
-    echo "varsityId: $varsityId<br>";
-    echo "deptId: $deptId<br>";
-    echo "varsityDeptId: $varsityDeptId<br>";
-    $_SESSION['studentId'] = $studentId;
-  }
-  else
-  {
-    $utility->redirect($_SERVER['DOCUMENT_ROOT'].'/se/index.php');
-  }
 ?>
 <h3 class="alert alert-info text-center">Registered Terms</h3>
 <div id="table">

@@ -1,0 +1,36 @@
+Simply import the latest sql file in your server
+ ---> and GO
+
+
+========
+Rules: 
+========
+# Each user add/update/delete:
+	- Profile 
+# Global user can add/update/delete:
+	- University
+	- Department
+	- Degree
+	- Role
+	- Year
+	- Term
+	- Course
+	- User grant of teacher
+# Modarator/ Head of the department can add/update/delete:
+	- Offer a teacher
+	- Offer a term
+	- Offer a course
+	- Start a new session, [year-term]
+	- Create new section
+	- Marks entry
+	- Registration validation/cancel
+	- User grant of student
+#  Teacher can add/update/delete:
+	- Marks
+	- Attendence
+	- Exam paper bill
+	- 
+# Student can add/update/delete:
+	- Course registration [R W]
+	- Individual marks [R]
+	- 

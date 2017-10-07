@@ -7,5 +7,4 @@
  	echo $_SESSION['message'];
  }
 
-
 ?>

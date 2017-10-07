@@ -1,11 +1,9 @@
 <?php 
-  require_once('../utility.php');
-
   $studentId=150206;
-  if(isset($_SESSION['logged_in']))
+  if(isset($_SESSION['student']))
   {
 
-    $email = $_SESSION['logged_in'];
+    $email = $_SESSION['student'];
     echo "Email: $email<br>";
     $studentId = $utility->getStudentId($email);
     echo "StudentId: $studentId";

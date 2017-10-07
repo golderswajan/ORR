@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <?php //header('Content-Type: text/html; charset=utf-8');
-  require_once('../utility.php');
-	require('../../includes/connect.php');
+include('../utility.php');
+require('../../includes/connect.php');
+
 ?>
 <html >
 <head>
@@ -56,9 +57,9 @@
 		 <li>
 		 	
 		<?php
-		    function StudentMenu()
+		    function AdminMenu()
 		    {
-		      $xml = simplexml_load_file($_SERVER['DOCUMENT_ROOT'].'/se/settings/StudentMenu.xml');
+		      $xml = simplexml_load_file($_SERVER['DOCUMENT_ROOT'].'/se/settings/AdminMenu.xml');
 		      $menu = "";
 		      foreach($xml->submenu as $submenu)
 		      {
@@ -79,7 +80,7 @@
 		      return $menu;
 		      
 		    }
-		    echo StudentMenu();
+		    echo AdminMenu();
 
         
 
@@ -110,36 +111,36 @@
 <!--Navbar problem fixed :-) -->
 
 <div style="padding:20px;margin-top:30px" />
-
 <?php
 // Authentication
-        // Student All information
+        // Admin All information
 
-        $studentId=0;
+        $studentId="";
         $varsityId = "";
         $deptId = "";
         $varsityDeptId = "";
 
-        if(isset($_SESSION['student']))
+        if(isset($_SESSION['admin']))
           {
-            $email = $_SESSION['student'];
+            $email = $_SESSION['admin'];
             echo "<br>::Test::<br>";
             echo "Email: $email<br>";
-            $studentId = $utility->getStudentId($email);
-            $varsityId = $utility->getVarsityId($email);
-            $deptId = $utility->getDeptId($email);
-            $varsityDeptId = $utility->getVarsityDeptId($email);
-            echo "StudentId: $studentId<br>";
+            echo "Role: Admin<br>";
+
+            $varsityId = $utility->getTeacherVarsityId($email);
+            $deptId = $utility->getTeacherDeptId($email);
+            $varsityDeptId = $utility->getTeacherVarsityDeptId($email);
+    
             echo "varsityId: $varsityId<br>";
             echo "deptId: $deptId<br>";
             echo "varsityDeptId: $varsityDeptId<br>";
-            $_SESSION['studentId'] = $studentId;
           }
           else
           {
             $utility->redirect($_SERVER['DOCUMENT_ROOT'].'/se/index.php');
           }
 ?>
+
 <script>
 function validateSearch() {
     var val = document.forms["search_form"]["search_val"].value;

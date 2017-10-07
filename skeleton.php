@@ -10,10 +10,9 @@ foreach($iterator as $folder)
   if($folder->isDir())
   {
     $all_files = glob($folder->getRealpath()."/*.php");
-    $html.= count($all_files);
-    for ($i=0; $i<count($all_files); $i++)
+    $html.= "Files in this Directory:".count($all_files);
+    foreach ($all_files as $filename)
     {
-      $filename = $all_files[$i];
 
       $data .= "\n------------------------------------------------------\n".$filename."\n------------------------------------------------------\n";
       $html .= "<br>------------------------------------------------------<br>".$filename."<br>------------------------------------------------------<br>";
@@ -39,9 +38,4 @@ foreach($iterator as $folder)
 
   echo $html;
 
-  echo "<script type='text/javascript'> var data_ = ".$html."</script>";
-
 ?>
-<script type="text/javascript">
-  document.write(data_+'new line');
-</script>

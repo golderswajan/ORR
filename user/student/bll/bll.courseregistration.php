@@ -6,7 +6,7 @@
 
 include_once($_SERVER['DOCUMENT_ROOT'].'/se/user/student/dal/dal.courseregistration.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/se/user/student/dal/dal.termregistration.php');
-include_once('../utility.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/se/user/utility.php');
 
 // To activate the constructior crating an object. 
 $bllCourseRegistration = new BLLCourseRegistration;
@@ -20,23 +20,35 @@ class BLLCourseRegistration
 
 		$dalCourseRegistration = new DALCourseRegistration;
 
-		if(isset($_POST['submit_insert']))
+		if(isset($_POST['submit_course_registration']))
 		{
 
 			$offeredCourseId = $_POST['offeredCourseId'];
 			$studentId = $_SESSION['studentId'];
-
+			$registeredTermId = $_POST['registeredTermId'];
+			$response="";
 			// Build sql in for loop and inset one by one
+			for($i=0;$i<count($offeredCourseId);$i++)
+			{
 
-			$response = $dalCourseRegistration->insert($sql);
+				$sql = "INSERT INTO `registeredcourse`(`id`, `offeredCourseId`, `registeredTermId`, `isRetakeCourse`, `approvedByCourseCoordinator`, `approvedByHead`) VALUES ('',".$offeredCourseId[$i].",".$registeredTermId.",0,0,0)";
+				//echo $sql;
+				$response = $dalCourseRegistration->insert($sql);
+			}
 
+			$completed ="";
 			if($response)
 			{
-				$_SESSION['message'] = "Successfully Inserted.";
+				$completed = $dalCourseRegistration->registrationCompleted($registeredTermId);
+			}
+
+			if($response && $completed)
+			{
+				$_SESSION['message'] = "Successfully Registered. <br>Course Registration is locked for this term.";
 			}
 			else
 			{
-				$_SESSION['message'] = "Can't Insert.";
+				$_SESSION['message'] = "An error occured.<br>Can't Registered.";
 			}
 
 
@@ -149,6 +161,7 @@ class BLLCourseRegistration
 		$result = $dalCourseRegistration->getOfferedCourses($studentId);
 
 		$post = "";
+		
 		while ($res = mysqli_fetch_assoc($result))
 		 {
 		  $post.= '<option value='.$res['offeredCourseId'].'>';

@@ -79,26 +79,29 @@
 				session_start();
 			}
 			//  <!-- Profile links start-->
-			if(isset($_SESSION['logged_in'])){
+			if(isset($_SESSION['student'])){
 				echo "<li><a href='user/student/'><span class=\"glyphicon glyphicon-dashboard\"></span> MyMenu </a></li>";
-				$profile_link = "profile.php?email=".$_SESSION['logged_in'];
+				$profile_link = "profile.php?email=".$_SESSION['student'];
 				echo "<li><a href=".$profile_link."><span class=\"glyphicon glyphicon-user\"></span> Profile </a></li>";
 			}
 			else if(isset($_SESSION['admin'])){
+				echo "<li><a href=\"user/admin/index.php\"><span class=\"glyphicon glyphicon-user\"></span> Dashboard </a></li>";
+			}
+			else if(isset($_SESSION['globaladmin'])){
 				echo "<li><a href=\"dashboard/index.php\"><span class=\"glyphicon glyphicon-user\"></span> Dashboard </a></li>";
 			}
 			else if(isset($_SESSION['teacher'])){
-				echo "<li><a href=\"dashboard/index.php\"><span class=\"glyphicon glyphicon-user\"></span> Dashboard </a></li>";
+				echo "<li><a href=\"user/teacher/index.php\"><span class=\"glyphicon glyphicon-user\"></span> Dashboard </a></li>";
 			}
 			else if(isset($_SESSION['tabulator'])){
-				echo "<li><a href=\"dashboard/index.php\"><span class=\"glyphicon glyphicon-user\"></span> Dashboard </a></li>";
+				echo "<li><a href=\"user/tabulator/index.php\"><span class=\"glyphicon glyphicon-user\"></span> Dashboard </a></li>";
 			}
 			
 			//<!-- Profile links end-->
 			$btn_name="Login";
 			$btn_link = "../se/login.php";
 			
-			if(isset($_SESSION["logged_in"]) || isset($_SESSION["student"])  || isset($_SESSION["teacher"]) || isset($_SESSION["admin"]) || isset($_SESSION["tabulator"]))
+			if(isset($_SESSION["student"])  || isset($_SESSION["teacher"]) || isset($_SESSION["admin"]) || isset($_SESSION["tabulator"]))
 			{
 				$btn_name = "Logut";
 				$btn_link = "logout.php";

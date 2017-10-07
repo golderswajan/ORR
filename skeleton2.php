@@ -1,6 +1,6 @@
 <?php
 	
-	$path = "E:/Programe files/www/htdocs/se/*";
+	$path = "E:/Programe files/www/htdocs/se";
     function recursive_glob($pattern) 
     {
         $first_files = glob($pattern);

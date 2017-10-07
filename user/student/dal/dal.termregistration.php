@@ -13,6 +13,21 @@
 
 			
 		}
+		// Entry a new term registration
+		public function insert($studentId,$offeredTermId)
+		{
+			global $con;
+			$sql = "INSERT INTO registeredterm VALUES('','$studentId','$offeredTermId',0)";
+			$result = mysqli_query($con,$sql);
+			if($result)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 
 		public function getRegisteredTerm($studentId)
 		{
@@ -48,21 +63,7 @@
 			return $result;
 		}
 
-		// Entry a new term registration
-		public function insert($studentId,$offeredTermId)
-		{
-			global $con;
-			$sql = "INSERT INTO registeredterm VALUES('','$studentId','$offeredTermId')";
-			$result = mysqli_query($con,$sql);
-			if($result)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
+		
 		// Calcualte and return each registrered term credit.
 		public function getCreditRegistered($registeredTermId)
 		{

@@ -34,7 +34,7 @@
 		public function getStudentInfo($email)
 		{
 			global $con;
-			$sql = "SELECT student.studentId as studentId,varsity.id as varsityId,dept.id as deptId, varsityDept.id as varsityDeptId FROM student,user,varsitydept,varsity,dept WHERE student.userId = user.id && student.varsityDeptId = varsitydept.id && varsitydept.varsityId = varsity.id && varsitydept.deptId = dept.id && user.email = 'shahid.sm35@gmail.com'";
+			$sql = "SELECT student.studentId as studentId,varsity.id as varsityId,dept.id as deptId, varsityDept.id as varsityDeptId FROM student,user,varsitydept,varsity,dept WHERE student.userId = user.id && student.varsityDeptId = varsitydept.id && varsitydept.varsityId = varsity.id && varsitydept.deptId = dept.id && user.email = '".$email."'";
 			$result = mysqli_query($con,$sql);
 
 			return $result;
@@ -85,6 +85,68 @@
 			$data = "";
 
 			$result = $this->getStudentInfo($email);
+			while ($res = mysqli_fetch_assoc($result))
+			{
+				$data = $res['varsityDeptId'];
+			}
+			return $data;
+		}
+
+		// Retrive all data associated with teacher
+		public function getTeacherInfo($email)
+		{
+			global $con;
+			$sql = "SELECT teacher.*,varsity.id as varsityId,dept.id as deptId FROM user,teacher,varsitydept,varsity,dept WHERE user.id = teacher.userId && teacher.varsityDeptId = varsitydept.id && varsitydept.varsityId = varsity.id && varsitydept.deptId = dept.id && user.email = '".$email."'";
+			$result = mysqli_query($con,$sql);
+
+			return $result;
+		}
+
+		// Return studentId
+		public function getRole($email)
+		{
+			global $con;
+			$data = "";
+			$result = $this->getTeacherInfo($email);
+			while ($res = mysqli_fetch_assoc($result))
+			{
+				$data = $res['roleName'];
+			}
+			return $data;
+		}
+		// Return varsityId
+		public function getTeacherVarsityId($email)
+		{
+			global $con;
+			$data = "";
+			$result = $this->getTeacherInfo($email);
+			while ($res = mysqli_fetch_assoc($result))
+			{
+				$data = $res['varsityId'];
+			}
+			return $data;
+		}
+		// Return deptId
+		public function getTeacherDeptId($email)
+		{
+			global $con;
+			$data = "";
+
+			$result = $this->getTeacherInfo($email);
+			while ($res = mysqli_fetch_assoc($result))
+			{
+				$data = $res['deptId'];
+			}
+			return $data;
+		}
+
+		// Return varsityDeptId
+		public function getTeacherVarsityDeptId($email)
+		{
+			global $con;
+			$data = "";
+
+			$result = $this->getTeacherInfo($email);
 			while ($res = mysqli_fetch_assoc($result))
 			{
 				$data = $res['varsityDeptId'];

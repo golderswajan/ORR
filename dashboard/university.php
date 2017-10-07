@@ -1,5 +1,7 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'].'/se/templates/dashboardsidebar.php');
+require_once("bll/bll.university.php");
+
 
 if(isset($_SESSION['message']))
 {
@@ -25,7 +27,6 @@ if(isset($_SESSION['message']))
         </thead>
         <tbody>
            <?php
-           require_once("bll/bll.university.php");
            $content = $bllUniversity->show();
            echo $content;
            ?>
@@ -61,7 +62,7 @@ if(isset($_SESSION['message']))
          <input id="name" type="text" class="form-control" name="name" placeholder="Name of the University" required>
         <br>
         
-        <input type="submit" name="submit_insert" value="Submit" class="btn btn-primary pull-right">
+        <input type="submit" name="submit_insert_university" value="Submit" class="btn btn-primary pull-right">
         <br>
        </form>
        <div >
@@ -93,7 +94,7 @@ if(isset($_SESSION['message']))
 
         <br>
 
-        <input type="submit" name="submit_update"  value="Submit" class="btn btn-primary pull-right" >
+        <input type="submit" name="submit_update_university"  value="Submit" class="btn btn-primary pull-right" >
         <br>
        </form>
        <div >
