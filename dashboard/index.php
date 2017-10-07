@@ -2,7 +2,7 @@
 	include_once('../templates/dashboardsidebar.php');
 ?>
 <div style="padding-top: 20px;"></div>
-<h1 class="text-center">Statistics</h3>
+<h1 class="text-center h1 well alert-success">University Result & Registration Management</h3>
 <hr>
 <section style="background-color: silver;" id="Statistics">
 <div class='col-lg-12'>

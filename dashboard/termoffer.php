@@ -14,7 +14,7 @@ if(isset($_SESSION['message']))
   $msg .= ($_SESSION['message']);
   $msg .= "</div>";
   echo $msg;
-  session_unset($_SESSION['message']);
+  unset($_SESSION['message']);
 }
 ?>
 

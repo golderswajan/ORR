@@ -13,7 +13,7 @@ if(isset($_SESSION['message']))
   $msg .= ($_SESSION['message']);
   $msg .= "</div>";
   echo $msg;
-  session_unset($_SESSION['message']);
+  unset($_SESSION['message']);
 }
 ?>
 
@@ -21,7 +21,7 @@ if(isset($_SESSION['message']))
     <table class="table">
         <thead>
             <tr id="course_list">
-                <th colspan="2"><h3 class="text-center">Course Information</h3></th>
+                <th colspan="3"><h3 class="text-center">Course Information</h3></th>
             </tr>
               <tr id="course_list">
                 <th >Course</th>

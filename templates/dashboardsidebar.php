@@ -9,6 +9,17 @@ if(!isset($_SESSION))
   {
       session_start();
   }
+
+// Authentication
+  if(isset($_SESSION['globaladmin']))
+    {
+      $email = $_SESSION['globaladmin'];
+    }
+    else
+    {
+      header("Location:../login.php");
+    }
+// Authentication end
 echo '<link rel="stylesheet" type="text/css" href="/se/resources/css/dashboardsidebar.css">';
 echo '<link rel="stylesheet" type="text/css" href="/se/resources/css/bootstrap.css">';
 echo '<link rel="stylesheet" type="text/css" href="/se/resources/css/bootstrap.min.css">';

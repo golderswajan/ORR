@@ -115,10 +115,9 @@ require('../../includes/connect.php');
 // Authentication
         // Admin All information
 
-        $studentId="";
-        $varsityId = "";
-        $deptId = "";
-        $varsityDeptId = "";
+        $varsityId = 0;
+        $deptId =0;
+        $varsityDeptId =0;
 
         if(isset($_SESSION['admin']))
           {
