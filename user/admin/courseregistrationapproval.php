@@ -19,7 +19,7 @@ if(isset($_SESSION['message']))
     
     <div class="input-group">
     <select class="form form-control" name="sessionSelected" required onchange="this.form.submit()";>  
-      <option>Select a Session</option>
+      <option value="-1">Select a Session</option>
      <?php
       $approval = new DALCourseRegistrationApproval;
       $result = $approval->getSessions($varsityDeptId);
@@ -55,7 +55,7 @@ if(isset($_SESSION['message']))
     
     <div class="input-group">
     <select class="form form-control" name="degreeSelected" required onchange="this.form.submit()";>  
-      <option>Select a Degree</option>
+      <option value="-1">Select a Degree</option>
      <?php
      if(isset($_GET['sessionSelected']))
       {
@@ -96,7 +96,7 @@ if(isset($_SESSION['message']))
     <div class="input-group">
 
     <select class="form form-control" name="yearSelected" required onchange="this.form.submit()";>  
-      <option>Select a Year</option>
+      <option value="-1">Select a Year</option>
      <?php
 
      
@@ -140,7 +140,7 @@ if(isset($_SESSION['message']))
     <div class="input-group">
 
     <select class="form form-control" name="termSelected" required onchange="this.form.submit()";>  
-      <option>Select a Term</option>
+      <option value="-1">Select a Term</option>
      <?php
 
      
@@ -172,27 +172,73 @@ if(isset($_SESSION['message']))
    
 </ul>
 <div class="col-md-6 text-center">
-  <form method="GET" action="bll/bll.courseregistrationapproval.php">
+  <form method="POST">
 
      <!-- Hold previous data-->
     <input type="text" name="sessionSelected" style="display: none" value="<?php if(isset($_GET['sessionSelected'])) echo $_GET['sessionSelected']?>">
     <input type="text" name="degreeSelected" style="display: none" value="<?php if(isset($_GET['degreeSelected'])) echo $_GET['degreeSelected']?>">
     <input type="text" name="yearSelected" style="display: none" value="<?php if(isset($_GET['yearSelected'])) echo $_GET['yearSelected']?>">
     <input type="text" name="termSelected" style="display: none" value="<?php if(isset($_GET['termSelected'])) echo $_GET['termSelected']?>">
-    <input type="text" name="varsityDeptId" style="display: none" value="<?php echo $varsityDeptId?>">
+    <input type="text" name="varsityDeptId" style="display: none" value="<?php echo $varsityDeptId;?>">
     <!-- Hold previous data-->
     <!-- Finally submit this form-->
-   <input type="submit" class="btn btn-primary btn-block" name="submitCollectedData" value="Load Data">
+    <?php 
+      // if(isset($_GET['sessionSelected']) && isset($_GET['degreeSelected']) && isset($_GET['yearSelected']) && isset($_GET['termSelected']))
+
+      //   echo '<input type="submit" class="btn btn-primary btn-block" name="submitCollectedData" value="Load Data">';
+    ?>
+   
   </form>
 </div>
+<!--End of fetch phase===========================================================-->
+
+<!--Data display-->
 
 
+<div id="table">
+  <div class="col-lg-11">
+    <table class="table">
+        <thead>
+            <tr id="student_registered">
+                <th colspan="2"><h3 class="text-center">Registration Information</h3></th>
+            </tr>
+              <tr id="student_registered">
+                <th >Student Id</th>
+                <th >Full Name</th>
+                <th >Registered Credit</th>
+                <th> Edit/ View Details</th>
+                <th> Approve</th>
+            </tr>
+        </thead>
+        <tbody>
+           <?php
+              if(isset($_GET['sessionSelected']) && isset($_GET['degreeSelected']) && isset($_GET['yearSelected']) && isset($_GET['termSelected']))
+              {
+                $bllCourseRegistrationApproval = new BLLCourseRegistrationApproval;
+                $sessionSelected =  $_GET['sessionSelected'];
+                $degreeSelected =  $_GET['degreeSelected'];
+                $yearSelected =  $_GET['yearSelected'];
+                $termSelected =  $_GET['termSelected'];
+               
+
+              //  echo $sessionSelected."->".$degreeSelected."->".$yearSelected."->".$termSelected."->".$varsityDeptId;
+
+               $data = $bllCourseRegistrationApproval->show($sessionSelected,$degreeSelected,$yearSelected,$termSelected,$varsityDeptId);
+               echo $data;
+              }
+           ?>
+          
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+    </div>
+</div>
 <!--Including the js files-->
 <script type="text/javascript" src="../../resources/js/jquery.js"></script>
 <script type="text/javascript" src="../../resources/js/jquery.min.js"></script>
-<script type="text/javascript" src="../../resources/js/edit_modal.js"></script>
 <script type="text/javascript" src="../../resources/js/jquery-ui.js"></script>
-<script type="text/javascript" src="../../resources/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../../resources/jquery-ui/jquery-ui.min.js"></script>
 <script type="text/javascript" src="../../resources/js/modal.js"></script>
 
 

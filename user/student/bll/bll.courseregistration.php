@@ -36,15 +36,9 @@ class BLLCourseRegistration
 				$response = $dalCourseRegistration->insert($sql);
 			}
 
-			$completed ="";
 			if($response)
 			{
-				$completed = $dalCourseRegistration->registrationCompleted($registeredTermId);
-			}
-
-			if($response && $completed)
-			{
-				$_SESSION['message'] = "Successfully Registered. <br>Course Registration is locked for this term.";
+				$_SESSION['message'] = "Successfully Registered.";
 			}
 			else
 			{

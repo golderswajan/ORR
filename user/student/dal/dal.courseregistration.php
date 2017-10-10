@@ -92,21 +92,7 @@
 			}
 		}
 
-		// Completed course registration and block this term
-		public function registrationCompleted($registeredTermId)
-		{
-			global $con;
-			$sql = "UPDATE registeredterm SET registrationCompleted = 1 WHERE registeredterm.id = $registeredTermId";
-			$result = mysqli_query($con,$sql);
-			if($result)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
+		
 
 		// Calcualte and return each registrered term credit.
 		public function getCreditRegistered($registeredTermId)

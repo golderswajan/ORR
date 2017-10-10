@@ -21,11 +21,13 @@ require('../../includes/connect.php');
 	<link rel="stylesheet" href="../../resources/css/dropdown.css"/>
 
 
-    <script src="js/bootstrap.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script src="js/npm.js"></script>
 	<script src="js/jquery.js"></script>
 	<script src="js/header_collaps.js"></script>
+  <script type="text/javascript" src="../../resources/jquery-ui/jquery-ui.js"></script>
+  <script type="text/javascript" src="../../resources/jquery-ui/jquery-ui.min.js"></script>
 
 </head>
 <body>

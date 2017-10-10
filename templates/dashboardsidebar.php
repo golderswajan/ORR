@@ -20,15 +20,19 @@ if(!isset($_SESSION))
       header("Location:../login.php");
     }
 // Authentication end
-echo '<link rel="stylesheet" type="text/css" href="/se/resources/css/dashboardsidebar.css">';
-echo '<link rel="stylesheet" type="text/css" href="/se/resources/css/bootstrap.css">';
-echo '<link rel="stylesheet" type="text/css" href="/se/resources/css/bootstrap.min.css">';
-echo '<link rel="stylesheet" type="text/css" href="/se/resources/css/jquery-ui.css">';
-echo '<link rel="stylesheet" type="text/css" href="/se/resources/css/font-awesome.min.css">';
-echo '<link rel="stylesheet" type="text/css" href="/se/resources/css/font-awesome.css">';
-echo '<link rel="stylesheet" type="text/css" href="/se/resources/css/custom.css">';
+
 
 ?>
+
+<link rel="stylesheet" type="text/css" href="/se/resources/css/dashboardsidebar.css">
+<link rel="stylesheet" type="text/css" href="/se/resources/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/se/resources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/se/resources/css/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="/se/resources/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/se/resources/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="/se/resources/css/custom.css">
+
+
 <script type="text/javascript" >
   
 function expandNav() {

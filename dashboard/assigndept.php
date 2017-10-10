@@ -90,7 +90,7 @@ if(isset($_SESSION['message']))
 
              $obj = $bllAssignDept->showBySelection($_SESSION['varsityId']);
              echo $obj;
-             session_unset($_SESSION['varsityId']);
+             unset($_SESSION['varsityId']);
            }
            else
            {

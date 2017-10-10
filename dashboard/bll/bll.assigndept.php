@@ -36,7 +36,6 @@ class BLLAssignDept
 
 			if($response)
 			{
-				session_unset();
 
 				$_SESSION['message'] = "Successfully Inserted.";
 			}

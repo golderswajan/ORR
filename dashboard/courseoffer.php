@@ -110,7 +110,7 @@ if(isset($_SESSION['message']))
             $id = '<input  type="text"  name="offered_term_id" value="'.$_SESSION['term_select_submited'].'" style="display: none";>';
             echo $id;
 
-            //session_unset($_SESSION['term_select_submited']);
+            unset($_SESSION['term_select_submited']);
 
           }
          ?>
