@@ -1,12 +1,7 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'].'/se/templates/dashboardsidebar.php');
-include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.university.php');
-include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.term.php');
-include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.year.php');
-include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.department.php');
-include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.termoffer.php');
-include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.degree.php');
-include_once($_SERVER['DOCUMENT_ROOT'].'/se/dashboard/dal/dal.session.php');
+include_once("bll/bll.termoffer.php");
+include('header.php');
+$bllTermOffer = new BLLTermOffer;
 
 if(isset($_SESSION['message']))
 {
@@ -25,10 +20,9 @@ if(isset($_SESSION['message']))
                 <th colspan="2"><h3 class="text-center">Term Offer Information</h3></th>
             </tr>
               <tr id="termoffer_list">
-                <th >University</th>
-                <th >Department</th>
+                <th >Degree</th>
                 <th >Session</th>
-                <th >Term</th>
+                <th >Year-Term</th>
                 <th >Status</th>
                 <th class="text-right"> Edit / End</th>
                 <!--th class="text-right"> Delete</th-->
@@ -36,18 +30,10 @@ if(isset($_SESSION['message']))
         </thead>
         <tbody>
            <?php
-           require_once("bll/bll.termoffer.php");
-           $content = $bllTermOffer->show();
-           echo $content;
+           $data = $bllTermOffer->show($varsityDeptId);
+           echo $data;
            ?>
         </tbody>
-        <tfoot>
-            <!--tr>
-                <td></td>
-                <td>Total</td>
-                <td>33</td>
-            </tr-->
-        </tfoot>
     </table>
 </div>
 
@@ -67,27 +53,14 @@ if(isset($_SESSION['message']))
 
      <div class="modal-body">
       <form action="bll/bll.termoffer.php" method="POST" onsubmit="reload_page();">
-      <input id="id" type="text"  name="id" style="display: none";>
-         <span class="badge badge-success">University</span>
-         <select class="form-control" id="varsityId" name="varsityId">
-         <?php
-          $options = "";
-          $obj = new DALUniversity;
-          $result = $obj->get();
-          while($res = mysqli_fetch_assoc($result))
-          {
-            $options .= '<option value="'.$res['id'].'">'.$res['name'].'</option>';
-          }
-          echo $options;
-         ?>
-        </select>
+      <input id="id" type="text" value="<?php echo $varsityDeptId;?>" name="varsityDeptId" style="display: none";>
+       
 
-        <span class="badge badge-success">Department</span>
-         <select class="form-control" id="deptId" name="deptId">
+        <span class="badge badge-success">Degree</span>
+         <select class="form-control" id="degreeId" name="degreeId">
          <?php
           $options = "";
-          $obj = new DALDepartment;
-          $result = $obj->get();
+          $result = $bllTermOffer->getDegrees($varsityDeptId);
           while($res = mysqli_fetch_assoc($result))
           {
             $options .= '<option value="'.$res['id'].'">'.$res['name'].'</option>';
@@ -100,8 +73,7 @@ if(isset($_SESSION['message']))
          <select class="form-control" id="yearId" name="yearId">
          <?php
           $options = "";
-          $obj = new DALYear;
-          $result = $obj->get();
+          $result = $bllTermOffer->getYears($varsityDeptId);
           while($res = mysqli_fetch_assoc($result))
           {
             $options .= '<option value="'.$res['id'].'">'.$res['year'].'</option>';
@@ -113,8 +85,8 @@ if(isset($_SESSION['message']))
          <select class="form-control" id="termId" name="termId">
          <?php
           $options = "";
-          $obj = new DALTerm;
-          $result = $obj->get();
+
+          $result = $bllTermOffer->getTerms($varsityDeptId);
           while($res = mysqli_fetch_assoc($result))
           {
             $options .= '<option value="'.$res['id'].'">'.$res['term'].'</option>';
@@ -123,27 +95,13 @@ if(isset($_SESSION['message']))
          ?>
         </select>
 
-        <span class="badge badge-success">Degree</span>
-         <select class="form-control" id="degreeId" name="degreeId">
-         <?php
-          $options = "";
-          $obj = new DALDegree;
-          $result = $obj->get();
-          while($res = mysqli_fetch_assoc($result))
-          {
-            $options .= '<option value="'.$res['id'].'">'.$res['name'].'</option>';
-          }
-          echo $options;
-         ?>
-        </select>
 
         <span class="badge badge-success">Session</span>
          <select class="form-control" id="sessionId" name="sessionId">
       
          <?php
           $options = "";
-          $obj = new DALSession;
-          $result = $obj->get();
+          $result = $bllTermOffer->getSessions($varsityDeptId);
           while($res = mysqli_fetch_assoc($result))
           {
             $options .= '<option value="'.$res['id'].'">'.$res['sessionName'].'</option>';
@@ -178,28 +136,15 @@ if(isset($_SESSION['message']))
 
 <div class="modal-body">
       <form action="bll/bll.termoffer.php" method="POST" onsubmit="reload_page();">
+        <input  type="text" id="varsityDeptId_update" name="varsityDeptId" style="display: none";>
         <input  type="text" id="id_update" name="id" style="display: none";>
         
-         <span class="badge badge-success">University</span>
-         <select class="form-control" id="varsityId_update" name="varsityId">
-         <?php
-          $options = "";
-          $obj = new DALUniversity;
-          $result = $obj->get();
-          while($res = mysqli_fetch_assoc($result))
-          {
-            $options .= '<option value="'.$res['id'].'">'.$res['name'].'</option>';
-          }
-          echo $options;
-         ?>
-        </select>
 
-        <span class="badge badge-success">Department</span>
-         <select class="form-control" id="deptId_update" name="deptId">
+        <span class="badge badge-success">Degree</span>
+         <select class="form-control" id="degreeId_update" name="degreeId">
          <?php
           $options = "";
-          $obj = new DALDepartment;
-          $result = $obj->get();
+          $result = $bllTermOffer->getDegrees($varsityDeptId);
           while($res = mysqli_fetch_assoc($result))
           {
             $options .= '<option value="'.$res['id'].'">'.$res['name'].'</option>';
@@ -212,8 +157,7 @@ if(isset($_SESSION['message']))
          <select class="form-control" id="yearId_update" name="yearId">
          <?php
           $options = "";
-          $obj = new DALYear;
-          $result = $obj->get();
+          $result = $bllTermOffer->getYears($varsityDeptId);
           while($res = mysqli_fetch_assoc($result))
           {
             $options .= '<option value="'.$res['id'].'">'.$res['year'].'</option>';
@@ -225,25 +169,10 @@ if(isset($_SESSION['message']))
          <select class="form-control" id="termId_update" name="termId">
          <?php
           $options = "";
-          $obj = new DALTerm;
-          $result = $obj->get();
+          $result = $bllTermOffer->getTerms($varsityDeptId);
           while($res = mysqli_fetch_assoc($result))
           {
             $options .= '<option value="'.$res['id'].'">'.$res['term'].'</option>';
-          }
-          echo $options;
-         ?>
-        </select>
-
-        <span class="badge badge-success">Degree</span>
-         <select class="form-control" id="degreeId_update" name="degreeId">
-         <?php
-          $options = "";
-          $obj = new DALDegree;
-          $result = $obj->get();
-          while($res = mysqli_fetch_assoc($result))
-          {
-            $options .= '<option value="'.$res['id'].'">'.$res['name'].'</option>';
           }
           echo $options;
          ?>
@@ -254,8 +183,7 @@ if(isset($_SESSION['message']))
       
          <?php
           $options = "";
-          $obj = new DALSession;
-          $result = $obj->get();
+          $result = $bllTermOffer->getSessions($varsityDeptId);
           while($res = mysqli_fetch_assoc($result))
           {
             $options .= '<option value="'.$res['id'].'">'.$res['sessionName'].'</option>';
@@ -300,7 +228,7 @@ if(isset($_SESSION['message']))
 <script type="text/javascript">
 
 // Function that call from bll to edit items
-function EditTermOffer(id,yearId,termId,varsityId,deptId,degreeId,sessionId)
+function EditTermOffer(id,yearId,termId,degreeId,sessionId,varsityDeptId)
 {
 
   modalUpdate.style.display = "block"; // show the modal
@@ -309,13 +237,12 @@ function EditTermOffer(id,yearId,termId,varsityId,deptId,degreeId,sessionId)
   //var $row = $('#row_id'+id+'').closest("tr");
 
   // Update value into textbox
-  $('#id_update').attr('value',id);
-  $('#varsityId_update').val(varsityId);
-  $('#deptId_update').val(deptId);
+  $('#id_update').val(id);
   $('#yearId_update').val(yearId);
   $('#termId_update').val(termId);
   $('#degreeId_update').val(degreeId);
   $('#sessionId_update').val(sessionId);
+  $('#varsityDeptId_update').val(varsityDeptId);
 
 }
 
