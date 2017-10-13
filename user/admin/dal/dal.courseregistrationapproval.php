@@ -18,7 +18,7 @@
 		public function getSessions($varsityDeptId)
 		{
 			global $con;
-			$sql = "SELECT DISTINCT(session.id) as sessionId,session.sessionName FROM session,offeredterm WHERE session.id = offeredterm.sessionId && offeredterm.varsityDeptId = $varsityDeptId";
+			$sql = "SELECT DISTINCT(session.id) as sessionId,session.sessionName FROM session,offeredterm WHERE session.id = offeredterm.sessionId && offeredterm.varsityDeptId = $varsityDeptId ORDER BY session.sessionName DESC";
 			$result = mysqli_query($con,$sql);
 
 			return $result;
@@ -28,7 +28,7 @@
 		public function getDegrees($varsityDeptId,$sessionId)
 		{
 			global $con;
-			$sql = "SELECT DISTINCT(degree.id) AS degreeId,degree.name as degreeName FROM offeredterm,degree WHERE offeredterm.degreeId = degree.id && offeredterm.varsityDeptId = $varsityDeptId && offeredterm.sessionId = $sessionId";
+			$sql = "SELECT DISTINCT(degree.id) AS degreeId,degree.name as degreeName FROM offeredterm,degree WHERE offeredterm.degreeId = degree.id && offeredterm.varsityDeptId = $varsityDeptId && offeredterm.sessionId = $sessionId ORDER BY degree.name ASC";
 			$result = mysqli_query($con,$sql);
 
 			return $result;
@@ -38,7 +38,7 @@
 		public function getYears($varsityDeptId,$sessionId,$degreeId)
 		{
 			global $con;
-			$sql = "SELECT offeredterm.yearId,year.year as yearName FROM offeredterm,year WHERE offeredterm.yearId = year.id && offeredterm.sessionId = $sessionId && offeredterm.degreeId = $degreeId && offeredterm.varsityDeptId = $varsityDeptId";
+			$sql = "SELECT offeredterm.yearId,year.year as yearName FROM offeredterm,year WHERE offeredterm.yearId = year.id && offeredterm.sessionId = $sessionId && offeredterm.degreeId = $degreeId && offeredterm.varsityDeptId = $varsityDeptId ORDER BY year.year ASC";
 			$result = mysqli_query($con,$sql);
 
 			return $result;
@@ -48,7 +48,7 @@
 		public function getTerms($varsityDeptId,$sessionId,$degreeId,$yearId)
 		{
 			global $con;
-			$sql = "SELECT term.id as termId,term.term AS termName FROM offeredterm,term WHERE offeredterm.termId = term.id && offeredterm.varsityDeptId = $varsityDeptId && offeredterm.degreeId = $degreeId && offeredterm.sessionId = $sessionId && offeredterm.yearId = $yearId";
+			$sql = "SELECT term.id as termId,term.term AS termName FROM offeredterm,term WHERE offeredterm.termId = term.id && offeredterm.varsityDeptId = $varsityDeptId && offeredterm.degreeId = $degreeId && offeredterm.sessionId = $sessionId && offeredterm.yearId = $yearId ORDER BY term.term ASC";
 			$result = mysqli_query($con,$sql);
 
 			return $result;

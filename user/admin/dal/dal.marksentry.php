@@ -90,7 +90,7 @@
 			while ($res = mysqli_fetch_assoc($registeredCourses))
 			{
 				$registeredCourseId = $res['registeredCourseId'];
-				$this->insertIntoMarks($registeredCourseId);
+				$resultInsert = $this->insertIntoMarks($registeredCourseId);
 				$returnMessage .= "Marks Fields Created. <br>";
 				
 			}
@@ -111,7 +111,7 @@
 					// inner most loop :-P
 					foreach($sectionIds as $sectionId)
 					{
-						$sqlInsertMarkSection = "INSERT INTO marksection VALUES('',".$markId.",".$sectionId.")";
+						$sqlInsertMarkSection = "INSERT INTO marksection VALUES('',".$markId.",".$sectionId.",0)";
 						$resultMarkSection = mysqli_query($con,$sqlInsertMarkSection);
 					}
 					$returnMessage .= "Marks Sections Created <br>";
@@ -127,6 +127,15 @@
 			global $con;
 			$sql_marks = "INSERT INTO mark VALUES('',$registeredCourseId,0)";
 			mysqli_query($con,$sql_marks);
+		}
+
+		public function getHeaders($offeredCourseId)
+		{
+			global $con;
+			$sql = "SELECT section.name as sectionName,section.id as sectionId,section.percentage FROM section,marksection,mark,registeredcourse WHERE section.id = marksection.sectionId && marksection.markId = mark.id && mark.registeredCourseId = registeredcourse.id && registeredcourse.offeredCourseId = $offeredCourseId";
+			$result = mysqli_query($con,$sql);
+
+			return $result;
 		}
 
 	}

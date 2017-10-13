@@ -34,19 +34,22 @@ class BLLMarksEntry
         	// BE CAREFUL
 
 			$response=$dalMarksEntry->createMarksField($sessionSelected,$degreeSelected,$yearSelected,$termSelected,$offeredCourseSelected,$sectionSelected,$varsityDeptId);
+			echo $response;
 			// Redirect to call page as soon as task done.
 			if($response)
 			{
 				$_SESSION['message'] = $response;
 			}
-			else
-			{
-
-				$_SESSION['message'] = "Can't create marks field.";
-			}
-
 			header('Location:'.$_SERVER['HTTP_REFERER']);
 			exit();
+		}
+
+		if(isset($_POST['marksentry']))
+		{
+			echo($_POST['marksentry']);
+			echo($_POST['5']);
+			echo($_POST['6']);
+			echo($_POST['7']);
 		}
 
 	}
@@ -69,13 +72,39 @@ class BLLMarksEntry
 		$result = $dalMarksEntry->getRegisteredCourses($sessionId,$degreeId,$yearId,$termId,$offeredCourseId,$varsityDeptId);
 
 		$data = "";
+		$i=1;
 		while ($res = mysqli_fetch_assoc($result))
 		{
-			$registeredCourseId;
-			$data.= '<tr>';
-			$data.= '<td>'.$res['studentId'].'</td>';
-			$data.= '<td>'.$res['registeredCourseId'].'</td>';
+			$registeredCourseId = $res['registeredCourseId'];
+			$data.= '<tr id="'.$registeredCourseId.'">';
+			$data.= '<td>'.$i++.'</td>';
+			$data.= '<td name="'.$res['studentId'].'">'.$res['studentId'].'</td>';
+
+			$headers = $dalMarksEntry->getHeaders($offeredCourseId);
+
+			while($header = mysqli_fetch_assoc($headers))
+			{
+				// max = sectionPercentage
+				// name = sectionId
+			    $data.='<td><input type="number" max="'.$header['percentage'].'" min="0" class="form-control" name="'.$header['sectionId'].'"></td>';
+			}
+
 			$data.= '</tr>';
+		}
+		return $data;
+
+	}
+
+	// marks entry table header except serial and studnetId
+	public function getHeaders($offeredCourseId)
+	{
+		$dalMarksEntry = new DALMarksEntry;
+		$result = $dalMarksEntry->getHeaders($offeredCourseId);
+
+		$data = "";
+		while ($res = mysqli_fetch_assoc($result))
+		{
+			$data.= '<td>'.$res['sectionName'].'</td>';
 		}
 		return $data;
 

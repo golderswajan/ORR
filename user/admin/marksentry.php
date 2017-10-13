@@ -254,7 +254,7 @@ if(isset($_SESSION['message']))
         echo $post;
 
       $submit = '&nbsp;&nbsp;&nbsp;&nbsp;';
-      $submit .='<input type="submit" name="load_mark_table" value="Load Mark Table" class="btn btn-primary">';
+      $submit .='<input type="submit" name="load_mark_table" value="Create Mark Table" class="btn btn-primary">';
       echo $submit;
       }
     ?>
@@ -267,17 +267,27 @@ if(isset($_SESSION['message']))
 <!--End of fetch phase===========================================================-->
 
 <!--Data display-->
-
+<form action="bll/bll.marksentry.php" method="POST">
 <div id="table">
-  <div class="col-lg-11">
+  <div class="col-lg-12">
     <table class="table">
         <thead>
             <tr id="student_registered">
                 <th colspan="2"><h3 class="text-center">Marks Entry Table</h3></th>
             </tr>
               <tr id="student_registered">
-                <th >SL</th>
-                <th >Student Id</th>
+                <th>SL</th>
+                <th>Student No</th>
+                <?php
+                  if(isset($_GET['sessionSelected']) && isset($_GET['degreeSelected']) && isset($_GET['yearSelected']) && isset($_GET['termSelected']) && isset($_GET['offeredCourseSelected']))
+                  {
+                    $offeredCourseSelected =  $_GET['offeredCourseSelected'];
+        
+                    $bllMarksEntry = new BLLMarksEntry;
+                    $result = $bllMarksEntry->getHeaders($offeredCourseSelected);
+                   echo $result;
+                  }
+                ?>
             </tr>
         </thead>
         <tbody>
@@ -298,10 +308,13 @@ if(isset($_SESSION['message']))
           
         </tbody>
         <tfoot>
+
         </tfoot>
     </table>
     </div>
 </div>
+<input type="submit" name="marksentry" class="btn btn-primary pull-right" value="Submit Data">
+</form>
 <!--Including the js files-->
 <script type="text/javascript" src="../../resources/js/jquery.js"></script>
 <script type="text/javascript" src="../../resources/js/jquery.min.js"></script>
