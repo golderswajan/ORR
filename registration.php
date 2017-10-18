@@ -12,12 +12,17 @@ if(isset($_POST['submit'])){
 	$email = $_POST['email'];
 	$password = $_POST["password"];
 	//$password = md5($rawPassword);
+	$_SESSION['email'] = $email;
 	
 	$response = $functions->userRegister($userType,$username,$fullname,$sex,$email,$password);
 	if($response)
 	{
-		$_SESSION['message'] = "Registration Successful !";
-		$functions->redirect("login.php");
+		$_SESSION['message'] = "Please Complete Registration !";
+		if($userType==4)// Student
+		{
+			$functions->redirect('complete_registration.php');
+
+		}
 		
 	}
 	else

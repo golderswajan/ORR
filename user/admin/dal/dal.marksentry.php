@@ -79,6 +79,22 @@
 
 			return $result;
 		}
+		public function getMarkSectionsByRegisteredCourseId($registeredCourseId)
+		{
+			global $con;
+			$sql = "SELECT section.* FROM section,marksection,mark WHERE marksection.sectionId = section.id && marksection.markId = mark.id && mark.registeredCourseId = $registeredCourseId ORDER BY section.name ASC";
+			$result = mysqli_query($con,$sql);
+
+			return $result;
+		}
+		public function getMarkSectionsCount($registeredCourseId)
+		{
+			global $con;
+			$sql = "SELECT COUNT(section.id) as numSections FROM section,marksection,mark WHERE marksection.sectionId = section.id && marksection.markId = mark.id && mark.registeredCourseId = $registeredCourseId ORDER BY section.name ASC";
+			$result = mysqli_query($con,$sql);
+
+			return $result;
+		}
 
 		public function createMarksField($sessionId,$degreeId,$yearId,$termId,$offeredCourseId,$sectionIds,$varsityDeptId)
 		{
@@ -128,15 +144,38 @@
 			$sql_marks = "INSERT INTO mark VALUES('',$registeredCourseId,0)";
 			mysqli_query($con,$sql_marks);
 		}
-
-		public function getHeaders($offeredCourseId)
+		//------------Marks entry total-----------------------
+		public function updateTotalMarks($registeredCourseId,$totalMarks)
 		{
 			global $con;
-			$sql = "SELECT section.name as sectionName,section.id as sectionId,section.percentage FROM section,marksection,mark,registeredcourse WHERE section.id = marksection.sectionId && marksection.markId = mark.id && mark.registeredCourseId = registeredcourse.id && registeredcourse.offeredCourseId = $offeredCourseId";
-			$result = mysqli_query($con,$sql);
-
-			return $result;
+			$sql_marks = "UPDATE mark SET totalMark = $totalMarks WHERE mark.registeredCourseId = $registeredCourseId";
+			$result = mysqli_query($con,$sql_marks);
+			if($result)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
+		//------------Marks entry Section wise-----------------------
+		public function updateSectionMarks($registeredCourseId,$sectionId,$marks)
+		{
+			global $con;
+			$sql_marks = "UPDATE marksection,mark SET marksection.mark = $marks WHERE marksection.sectionId = $sectionId && marksection.markId = mark.id && mark.registeredCourseId = $registeredCourseId";
+			//echo $sql_marks;
+			$result = mysqli_query($con,$sql_marks);
+			if($result)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
 
 	}
 

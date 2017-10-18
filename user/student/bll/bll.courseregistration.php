@@ -155,16 +155,23 @@ class BLLCourseRegistration
 		$result = $dalCourseRegistration->getOfferedCourses($studentId);
 
 		$post = "";
+		if($result)
+		{
+			while ($res = mysqli_fetch_assoc($result))
+			 {
+			  $post.= '<option value='.$res['offeredCourseId'].'>';
+	          $post.= $res["prefix"].' '.$res['courseNo'];
+	          $post.= ' -> '.$res["courseTitle"];
+	          $post.= ' -> '.$res["credit"];
+	          $post.= '</option>';
+				
+			 }
+		}
+		else
+		{
+			$post.="<option disable='disable'>No Course is available to register.</option>";
+		}		
 		
-		while ($res = mysqli_fetch_assoc($result))
-		 {
-		  $post.= '<option value='.$res['offeredCourseId'].'>';
-          $post.= $res["prefix"].' '.$res['courseNo'];
-          $post.= ' -> '.$res["courseTitle"];
-          $post.= ' -> '.$res["credit"];
-          $post.= '</option>';
-			
-		 }
 		 return $post;
 	}
 

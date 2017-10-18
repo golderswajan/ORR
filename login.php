@@ -10,7 +10,7 @@ if(isset($_SESSION['message']))
 	$info .= "</div>";
 	
 	echo $info;
-	session_unset($_SESSION['message']);
+	unset($_SESSION['message']);
 }
 // Access denied for logged users
 if(isset($_SESSION['logged_in']))

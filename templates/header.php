@@ -31,12 +31,13 @@
 		  background-attachment:fixed;
           font-family:Verdana;
       }
-      #bg1{
-      	background-color: #f6fbf4;
+      #ubuntu{
+      	font-family: "Ubuntu Mono", Times, serif;
+      	font-size: 16px;
       }
   </style>
 </head>
-<body id="bg1">
+<body>
 
 
 <div class="navbar-header">

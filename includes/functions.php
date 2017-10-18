@@ -97,10 +97,21 @@
 			
 		}
 
+		function studentRegisterComplete($email,$studentId,$batch,$varsityId,$deptId)
+		{
+			global $con;
+			
+			$queryUser = "INSERT INTO student VALUES('',".$studentId.",'".$batch."',(SELECT user.id FROM user WHERE email = '".$email."'),(SELECT varsitydept.id FROM varsitydept WHERE varsitydept.varsityId = ".$varsityId." && varsitydept.deptId = ".$deptId."))";
+			$resultUser =mysqli_query($con,$queryUser);
+			
+			return $resultUser;
+			
+		}
+
 		function userLogin($email,$password)
 		{
 			global $con;
-			$sql = "SELECT user.*,role.roleName FROM user,role WHERE user.roleId = role.id && user.email = '".$email."' && user.password = '".$password."'";
+			$sql = "SELECT user.*,role.roleName FROM user,role WHERE user.active=1 && user.roleId = role.id && user.email = '".$email."' && user.password = '".$password."'";
 			$resultUser =mysqli_query($con,$sql);
 
 
@@ -151,20 +162,26 @@
 			$sqlTeacher = "SELECT * FROM teacher WHERE userId = ".$userId;
 			$resultTeacher = mysqli_query($con,$sqlTeacher);
 			
-			while($res = mysqli_fetch_assoc($resultTeacher))
+			if($resultTeacher)
 			{
-				$arr = array('table' => 'teacher', 'id' => $res['id']);
-				return $arr;
+				while($res = mysqli_fetch_assoc($resultTeacher))
+				{
+					
+					return 'teacher';
+				}
 			}
 
 			// Search Student
 			$sqlStudent = "SELECT * FROM student WHERE userId = ".$userId;
 			$resultStudent = mysqli_query($con,$sqlStudent);
 
-			while($res = mysqli_fetch_assoc($resultStudent))
+			if($resultStudent)
 			{
-				$arr = array('table' => 'student', 'id' => $res['id']);
-				return $arr;
+				while($res = mysqli_fetch_assoc($resultStudent))
+				{
+					
+					return 'student';
+				}
 			}
 			
 		}
@@ -194,6 +211,7 @@
 			$result = mysqli_query($con,$sql);
 			return $result;
 		}
+
 
 
 	}

@@ -65,7 +65,7 @@
     </div>
     <div class="panel-body">
       <div class="row">
-        <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://cdn.slidesharecdn.com/profile-photo-shahidcseku-48x48.jpg" class="img-circle img-responsive"> </div>
+        <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="resources/img/user.jpg" class="img-circle img-responsive"> </div>
     
         <div class=" col-md-9 col-lg-9 "> 
         <div class="panel-heading alert-success">
@@ -104,6 +104,8 @@
 <?php
    include('./includes/profile.blade.php');
 ?>
+
+
 
 <!--Extra Information Display end-->
 

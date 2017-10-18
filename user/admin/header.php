@@ -29,6 +29,14 @@ require('../../includes/connect.php');
   <script type="text/javascript" src="../../resources/jquery-ui/jquery-ui.js"></script>
   <script type="text/javascript" src="../../resources/jquery-ui/jquery-ui.min.js"></script>
 
+<style type="text/css">
+    #ubuntu{
+        font-family: "Ubuntu Mono", Times, serif;
+        font-size: 18px;
+        /*font-style: italic;*/
+        font-weight: bold;
+      }
+</style>
 </head>
 <body>
 

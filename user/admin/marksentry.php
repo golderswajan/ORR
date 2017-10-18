@@ -266,7 +266,7 @@ if(isset($_SESSION['message']))
 
 <!--End of fetch phase===========================================================-->
 
-<!--Data display-->
+<!--Data Grid CRUD-->
 <form action="bll/bll.marksentry.php" method="POST">
 <div id="table">
   <div class="col-lg-12">
@@ -281,10 +281,15 @@ if(isset($_SESSION['message']))
                 <?php
                   if(isset($_GET['sessionSelected']) && isset($_GET['degreeSelected']) && isset($_GET['yearSelected']) && isset($_GET['termSelected']) && isset($_GET['offeredCourseSelected']))
                   {
-                    $offeredCourseSelected =  $_GET['offeredCourseSelected'];
+                    $offeredCourseId =  $_GET['offeredCourseSelected'];
+                    $sessionId =  $_GET['sessionSelected'];
+                    $degreeId =  $_GET['degreeSelected'];
+                    $yearId =  $_GET['yearSelected'];
+                    $termId =  $_GET['termSelected'];
+                   
         
                     $bllMarksEntry = new BLLMarksEntry;
-                    $result = $bllMarksEntry->getHeaders($offeredCourseSelected);
+                    $result = $bllMarksEntry->getHeaders($sessionId,$degreeId,$yearId,$termId,$offeredCourseId,$varsityDeptId);
                    echo $result;
                   }
                 ?>
@@ -311,6 +316,7 @@ if(isset($_SESSION['message']))
 
         </tfoot>
     </table>
+
     </div>
 </div>
 <input type="submit" name="marksentry" class="btn btn-primary pull-right" value="Submit Data">
