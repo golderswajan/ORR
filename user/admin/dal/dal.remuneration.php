@@ -75,7 +75,7 @@
 		public function getRemunerationReport($sessionId,$degreeId,$yearId,$termId,$varsityDeptId)
 		{
 			global $con;
-			$sql = "SELECT COUNT(registeredcourse.id) as noScripts,user.fullName,course.prefix,course.courseNo FROM registeredcourse,offeredcourse,course,registeredterm,offeredterm,offeredteacher,teacher,user WHERE registeredcourse.offeredCourseId = offeredcourse.id && offeredcourse.courseId = course.id && offeredcourse.offeredTermId = offeredterm.id && offeredteacher.offeredCourseId = offeredcourse.id && offeredteacher.teacherId = teacher.id && teacher.userId = user.id && offeredterm.degreeId = $degreeId && offeredterm.sessionId = $sessionId && offeredterm.yearId = $yearId && offeredterm.termId = $termId && offeredterm.varsityDeptId = $varsityDeptId GROUP BY user.id";
+			$sql = "SELECT COUNT(registeredcourse.id) as noScripts,user.fullName,course.prefix,course.courseNo FROM registeredcourse,offeredcourse,course,offeredterm,offeredteacher,teacher,user WHERE registeredcourse.offeredCourseId = offeredcourse.id && offeredcourse.courseId = course.id && offeredcourse.offeredTermId = offeredterm.id && offeredteacher.offeredCourseId = offeredcourse.id && offeredteacher.teacherId = teacher.id && teacher.userId = user.id && offeredterm.degreeId = $degreeId && offeredterm.sessionId = $sessionId && offeredterm.yearId = $yearId && offeredterm.termId = $termId && offeredterm.varsityDeptId = $varsityDeptId GROUP BY user.id";
 			$result = mysqli_query($con,$sql);
 
 			return $result;

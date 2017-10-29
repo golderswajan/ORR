@@ -25,7 +25,7 @@ class BLLRemuneration
 		 	$data.="<td>";
 		 	$data.= $res['prefix']." ".$res['courseNo'];
 		 	$data.="</td>";
-		 	$data.="<td>";
+		 	$data.="<td colspan='2'>";
 		 	$data.= $res['fullName'];
 		 	$data.="</td>";
 		 	$data.="<td>";

@@ -10,7 +10,7 @@ if(isset($_SESSION['message']))
   unset($_SESSION['message']);
 }
 ?>
-<h3 class="alert alert-info text-center">Course Wise Rmuneration</h3>
+<h3 class="alert alert-info text-center">Course Wise Remuneration</h3>
 <ul class="list-inline">
 <li class="list-item">
 <!--Session Selection-->
@@ -199,9 +199,9 @@ if(isset($_SESSION['message']))
     <table class="table  table-bordered">
         <thead>
             <th>Course No</th>
-            <th>Name of the Examiners</th>
-            <th>No. of Questions</th>
-            <th>No. of scripts</th>
+            <th colspan="2">Name of the Examiners</th>
+            <th>No. of <br>Questions</th>
+            <th>No. of <br>Scripts</th>
         </thead>
         <tbody>
 <?php
