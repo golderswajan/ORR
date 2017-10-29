@@ -264,7 +264,7 @@ if(isset($_SESSION['message']))
 </li>
 </ul>
 
-<!--End of fetch phase===========================================================-->
+<!--End of fetch phase=========================================-->
 
 <!--Data Grid CRUD-->
 <form action="bll/bll.marksentry.php" method="POST">

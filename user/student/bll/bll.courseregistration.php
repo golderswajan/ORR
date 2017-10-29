@@ -3,7 +3,6 @@
 *  UNIVERSITY BUISENESS LOGIC LAYER
 *  CONNECTS BETWEEN DATA ACCESS LAYER AND PRESENTATION LAYER
 */
-
 include_once($_SERVER['DOCUMENT_ROOT'].'/se/user/student/dal/dal.courseregistration.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/se/user/student/dal/dal.termregistration.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/se/user/utility.php');

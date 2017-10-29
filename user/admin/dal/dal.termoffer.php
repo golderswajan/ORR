@@ -24,7 +24,7 @@
 		public function getById($id)
 		{
 			global $con;
-			$sql = "SELECT * FROM offeredterm WHERE id=".$id;
+			$sql = "SELECT degree.name as degreeName,session.sessionName,year.year,term.term,offeredterm.* FROM offeredterm,degree,session,year,term WHERE offeredterm.degreeId = degree.id && offeredterm.sessionId = session.id && offeredterm.yearId = year.id && offeredterm.termId = term.id && offeredterm.id=".$id;
 			$result = mysqli_query($con,$sql);
 
 			return $result;

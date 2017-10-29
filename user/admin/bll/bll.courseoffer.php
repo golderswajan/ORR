@@ -1,0 +1,241 @@
+<?php
+
+include_once($_SERVER['DOCUMENT_ROOT'].'/se/user/admin/dal/dal.courseoffer.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/se/user/admin/dal/dal.termoffer.php');
+
+// To activate the constructior crating an object. 
+$bllCourseOffer = new BLLCourseOffer;
+
+class BLLCourseOffer
+{
+
+	function __construct()
+	{
+
+		$dalCourseOffer = new DALCourseOffer;
+
+
+		// Submit form to insert data 
+		if(isset($_POST['term_select_submit']))
+		{
+			$offeredTermId = $_POST['term_select_submit'];
+			$response = $dalCourseOffer->getById($offeredTermId);
+			
+			if($response)
+			{
+				$_SESSION['term_select_submited'] = $offeredTermId;
+				$_SESSION['message'] = "Successfully Retrived.";
+			}
+			else
+			{
+				$_SESSION['message'] = "Can't Retrive Courses.";
+			}
+
+
+			// Redirect to call page as soon as task done.
+
+			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/courseoffer.php');
+			exit();
+		}
+		if(isset($_POST['insert_submit_courseoffer']))
+		{
+			$response=false;
+			$offeredTermId = $_POST['offered_term_id'];
+			$courses = $_POST['courses'];
+
+			// Block duplicate entry
+			session_unset();
+
+			$count = count($courses);
+
+			for($i=0;$i<$count;$i++)
+			{
+				$sql = "INSERT INTO offeredcourse VALUES(' ',".$offeredTermId.",".$courses[$i].")";
+				$result = $dalCourseOffer->insertMultiple($sql);
+
+				
+				if(!$result)
+				{
+					break;
+				}
+				$response = true;
+				
+			}
+
+			if($response)
+			{
+				
+
+				$_SESSION['message'] = "Successfully Inserted.";
+			}
+			else
+			{
+				$_SESSION['message'] = "Can't Insert.";
+			}
+
+			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/courseoffer.php');
+			exit();
+		}
+
+		if(isset($_GET['term_select']))
+		{
+			$offeredTermId = $_GET['term_select'];
+			$response = $dalCourseOffer->getById($offeredTermId);
+			
+			if($response)
+			{
+				$_SESSION['term_submitted'] = $offeredTermId;
+				$_SESSION['message'] = "Successfully Retrived.";
+			}
+			else
+			{
+				$_SESSION['message'] = "Can't Retrive Courses.";
+			}
+
+
+			// Redirect to call page as soon as task done.
+			//header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/courseoffer.php');
+			//exit();
+		}
+		
+		//	Actually geting this request form confirm_delete.js
+		if(isset($_GET['submit_delete']))
+		{
+			$id = $_GET['submit_delete'];
+			$response = $dalCourseOffer->delete($id);
+			
+			// Redirect to call page as soon as task done.
+			if($response)
+			{
+				$_SESSION['message'] = "Successfully Deleted";
+			}
+			else 
+			{
+				$_SESSION['message'] = "Can't Delete";
+			}
+			// Redirect to call page as soon as task done.
+			
+			header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/se/dashboard/courseoffer.php');
+			exit();
+		}
+
+	}
+
+	// Display the list of libraries
+	public function show()
+	{
+		$dalCourseOffer = new DALCourseOffer;
+		$result = $dalCourseOffer->get();
+
+		$post = "";
+		while ($res = mysqli_fetch_assoc($result))
+		 {
+		 	$post.= '<tr>';
+			$post.= '<td>'.$res["name"].'</td>';
+			$post.= '<td class="text-right"><button class="btn btn-link" id="btnEdit'.$res["id"].'" onclick="EditCourseOffer('.$res["id"].')">Edit</button></td>';
+			$post.= '<td class="text-right"><button id="delete_btn" class="btn btn-link" onclick="delete_btn_click('.$res['id'].',\'/se/dashboard/bll/bll.courseoffer.php\')">Delete</button></td>';
+			$post.= '<td style="display: none" id="row_id'.$res["id"].'">'.$res["id"].'</td>';
+		 	$post.= '</tr>';
+
+		 }
+		 return $post;
+	}
+	
+	// Give the id, will return the name/[]Name dealing with DAL.
+	public function getName($id)
+	{
+		$dalCourseOffer = new DALCourseOffer;
+		$result = $dalCourseOffer->getById($id);
+
+		$data = "";
+		while ($res = mysqli_fetch_assoc($result))
+		 {
+			$data.= $res["name"];
+			
+
+		 }
+		 return $data;
+	}
+	// Show the courses in course box when submit/select a term
+	public function getOfferedTermCourses($id)
+	{
+
+		$dalCourseOffer = new DALCourseOffer;
+		$result = $dalCourseOffer->get();
+
+		$post = "";
+		while ($res = mysqli_fetch_assoc($result))
+		 {
+
+		 	$post.= '<option value="'.$res['id'].'">';
+			$post.= $varsity;
+			$post.= ' -> '.$degree;
+			$post.= ' -> '.$session;
+			$post.= ' -> '.$year.' - '.$term;
+		 	$post.= '</option>';
+
+		 }
+		 return $post;
+	}
+
+	// Show offered term list in term selection box.
+	public function offeredTermInfo($varsityDeptId)
+	{
+
+		$TermOffer = new DALTermOffer;
+		$result = $TermOffer->get($varsityDeptId);
+
+		$post = "";
+		while ($res = mysqli_fetch_assoc($result))
+		 {
+		 	$post.= '<option value="'.$res['id'].'">';
+			$post.= $res['degreeName'];
+			$post.= ' -> '.$res['sessionName'];
+			$post.= ' -> '.$res['year'].' - '.$res['term'];
+		 	$post.= '</option>';
+
+		 }
+		 return $post;
+	}
+
+	// Show offered term list in term label.
+	public function offeredTermInfoById($id)
+	{
+		$TermOffer = new DALTermOffer;
+		$result = $TermOffer->getById($id);
+
+		$post = "";
+		while ($res = mysqli_fetch_assoc($result))
+		 {
+
+		 	$post.= '<option value="'.$res['id'].'">';
+			$post.= $res['degreeName'];
+			$post.= ' -> '.$res['sessionName'];
+			$post.= ' -> '.$res['year'].' - '.$res['term'];
+		 	$post.= '</option>';
+
+		 }
+		 return $post;
+	}
+
+	public function getCourseByOfferedTerm($offeredTermId)
+	{
+		$dalCourseOffer = new DALCourseOffer;
+		$result = $dalCourseOffer->getCourseByOfferedTerm($offeredTermId);
+
+	 	$post = "<select class='form form-control' name='courses' required multiple size='8'>  ";
+        while ($res = mysqli_fetch_assoc($result))
+        {
+          $post.= '<option value='.$res['id'].'>';
+          $post.= $res["prefix"].' '.$res['courseNo'];
+          $post.= ' -> '.$res["courseTitle"];
+          $post.= ' -> '.$res["credit"];
+          $post.= '</option>';
+        }
+        $post.= " </select>";
+        return $post;  
+	}
+
+}
+
+?>
