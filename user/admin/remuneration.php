@@ -193,8 +193,38 @@ if(isset($_SESSION['message']))
 
 <!--End of fetch phase===========================================================-->
 
-<!--Data Grid CRUD-->
+<!--Data Grid Chairman-->
 <div id="table">
+  <p><b>1. Chairman, Examination Committee:</b></p>
+  <div class="col-lg-12">
+    <table class="table  table-bordered">
+        <thead>
+        </thead>
+        <tbody>
+<?php
+  if(isset($_GET['remunerationReport']))
+  {
+    $sessionSelected =  $_GET['sessionSelected'];
+    $degreeSelected =  $_GET['degreeSelected'];
+    $yearSelected =  $_GET['yearSelected'];
+    $termSelected =  $_GET['termSelected'];
+    $varsityDeptId =  $_GET['varsityDeptId'];
+
+    echo $response=$bllRemuneration->showModarationCommitteeChairman($sessionSelected,$degreeSelected,$yearSelected,$termSelected,$varsityDeptId);
+  }
+?>
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+
+    </div>
+</div>
+<!-- Data end -->
+<!--Data Grid Answer script-->
+<div id="table">
+  <p><b>2. Question Preparation and Answer Script Examination:</b></p>
   <div class="col-lg-12">
     <table class="table  table-bordered">
         <thead>
@@ -213,7 +243,7 @@ if(isset($_SESSION['message']))
     $termSelected =  $_GET['termSelected'];
     $varsityDeptId =  $_GET['varsityDeptId'];
 
-    echo $response=$bllRemuneration->show($sessionSelected,$degreeSelected,$yearSelected,$termSelected,$varsityDeptId);
+    echo $response=$bllRemuneration->showTheory($sessionSelected,$degreeSelected,$yearSelected,$termSelected,$varsityDeptId);
   }
 ?>
           
@@ -225,6 +255,202 @@ if(isset($_SESSION['message']))
 
     </div>
 </div>
+<!-- Data end -->
+
+
+<!--Data Grid Class test-->
+<div id="table">
+  <p><b>3. Class Test:</b></p>
+  <div class="col-lg-12">
+    <table class="table  table-bordered">
+        <thead>
+            <th>Course No</th>
+            <th colspan="2">Name of the Examiners</th>
+            <th>No. of <br>Class Test</th>
+            <th>No. of <br>Students</th>
+        </thead>
+        <tbody>
+<?php
+  if(isset($_GET['remunerationReport']))
+  {
+    $sessionSelected =  $_GET['sessionSelected'];
+    $degreeSelected =  $_GET['degreeSelected'];
+    $yearSelected =  $_GET['yearSelected'];
+    $termSelected =  $_GET['termSelected'];
+    $varsityDeptId =  $_GET['varsityDeptId'];
+
+    echo $response=$bllRemuneration->showClassTests($sessionSelected,$degreeSelected,$yearSelected,$termSelected,$varsityDeptId);
+  }
+?>
+          
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+
+    </div>
+</div>
+<!-- Data end -->
+<!--Data Grid Sessional and viva-->
+<div id="table">
+  <p><b>4. Sessional Assessment and Viva:</b></p>
+  <div class="col-lg-12">
+    <table class="table  table-bordered">
+        <thead>
+            <th>Course No</th>
+            <th colspan="2">Name of the Examiners</th>
+            <th>No. of <br>Students</th>
+        </thead>
+        <tbody>
+<?php
+  if(isset($_GET['remunerationReport']))
+  {
+    $sessionSelected =  $_GET['sessionSelected'];
+    $degreeSelected =  $_GET['degreeSelected'];
+    $yearSelected =  $_GET['yearSelected'];
+    $termSelected =  $_GET['termSelected'];
+    $varsityDeptId =  $_GET['varsityDeptId'];
+
+    echo $response=$bllRemuneration->showSessional($sessionSelected,$degreeSelected,$yearSelected,$termSelected,$varsityDeptId);
+  }
+?>
+          
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+
+    </div>
+</div>
+<!-- Data end -->
+<!--Data Grid Modaration committee-->
+<div id="table">
+  <p><b>5. Moderation Committee:</b></p>
+  <div class="col-lg-12">
+    <table class="table  table-bordered">
+        <thead>
+        </thead>
+        <tbody>
+<?php
+  if(isset($_GET['remunerationReport']))
+  {
+    $sessionSelected =  $_GET['sessionSelected'];
+    $degreeSelected =  $_GET['degreeSelected'];
+    $yearSelected =  $_GET['yearSelected'];
+    $termSelected =  $_GET['termSelected'];
+    $varsityDeptId =  $_GET['varsityDeptId'];
+
+    echo $response=$bllRemuneration->showModarationCommittee($sessionSelected,$degreeSelected,$yearSelected,$termSelected,$varsityDeptId);
+  }
+?>
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+
+    </div>
+</div>
+<!-- Data end -->
+
+<!--Data Grid Answer Script Scrutiny-->
+<div id="table">
+  <p><b>6. Answer Script Scrutiny:</b></p>
+  <div class="col-lg-12">
+    <table class="table  table-bordered">
+        <thead>
+          <th>Name of the Examiners</th>
+          <th>No. of Scripts</th>
+        </thead>
+        <tbody>
+<?php
+  if(isset($_GET['remunerationReport']))
+  {
+    $sessionSelected =  $_GET['sessionSelected'];
+    $degreeSelected =  $_GET['degreeSelected'];
+    $yearSelected =  $_GET['yearSelected'];
+    $termSelected =  $_GET['termSelected'];
+    $varsityDeptId =  $_GET['varsityDeptId'];
+
+    echo $response=$bllRemuneration->showAnswerPaperScrutiny($sessionSelected,$degreeSelected,$yearSelected,$termSelected,$varsityDeptId);
+  }
+?>
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+
+    </div>
+</div>
+<!-- Data end -->
+
+<!--Data Grid Tabulation-->
+<div id="table">
+  <p><b>7. Tabulation (Student Wise):</b></p>
+  <div class="col-lg-12">
+    <table class="table  table-bordered">
+        <thead>
+          <th>Name of the Examiners</th>
+          <th>No. of Students</th>
+        </thead>
+        <tbody>
+<?php
+  if(isset($_GET['remunerationReport']))
+  {
+    $sessionSelected =  $_GET['sessionSelected'];
+    $degreeSelected =  $_GET['degreeSelected'];
+    $yearSelected =  $_GET['yearSelected'];
+    $termSelected =  $_GET['termSelected'];
+    $varsityDeptId =  $_GET['varsityDeptId'];
+
+    echo $response=$bllRemuneration->showTabulationStudents($sessionSelected,$degreeSelected,$yearSelected,$termSelected,$varsityDeptId);
+  }
+?>
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+
+    </div>
+</div>
+<!-- Data end -->
+
+<!--Data Grid Tabulation-->
+<div id="table">
+  <p><b>8. Tabulation (Course Wise):</b></p>
+  <div class="col-lg-12">
+    <table class="table  table-bordered">
+        <thead>
+         <th>Name of the Examiners</th>
+          <th>No. of Courses</th>
+        </thead>
+        <tbody>
+<?php
+  if(isset($_GET['remunerationReport']))
+  {
+    $sessionSelected =  $_GET['sessionSelected'];
+    $degreeSelected =  $_GET['degreeSelected'];
+    $yearSelected =  $_GET['yearSelected'];
+    $termSelected =  $_GET['termSelected'];
+    $varsityDeptId =  $_GET['varsityDeptId'];
+
+    echo $response=$bllRemuneration->showTabulationCourses($sessionSelected,$degreeSelected,$yearSelected,$termSelected,$varsityDeptId);
+  }
+?>
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+
+    </div>
+</div>
+<!-- Data end -->
+
 <!--Including the js files-->
 <script type="text/javascript" src="../../resources/js/jquery.js"></script>
 <script type="text/javascript" src="../../resources/js/jquery.min.js"></script>

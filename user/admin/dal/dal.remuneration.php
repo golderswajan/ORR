@@ -71,15 +71,70 @@
 
 			return $result;
 		}
-		
-		public function getRemunerationReport($sessionId,$degreeId,$yearId,$termId,$varsityDeptId)
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Remunaration reports 
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		public function getTheoryCourses($sessionId,$degreeId,$yearId,$termId,$varsityDeptId)
 		{
 			global $con;
-			$sql = "SELECT COUNT(registeredcourse.id) as noScripts,user.fullName,course.prefix,course.courseNo FROM registeredcourse,offeredcourse,course,offeredterm,offeredteacher,teacher,user WHERE registeredcourse.offeredCourseId = offeredcourse.id && offeredcourse.courseId = course.id && offeredcourse.offeredTermId = offeredterm.id && offeredteacher.offeredCourseId = offeredcourse.id && offeredteacher.teacherId = teacher.id && teacher.userId = user.id && offeredterm.degreeId = $degreeId && offeredterm.sessionId = $sessionId && offeredterm.yearId = $yearId && offeredterm.termId = $termId && offeredterm.varsityDeptId = $varsityDeptId GROUP BY user.id";
+			$sql = "SELECT COUNT(registeredcourse.id) as noScripts,user.fullName,course.prefix,course.courseNo FROM mark,marksection,section,registeredcourse,offeredcourse,course,offeredterm,offeredteacher,teacher,user WHERE section.id = marksection.sectionId && mark.id = marksection.markId && mark.registeredCourseId = registeredcourse.id && section.type = 'Theory' && section.name = 'Section A' && registeredcourse.offeredCourseId = offeredcourse.id && offeredcourse.courseId = course.id && offeredcourse.offeredTermId = offeredterm.id && offeredteacher.offeredCourseId = offeredcourse.id && offeredteacher.teacherId = teacher.id && teacher.userId = user.id && offeredterm.degreeId = $degreeId && offeredterm.sessionId = $sessionId && offeredterm.yearId = $yearId && offeredterm.termId = $termId && offeredterm.varsityDeptId = $varsityDeptId GROUP BY course.id,user.id";
 			$result = mysqli_query($con,$sql);
 
 			return $result;
 		}
+
+		public function getSessionalCourses($sessionId,$degreeId,$yearId,$termId,$varsityDeptId)
+		{
+			global $con;
+			$sql = "SELECT COUNT(registeredcourse.id) as noScripts,user.fullName,course.prefix,course.courseNo FROM mark,marksection,section,registeredcourse,offeredcourse,course,offeredterm,offeredteacher,teacher,user WHERE section.id = marksection.sectionId && mark.id = marksection.markId && mark.registeredCourseId = registeredcourse.id && section.type = 'Sessional' && (section.name = 'Viva' || section.name = 'Project') && registeredcourse.offeredCourseId = offeredcourse.id && offeredcourse.courseId = course.id && offeredcourse.offeredTermId = offeredterm.id && offeredteacher.offeredCourseId = offeredcourse.id && offeredteacher.teacherId = teacher.id && teacher.userId = user.id && offeredterm.degreeId = $degreeId && offeredterm.sessionId = $sessionId && offeredterm.yearId = $yearId && offeredterm.termId = $termId && offeredterm.varsityDeptId = $varsityDeptId GROUP BY course.id,user.id";
+			$result = mysqli_query($con,$sql);
+
+			return $result;
+		}
+		public function getClassTests($sessionId,$degreeId,$yearId,$termId,$varsityDeptId)
+		{
+			global $con;
+			$sql = "SELECT COUNT(registeredcourse.id) as noScripts,user.fullName,course.prefix,course.courseNo FROM mark,marksection,section,registeredcourse,offeredcourse,course,offeredterm,offeredteacher,teacher,user WHERE section.id = marksection.sectionId && mark.id = marksection.markId && mark.registeredCourseId = registeredcourse.id && section.name = 'Continuous Assessment' && registeredcourse.offeredCourseId = offeredcourse.id && offeredcourse.courseId = course.id && offeredcourse.offeredTermId = offeredterm.id && offeredteacher.offeredCourseId = offeredcourse.id && offeredteacher.teacherId = teacher.id && teacher.userId = user.id && offeredterm.degreeId = $degreeId && offeredterm.sessionId = $sessionId && offeredterm.yearId = $yearId && offeredterm.termId = $termId && offeredterm.varsityDeptId = $varsityDeptId GROUP BY course.id,user.id";
+			$result = mysqli_query($con,$sql);
+
+			return $result;
+		}
+		public function getModarationCommittee($sessionId,$degreeId,$yearId,$termId,$varsityDeptId)
+		{
+			global $con;
+			$sql = "SELECT * FROM modarationcommittee,offeredterm WHERE modarationcommittee.offeredTermId = offeredterm.id && offeredterm.degreeId = $degreeId && offeredterm.sessionId = $sessionId && offeredterm.yearId = $yearId && offeredterm.termId = $termId && offeredterm.varsityDeptId = $varsityDeptId";
+			$result = mysqli_query($con,$sql);
+
+			return $result;
+		}
+		public function getAnswerPaperScrutiny($sessionId,$degreeId,$yearId,$termId,$varsityDeptId)
+		{
+			global $con;
+			$sql = "SELECT COUNT(registeredcourse.id) as noScripts,user.fullName FROM mark,marksection,section,registeredcourse,offeredcourse,course,offeredterm,tabulator,user WHERE section.id = marksection.sectionId && mark.id = marksection.markId && mark.registeredCourseId = registeredcourse.id  && registeredcourse.offeredCourseId = offeredcourse.id && offeredcourse.courseId = course.id && offeredcourse.offeredTermId = offeredterm.id && tabulator.offeredTermId = offeredterm.id && tabulator.userId = user.id && offeredterm.degreeId = $degreeId && offeredterm.sessionId = $sessionId && offeredterm.yearId = $yearId && offeredterm.termId = $termId && offeredterm.varsityDeptId = $varsityDeptId  GROUP BY tabulator.id";
+			$result = mysqli_query($con,$sql);
+
+			return $result;
+		}
+
+		public function getTabulationStudents($sessionId,$degreeId,$yearId,$termId,$varsityDeptId)
+		{
+			global $con;
+			$sql = "SELECT COUNT(registeredterm.id) as noStudents,user.fullName FROM registeredterm,offeredterm,tabulator,user WHERE registeredterm.offeredTermId = offeredterm.id && tabulator.offeredTermId = offeredterm.id && tabulator.userId = user.id && offeredterm.degreeId = $degreeId && offeredterm.sessionId = $sessionId && offeredterm.yearId = $yearId && offeredterm.termId = $termId && offeredterm.varsityDeptId = $varsityDeptId  GROUP BY tabulator.id";
+			$result = mysqli_query($con,$sql);
+
+			return $result;
+		}
+
+		public function getTabulationCourses($sessionId,$degreeId,$yearId,$termId,$varsityDeptId)
+		{
+			global $con;
+			$sql = "SELECT COUNT(offeredcourse.id) as noCourses,user.fullName FROM offeredcourse,offeredterm,tabulator,user WHERE offeredcourse.offeredTermId = offeredterm.id && tabulator.offeredTermId = offeredterm.id && tabulator.userId = user.id &&  offeredterm.degreeId = $degreeId && offeredterm.sessionId = $sessionId && offeredterm.yearId = $yearId && offeredterm.termId = $termId && offeredterm.varsityDeptId = $varsityDeptId  GROUP BY tabulator.id";
+			$result = mysqli_query($con,$sql);
+
+			return $result;
+		}
+
+
 
 	}
 

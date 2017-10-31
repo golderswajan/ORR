@@ -132,17 +132,17 @@ require('../../includes/connect.php');
         if(isset($_SESSION['admin']))
           {
             $email = $_SESSION['admin'];
-            echo "<br>::Test::<br>";
-            echo "Email: $email<br>";
-            echo "Role: Admin<br>";
+            // echo "<br>::Test::<br>";
+            // echo "Email: $email<br>";
+            // echo "Role: Admin<br>";
 
             $varsityId = $utility->getTeacherVarsityId($email);
             $deptId = $utility->getTeacherDeptId($email);
             $varsityDeptId = $utility->getTeacherVarsityDeptId($email);
     
-            echo "varsityId: $varsityId<br>";
-            echo "deptId: $deptId<br>";
-            echo "varsityDeptId: $varsityDeptId<br>";
+            // echo "varsityId: $varsityId<br>";
+            // echo "deptId: $deptId<br>";
+            // echo "varsityDeptId: $varsityDeptId<br>";
           }
           else
           {
