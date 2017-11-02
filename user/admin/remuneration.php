@@ -191,7 +191,10 @@ if(isset($_SESSION['message']))
 </li>
 </ul>
 
-<!--End of fetch phase===========================================================-->
+<!--End of fetch phase===============================-->
+<button class="btn btn-primary" onclick="CallPrint('print')">Print</button>
+
+<div id="print">
 
 <!--Data Grid Chairman-->
 <div id="table">
@@ -450,6 +453,7 @@ if(isset($_SESSION['message']))
     </div>
 </div>
 <!-- Data end -->
+</div>
 
 <!--Including the js files-->
 <script type="text/javascript" src="../../resources/js/jquery.js"></script>
@@ -458,6 +462,19 @@ if(isset($_SESSION['message']))
 <script type="text/javascript" src="../../resources/jquery-ui/jquery-ui.min.js"></script>
 <script type="text/javascript" src="../../resources/js/modal.js"></script>
 
+<script language="javascript" type="text/javascript">
+    function CallPrint(id) {
+        var prtContent = document.getElementById(id);
+        var WinPrint = window.open();
+        WinPrint.document.write(prtContent.innerHTML);
+        WinPrint.document.close();
+        WinPrint.focus();
+        WinPrint.print();
+        WinPrint.close();
+        prtContent.innerHTML = strOldOne;
+    }
+   
+</script>
 
 <!--Page Endings-->
     </div>
