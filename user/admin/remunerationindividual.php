@@ -376,20 +376,20 @@ if(isset($_GET['rr']))
               echo $bllRemunerationIndividual->getQuestionsComposition($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-center" style="border:none" value="<?php
+            <td><input type="text" id="nQC" class="text-center" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getNoQuestionsComposition($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
             <td></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="rQC"  class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getRateQuestionsComposition($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="tQC"  class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getTotalQuestionsComposition($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
@@ -406,20 +406,20 @@ if(isset($_GET['rr']))
               echo $bllRemunerationIndividual->getQuestionsModaration($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-center" style="border:none" value="<?php
+            <td><input type="text" id="nQM" class="text-center" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getNoQuestionsModaration($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
             <td></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="rQM" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getRateQuestionsModaration($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="tQM" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getTotalQuestionsModaration($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
@@ -966,6 +966,26 @@ if(isset($_GET['rr']))
 <!-- Data end -->
 </div>
 <!-- Print end -->
+<!-- Javascript calculations -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+<script>
+// Question composition
+$("#nQC , #rQC").bind("input change", function() {
+  var rate = $('#rQC').val();
+  var num = $('#nQC').val();
+  $("#tQC").val(rate*num);
+});
+// Question modaratoin
+$("#nQM , #rQM").bind("input change", function() {
+  var rate = $('#rQM').val();
+  var num = $('#nQM').val();
+  $("#tQM").val(rate*num);
+});
+</script>
+
+
 
 <!--Including the js files-->
 <script type="text/javascript" src="../../resources/js/jquery.js"></script>

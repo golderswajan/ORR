@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="786ff4c1-2ac6-48a8-a6bf-2e279518839b" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings" afterPath="$PROJECT_DIR$/settings" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="66" />
+    <option name="y" value="-8" />
+    <option name="width" value="1308" />
+    <option name="height" value="784" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="se" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="se" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="786ff4c1-2ac6-48a8-a6bf-2e279518839b" name="Default" comment="" />
+      <created>1509699724674</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1509699724674</updated>
+      <workItem from="1509699729473" duration="1427000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1427000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="66" y="-8" width="1308" height="784" extended-state="6" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/user/student/registration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JavaScript-modules-diagram/E:/Programe files/www/htdocs/se">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$</OriginalElement>
+          <nodes>
+            <node x="" y="">$PROJECT_DIR$/datadictionary.html</node>
+            <node x="" y="">$PROJECT_DIR$/resources/jquery-ui/index.html</node>
+            <node x="" y="">$PROJECT_DIR$/resources/jquery-ui/jquery-ui.css</node>
+            <node x="" y="">$PROJECT_DIR$/resources/jquery-ui/jquery-ui.js</node>
+            <node x="" y="">$PROJECT_DIR$/resources/jquery-ui/external/jquery/jquery.js</node>
+            <node x="" y="">favicon.ico</node>
+            <node x="" y="">js/get_image.js.php?theme=pmahomme&amp;v=4.7.0</node>
+            <node x="" y="">js/get_scripts.js.php?scripts%5B%5D=codemirror/addon/lint/lint.js&amp;amp;scripts%5B%5D=codemirror/addon/lint/sql-lint.js&amp;amp;scripts%5B%5D=console.js&amp;amp;v=4.7.0</node>
+            <node x="" y="">js/get_scripts.js.php?scripts%5B%5D=jquery/jquery.ba-hashchange-1.3.js&amp;amp;scripts%5B%5D=jquery/jquery.debounce-1.0.5.js&amp;amp;scripts%5B%5D=menu-resizer.js&amp;amp;scripts%5B%5D=cross_framing_protection.js&amp;amp;scripts%5B%5D=rte.js&amp;amp;scripts%5B%5D=tracekit/tracekit.js&amp;amp;scripts%5B%5D=error_report.js&amp;amp;scripts%5B%5D=config.js&amp;amp;scripts%5B%5D=doclinks.js&amp;amp;scripts%5B%5D=functions.js&amp;amp;v=4.7.0</node>
+            <node x="" y="">js/get_scripts.js.php?scripts%5B%5D=jquery/jquery.min.js&amp;amp;scripts%5B%5D=jquery/jquery-migrate-3.0.0.js&amp;amp;scripts%5B%5D=sprintf.js&amp;amp;scripts%5B%5D=ajax.js&amp;amp;scripts%5B%5D=keyhandler.js&amp;amp;scripts%5B%5D=jquery/jquery-ui.min.js&amp;amp;scripts%5B%5D=jquery/jquery.cookie.js&amp;amp;scripts%5B%5D=jquery/jquery.mousewheel.js&amp;amp;scripts%5B%5D=jquery/jquery.event.drag-2.2.js&amp;amp;scripts%5B%5D=jquery/jquery-ui-timepicker-addon.js&amp;amp;v=4.7.0</node>
+            <node x="" y="">js/get_scripts.js.php?scripts%5B%5D=navigation.js&amp;amp;scripts%5B%5D=indexes.js&amp;amp;scripts%5B%5D=common.js&amp;amp;scripts%5B%5D=page_settings.js&amp;amp;scripts%5B%5D=shortcuts_handler.js&amp;amp;scripts%5B%5D=codemirror/lib/codemirror.js&amp;amp;scripts%5B%5D=codemirror/mode/sql/sql.js&amp;amp;scripts%5B%5D=codemirror/addon/runmode/runmode.js&amp;amp;scripts%5B%5D=codemirror/addon/hint/show-hint.js&amp;amp;scripts%5B%5D=codemirror/addon/hint/sql-hint.js&amp;amp;v=4.7.0</node>
+            <node x="" y="">js/messages.php?lang=en&amp;amp;db=se&amp;v=4.7.0</node>
+            <node x="" y="">js/whitelist.php?lang=en&amp;amp;db=se&amp;v=4.7.0</node>
+            <node x="" y="">print.css?v=4.7.0</node>
+            <node x="" y="">themes/dot.gif</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.5719844357976652" x="593.5799879899262" y="533.5990069281995" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <VISIBILITY>Details</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JavaScript-modules-diagram/E:/Programe files/www/htdocs/se/datadictionary.html">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$/datadictionary.html</OriginalElement>
+          <nodes>
+            <node x="" y="">$PROJECT_DIR$/datadictionary.html</node>
+            <node x="" y="">favicon.ico</node>
+            <node x="" y="">js/get_image.js.php?theme=pmahomme&amp;v=4.7.0</node>
+            <node x="" y="">js/get_scripts.js.php?scripts%5B%5D=codemirror/addon/lint/lint.js&amp;amp;scripts%5B%5D=codemirror/addon/lint/sql-lint.js&amp;amp;scripts%5B%5D=console.js&amp;amp;v=4.7.0</node>
+            <node x="" y="">js/get_scripts.js.php?scripts%5B%5D=jquery/jquery.ba-hashchange-1.3.js&amp;amp;scripts%5B%5D=jquery/jquery.debounce-1.0.5.js&amp;amp;scripts%5B%5D=menu-resizer.js&amp;amp;scripts%5B%5D=cross_framing_protection.js&amp;amp;scripts%5B%5D=rte.js&amp;amp;scripts%5B%5D=tracekit/tracekit.js&amp;amp;scripts%5B%5D=error_report.js&amp;amp;scripts%5B%5D=config.js&amp;amp;scripts%5B%5D=doclinks.js&amp;amp;scripts%5B%5D=functions.js&amp;amp;v=4.7.0</node>
+            <node x="" y="">js/get_scripts.js.php?scripts%5B%5D=jquery/jquery.min.js&amp;amp;scripts%5B%5D=jquery/jquery-migrate-3.0.0.js&amp;amp;scripts%5B%5D=sprintf.js&amp;amp;scripts%5B%5D=ajax.js&amp;amp;scripts%5B%5D=keyhandler.js&amp;amp;scripts%5B%5D=jquery/jquery-ui.min.js&amp;amp;scripts%5B%5D=jquery/jquery.cookie.js&amp;amp;scripts%5B%5D=jquery/jquery.mousewheel.js&amp;amp;scripts%5B%5D=jquery/jquery.event.drag-2.2.js&amp;amp;scripts%5B%5D=jquery/jquery-ui-timepicker-addon.js&amp;amp;v=4.7.0</node>
+            <node x="" y="">js/get_scripts.js.php?scripts%5B%5D=navigation.js&amp;amp;scripts%5B%5D=indexes.js&amp;amp;scripts%5B%5D=common.js&amp;amp;scripts%5B%5D=page_settings.js&amp;amp;scripts%5B%5D=shortcuts_handler.js&amp;amp;scripts%5B%5D=codemirror/lib/codemirror.js&amp;amp;scripts%5B%5D=codemirror/mode/sql/sql.js&amp;amp;scripts%5B%5D=codemirror/addon/runmode/runmode.js&amp;amp;scripts%5B%5D=codemirror/addon/hint/show-hint.js&amp;amp;scripts%5B%5D=codemirror/addon/hint/sql-hint.js&amp;amp;v=4.7.0</node>
+            <node x="" y="">js/messages.php?lang=en&amp;amp;db=se&amp;v=4.7.0</node>
+            <node x="" y="">js/whitelist.php?lang=en&amp;amp;db=se&amp;v=4.7.0</node>
+            <node x="" y="">print.css?v=4.7.0</node>
+            <node x="" y="">themes/dot.gif</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.8270042194092827" x="474.0" y="345.5" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <VISIBILITY>Details</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://PHP/\BLLCourseRegistration">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>PHP</ID>
+          <OriginalElement>\BLLCourseRegistration</OriginalElement>
+          <nodes>
+            <node x="" y="">\BLLRegistration</node>
+            <node x="" y="">\BLLTermRegistration</node>
+            <node x="" y="">\BLLCourseRegistration</node>
+            <node x="" y="">\BLLResult</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="123.5" y="70.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <VISIBILITY>public</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://PHP/E:/Programe files/www/htdocs/se">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>PHP</ID>
+          <OriginalElement>$PROJECT_DIR$</OriginalElement>
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="117.5" y="127.5" />
+          <SelectedNodes />
+          <Categories />
+          <VISIBILITY>public</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://PHP/\DALRegistration">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>PHP</ID>
+          <OriginalElement>\DALRegistration</OriginalElement>
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="59.5" y="15.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constants</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <VISIBILITY>public</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/student/dal/dal.registration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+          <folding>
+            <marker date="1505566695423" expanded="true" signature="324:395" ph="SELECT * FRO... registeredterm" />
+            <marker date="1505566695423" expanded="true" signature="523:561" ph="SELECT * FRO... registeredterm" />
+            <marker date="1505566695423" expanded="true" signature="715:782" ph="INSERT INTO registeredterm... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/student/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -1,0 +1,491 @@
+
+    <!DOCTYPE HTML><html lang='en' dir='ltr'><head><meta charset="utf-8" /><meta name="referrer" content="no-referrer" /><meta name="robots" content="noindex,nofollow" /><meta http-equiv="X-UA-Compatible" content="IE=Edge" /><style id="cfs-style">html{}</style><link rel="icon" href="favicon.ico" type="image/x-icon" /><link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /><link rel="stylesheet" type="text/css" href="print.css?v=4.7.0" /><title>Print view - phpMyAdmin 4.7.0</title><script data-cfasync="false" type="text/javascript" src="js/get_scripts.js.php?scripts%5B%5D=jquery/jquery.min.js&amp;scripts%5B%5D=jquery/jquery-migrate-3.0.0.js&amp;scripts%5B%5D=sprintf.js&amp;scripts%5B%5D=ajax.js&amp;scripts%5B%5D=keyhandler.js&amp;scripts%5B%5D=jquery/jquery-ui.min.js&amp;scripts%5B%5D=jquery/jquery.cookie.js&amp;scripts%5B%5D=jquery/jquery.mousewheel.js&amp;scripts%5B%5D=jquery/jquery.event.drag-2.2.js&amp;scripts%5B%5D=jquery/jquery-ui-timepicker-addon.js&amp;v=4.7.0"></script><script data-cfasync="false" type="text/javascript" src="js/get_scripts.js.php?scripts%5B%5D=jquery/jquery.ba-hashchange-1.3.js&amp;scripts%5B%5D=jquery/jquery.debounce-1.0.5.js&amp;scripts%5B%5D=menu-resizer.js&amp;scripts%5B%5D=cross_framing_protection.js&amp;scripts%5B%5D=rte.js&amp;scripts%5B%5D=tracekit/tracekit.js&amp;scripts%5B%5D=error_report.js&amp;scripts%5B%5D=config.js&amp;scripts%5B%5D=doclinks.js&amp;scripts%5B%5D=functions.js&amp;v=4.7.0"></script><script data-cfasync="false" type="text/javascript" src="js/get_scripts.js.php?scripts%5B%5D=navigation.js&amp;scripts%5B%5D=indexes.js&amp;scripts%5B%5D=common.js&amp;scripts%5B%5D=page_settings.js&amp;scripts%5B%5D=shortcuts_handler.js&amp;scripts%5B%5D=codemirror/lib/codemirror.js&amp;scripts%5B%5D=codemirror/mode/sql/sql.js&amp;scripts%5B%5D=codemirror/addon/runmode/runmode.js&amp;scripts%5B%5D=codemirror/addon/hint/show-hint.js&amp;scripts%5B%5D=codemirror/addon/hint/sql-hint.js&amp;v=4.7.0"></script><script data-cfasync="false" type="text/javascript" src="js/get_scripts.js.php?scripts%5B%5D=codemirror/addon/lint/lint.js&amp;scripts%5B%5D=codemirror/addon/lint/sql-lint.js&amp;scripts%5B%5D=console.js&amp;v=4.7.0"></script><script data-cfasync='false' type='text/javascript' src='js/whitelist.php?lang=en&amp;db=se&v=4.7.0'></script><script data-cfasync='false' type='text/javascript' src='js/messages.php?lang=en&amp;db=se&v=4.7.0'></script><script data-cfasync='false' type='text/javascript' src='js/get_image.js.php?theme=pmahomme&v=4.7.0'></script><script data-cfasync="false" type="text/javascript">// <![CDATA[
+    PMA_commonParams.setAll({common_query:"",opendb_url:"db_structure.php",collation_connection:"utf8mb4_unicode_ci",lang:"en",server:"1",table:"",db:"se",token:"459ddd4da7e458761605cdea8b81336b",text_dir:"ltr",show_databases_navigation_as_tree:"1",pma_text_default_tab:"Browse",pma_text_left_default_tab:"Structure",pma_text_left_default_tab2:"",LimitChars:"50",pftext:"P",confirm:"1",LoginCookieValidity:"1440",session_gc_maxlifetime:"1440",logged_in:"1",PMA_VERSION:"4.7.0",auth_type:"config",user:"root"});
+    ConsoleEnterExecutes=false
+    AJAX.scriptHandler.add("jquery/jquery.min.js",0).add("jquery/jquery-migrate-3.0.0.js",0).add("whitelist.php?lang=en&amp;db=se",1).add("sprintf.js",1).add("ajax.js",0).add("keyhandler.js",1).add("jquery/jquery-ui.min.js",0).add("jquery/jquery.cookie.js",0).add("jquery/jquery.mousewheel.js",0).add("jquery/jquery.event.drag-2.2.js",0).add("jquery/jquery-ui-timepicker-addon.js",0).add("jquery/jquery.ba-hashchange-1.3.js",0).add("jquery/jquery.debounce-1.0.5.js",0).add("menu-resizer.js",1).add("cross_framing_protection.js",0).add("rte.js",1).add("tracekit/tracekit.js",1).add("error_report.js",1).add("messages.php?lang=en&amp;db=se",0).add("get_image.js.php?theme=pmahomme",0).add("config.js",1).add("doclinks.js",1).add("functions.js",1).add("navigation.js",1).add("indexes.js",1).add("common.js",1).add("page_settings.js",1).add("shortcuts_handler.js",1).add("codemirror/lib/codemirror.js",0).add("codemirror/mode/sql/sql.js",0).add("codemirror/addon/runmode/runmode.js",0).add("codemirror/addon/hint/show-hint.js",0).add("codemirror/addon/hint/sql-hint.js",0).add("codemirror/addon/lint/lint.js",0).add("codemirror/addon/lint/sql-lint.js",0).add("console.js",1);
+    $(function() {AJAX.fireOnload("whitelist.php?lang=en&amp;db=se");AJAX.fireOnload("sprintf.js");AJAX.fireOnload("keyhandler.js");AJAX.fireOnload("menu-resizer.js");AJAX.fireOnload("rte.js");AJAX.fireOnload("tracekit/tracekit.js");AJAX.fireOnload("error_report.js");AJAX.fireOnload("config.js");AJAX.fireOnload("doclinks.js");AJAX.fireOnload("functions.js");AJAX.fireOnload("navigation.js");AJAX.fireOnload("indexes.js");AJAX.fireOnload("common.js");AJAX.fireOnload("page_settings.js");AJAX.fireOnload("shortcuts_handler.js");AJAX.fireOnload("console.js");});
+    // ]]></script><noscript><style>html{display:block}</style></noscript></head><body><noscript><div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error" /> Javascript must be enabled past this point!</div></noscript><div id="page_content"><div>
+    <h2>attendence</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">markId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">date</td><td class="nowrap" lang="en" dir="ltr">date</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">present</td><td class="nowrap" lang="en" dir="ltr">tinyint(1)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>0</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >markId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>markId</td><td>0</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >markId_2</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>markId</td><td>0</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >markId_3</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>markId</td><td>0</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>course</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">prefix</td><td class="nowrap" lang="en" dir="ltr">varchar(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">courseNo</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">courseTitle</td><td class="nowrap" lang="en" dir="ltr">varchar(200)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">credit</td><td class="nowrap" lang="en" dir="ltr">float</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">prerequisite</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>Yes</td><td class="nowrap"><i>NULL</i></td>    <td>course -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">yearId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>year -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">termId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>term -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">degreeId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>degree -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">varsityDeptId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>varsitydept -&gt; id</td>
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>5</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >yeartermId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>yearId</td><td>5</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >prerequisite</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>prerequisite</td><td>2</td><td>A</td><td>Yes</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >termId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>termId</td><td>5</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >degreeId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>degreeId</td><td>2</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >varsityDeptId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>varsityDeptId</td><td>2</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>degree</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">name</td><td class="nowrap" lang="en" dir="ltr">text</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>4</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>dept</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">name</td><td class="nowrap" lang="en" dir="ltr">varchar(50)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>7</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>mark</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">registeredCourseId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>registeredcourse -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">totalMark</td><td class="nowrap" lang="en" dir="ltr">varchar(11)</td><td>No</td><td class="nowrap">0</td>     
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>3</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >registeredCourseId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>registeredCourseId</td><td>3</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >mark</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>totalMark</td><td>3</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >studentId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>registeredCourseId</td><td>3</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>marksection</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">markId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>mark -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">sectionId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>section -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">mark</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>14</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="2" >markId</td><td  rowspan="2" >BTREE</td><td  rowspan="2" >Yes</td><td  rowspan="2" >No</td><td>markId</td><td>7</td><td>A</td><td>No</td><td  rowspan="2" ></td></tr><tr class="noclick" ><td>sectionId</td><td>14</td><td>A</td><td>No</td></tr><tr class="noclick" ><td  rowspan="1" >sectionNameId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>sectionId</td><td>14</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >userCourseId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>markId</td><td>7</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >userCourseId_2</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>markId</td><td>7</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>modarationcommittee</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">name</td><td class="nowrap" lang="en" dir="ltr">varchar(100)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">designation</td><td class="nowrap" lang="en" dir="ltr">varchar(100)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">offeredTermId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>offeredterm -&gt; id</td>
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>5</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >offeredTermId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>offeredTermId</td><td>2</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >offeredTermId_2</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>offeredTermId</td><td>2</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>offeredcourse</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">offeredTermId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>offeredterm -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">courseId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>course -&gt; id</td>
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>2</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >DegreeSessionYearTermId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>offeredTermId</td><td>2</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >courseId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>courseId</td><td>2</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>offeredteacher</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">offeredCourseId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>offeredcourse -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">teacherId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>teacher -&gt; id</td>
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>5</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >offerredCourseId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>offeredCourseId</td><td>5</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >teacherId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>teacherId</td><td>5</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>offeredterm</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">degreeId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>degree -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">sessionId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>session -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">yearId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>year -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">termId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>term -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">varsityDeptId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>varsitydept -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">status</td><td class="nowrap" lang="en" dir="ltr">tinyint(4)</td><td>No</td><td class="nowrap">0</td>     
+         
+         
+    </tr><tr><td class="nowrap">isLocked</td><td class="nowrap" lang="en" dir="ltr">tinyint(1)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>5</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >degreeId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>degreeId</td><td>5</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >sessionId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>sessionId</td><td>5</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >yeartermId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>yearId</td><td>5</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >termId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>termId</td><td>5</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >varsityDeptId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>varsityDeptId</td><td>5</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>paymentrate</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">fieldName</td><td class="nowrap" lang="en" dir="ltr">varchar(60)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">amount</td><td class="nowrap" lang="en" dir="ltr">float</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>8</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>phone</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">phone1</td><td class="nowrap" lang="en" dir="ltr">varchar(20)</td><td>Yes</td><td class="nowrap"><i>NULL</i></td>     
+         
+         
+    </tr><tr><td class="nowrap">phone2</td><td class="nowrap" lang="en" dir="ltr">varchar(20)</td><td>Yes</td><td class="nowrap"><i>NULL</i></td>     
+         
+         
+    </tr><tr><td class="nowrap">phone3</td><td class="nowrap" lang="en" dir="ltr">varchar(20)</td><td>Yes</td><td class="nowrap"><i>NULL</i></td>     
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>0</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >id</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>0</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>registeredcourse</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">offeredCourseId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>offeredcourse -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">registeredTermId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>registeredterm -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">isRetakeCourse</td><td class="nowrap" lang="en" dir="ltr">tinyint(1)</td><td>No</td><td class="nowrap">0</td>     
+         
+         
+    </tr><tr><td class="nowrap">approvedByCourseCoordinator</td><td class="nowrap" lang="en" dir="ltr">tinyint(1)</td><td>No</td><td class="nowrap">0</td>     
+         
+         
+    </tr><tr><td class="nowrap">approvedByHead</td><td class="nowrap" lang="en" dir="ltr">tinyint(1)</td><td>No</td><td class="nowrap">0</td>     
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>3</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >userCourseID</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>offeredCourseId</td><td>3</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >studentId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>registeredTermId</td><td>3</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>registeredterm</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">studentId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>student -&gt; studentId</td>
+         
+         
+    </tr><tr><td class="nowrap">offeredTermId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>offeredterm -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">registrationCompleted</td><td class="nowrap" lang="en" dir="ltr">tinyint(1)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>5</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >studentId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>studentId</td><td>5</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >degreeSessionYearTermId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>offeredTermId</td><td>5</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>remuneration</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">offeredTeacherId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>offeredteacher -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">noOfQuestions</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">noOfScripts</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>0</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >remuneration_ibfk_1</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>offeredTeacherId</td><td>0</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>role</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">roleName</td><td class="nowrap" lang="en" dir="ltr">varchar(30)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>5</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>section</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">name</td><td class="nowrap" lang="en" dir="ltr">text</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">type</td><td class="nowrap" lang="en" dir="ltr">varchar(50)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">percentage</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>6</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>session</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">sessionName</td><td class="nowrap" lang="en" dir="ltr">varchar(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>4</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>student</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">studentId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">batch</td><td class="nowrap" lang="en" dir="ltr">text</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">userId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>user -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">varsityDeptId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>varsitydept -&gt; id</td>
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>2</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >studentId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>studentId</td><td>2</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >userId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>userId</td><td>2</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >varsityDeptId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>varsityDeptId</td><td>2</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>syllabus</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">offeredTermId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>offeredterm -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">min</td><td class="nowrap" lang="en" dir="ltr">float</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">max</td><td class="nowrap" lang="en" dir="ltr">float</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>3</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >offeredTermId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>offeredTermId</td><td>3</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>tabulator</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">offeredTermId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>offeredterm -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">userId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>user -&gt; id</td>
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>4</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="2" >offeredTermId_2</td><td  rowspan="2" >BTREE</td><td  rowspan="2" >Yes</td><td  rowspan="2" >No</td><td>offeredTermId</td><td>4</td><td>A</td><td>No</td><td  rowspan="2" ></td></tr><tr class="noclick" ><td>userId</td><td>4</td><td>A</td><td>No</td></tr><tr class="noclick" ><td  rowspan="1" >offeredTermId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>offeredTermId</td><td>4</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >userId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>userId</td><td>2</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>teacher</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">designation</td><td class="nowrap" lang="en" dir="ltr">varchar(50)</td><td>Yes</td><td class="nowrap"><i>NULL</i></td>     
+         
+         
+    </tr><tr><td class="nowrap">userId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>user -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">varsityDeptId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>varsitydept -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">office</td><td class="nowrap" lang="en" dir="ltr">text</td><td>Yes</td><td class="nowrap"><i>NULL</i></td>     
+         
+         
+    </tr><tr><td class="nowrap">address</td><td class="nowrap" lang="en" dir="ltr">text</td><td>Yes</td><td class="nowrap"><i>NULL</i></td>     
+         
+         
+    </tr><tr><td class="nowrap">website</td><td class="nowrap" lang="en" dir="ltr">varchar(250)</td><td>Yes</td><td class="nowrap"><i>NULL</i></td>     
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>3</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >uesrId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>userId</td><td>3</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >varsityDeptId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>varsityDeptId</td><td>3</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>term</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">term</td><td class="nowrap" lang="en" dir="ltr">varchar(5)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>2</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >term</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>term</td><td>2</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>thesis</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">courseId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>course -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">isContinue</td><td class="nowrap" lang="en" dir="ltr">tinyint(2)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>0</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >courseId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>courseId</td><td>0</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>user</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">userName</td><td class="nowrap" lang="en" dir="ltr">varchar(20)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">fullName</td><td class="nowrap" lang="en" dir="ltr">varchar(50)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">email</td><td class="nowrap" lang="en" dir="ltr">varchar(250)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">password</td><td class="nowrap" lang="en" dir="ltr">varchar(20)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">sex</td><td class="nowrap" lang="en" dir="ltr">varchar(10)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">phoneNo</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>Yes</td><td class="nowrap"><i>NULL</i></td>    <td>phone -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">roleId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>Yes</td><td class="nowrap"><i>NULL</i></td>    <td>role -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">active</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">blocked</td><td class="nowrap" lang="en" dir="ltr">tinyint(1)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>7</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >userName</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>userName</td><td>7</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >email</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>email</td><td>7</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >phone_no</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>phoneNo</td><td>2</td><td>A</td><td>Yes</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >roleid</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>roleId</td><td>7</td><td>A</td><td>Yes</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>varsity</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">name</td><td class="nowrap" lang="en" dir="ltr">varchar(100)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>6</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>varsitydept</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">varsityId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>varsity -&gt; id</td>
+         
+         
+    </tr><tr><td class="nowrap">deptId</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>dept -&gt; id</td>
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>13</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="2" >varsityId_2</td><td  rowspan="2" >BTREE</td><td  rowspan="2" >Yes</td><td  rowspan="2" >No</td><td>varsityId</td><td>6</td><td>A</td><td>No</td><td  rowspan="2" ></td></tr><tr class="noclick" ><td>deptId</td><td>13</td><td>A</td><td>No</td></tr><tr class="noclick" ><td  rowspan="1" >varsityId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>varsityId</td><td>6</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >deptId</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >No</td><td  rowspan="1" >No</td><td>deptId</td><td>13</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><div>
+    <h2>year</h2>
+    <table width="100%" class="print"><tr><th width="50">Column</th><th width="80">Type</th><th width="40">Null</th><th width="70">Default</th>    <th>Links to</th>
+        
+         
+    </tr><tr><td class="nowrap">id <em>(Primary)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr><tr><td class="nowrap">year</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>     
+         
+         
+    </tr></table><h3>Indexes</h3><div class='no_indexes_defined hide'><div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> No index defined!</div></div><table id="table_index"><thead><tr><th>Keyname</th><th>Type</th><th>Unique</th><th>Packed</th><th>Column</th><th>Cardinality</th><th>Collation</th><th>Null</th><th>Comment</th></tr></thead><tbody><tr class="noclick" ><td  rowspan="1" >PRIMARY</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>id</td><td>5</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr><tr class="noclick" ><td  rowspan="1" >year</td><td  rowspan="1" >BTREE</td><td  rowspan="1" >Yes</td><td  rowspan="1" >No</td><td>year</td><td>5</td><td>A</td><td>No</td><td  rowspan="1" ></td></tr></tbody></table></div><p class="print_ignore"><input type="button" class="button" id="print" value="Print" /></p></div><div id="selflink" class="print_ignore"><a href="db_datadict.php?db=se&amp;table=year&amp;server=1&amp;target=" title="Open new phpMyAdmin window" target="_blank" rel="noopener noreferrer"><img src="themes/dot.gif" title="Open new phpMyAdmin window" alt="Open new phpMyAdmin window" class="icon ic_window-new" /></a></div><div class="clearfloat" id="pma_errors"></div><script data-cfasync="false" type="text/javascript">// <![CDATA[
+    if (! (history && history.pushState)) PMA_MicroHistory.primer = { url: "db_datadict.php?db=se&table=year&server=1&target=", scripts: [{"name":"jquery\/jquery.min.js","fire":0},{"name":"jquery\/jquery-migrate-3.0.0.js","fire":0},{"name":"sprintf.js","fire":1},{"name":"ajax.js","fire":0},{"name":"keyhandler.js","fire":1},{"name":"jquery\/jquery-ui.min.js","fire":0},{"name":"jquery\/jquery.cookie.js","fire":0},{"name":"jquery\/jquery.mousewheel.js","fire":0},{"name":"jquery\/jquery.event.drag-2.2.js","fire":0},{"name":"jquery\/jquery-ui-timepicker-addon.js","fire":0},{"name":"jquery\/jquery.ba-hashchange-1.3.js","fire":0},{"name":"jquery\/jquery.debounce-1.0.5.js","fire":0},{"name":"menu-resizer.js","fire":1},{"name":"cross_framing_protection.js","fire":0},{"name":"rte.js","fire":1},{"name":"tracekit\/tracekit.js","fire":1},{"name":"error_report.js","fire":1},{"name":"config.js","fire":1},{"name":"doclinks.js","fire":1},{"name":"functions.js","fire":1},{"name":"navigation.js","fire":1},{"name":"indexes.js","fire":1},{"name":"common.js","fire":1},{"name":"page_settings.js","fire":1},{"name":"shortcuts_handler.js","fire":1},{"name":"codemirror\/lib\/codemirror.js","fire":0},{"name":"codemirror\/mode\/sql\/sql.js","fire":0},{"name":"codemirror\/addon\/runmode\/runmode.js","fire":0},{"name":"codemirror\/addon\/hint\/show-hint.js","fire":0},{"name":"codemirror\/addon\/hint\/sql-hint.js","fire":0},{"name":"codemirror\/addon\/lint\/lint.js","fire":0},{"name":"codemirror\/addon\/lint\/sql-lint.js","fire":0},{"name":"console.js","fire":1}], menuHash: "1776232f"};
+    var debugSQLInfo = 'null';
+    AJAX.scriptHandler;
+    $(function() {});
+    // ]]></script></body></html>
