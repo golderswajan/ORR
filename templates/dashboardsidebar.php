@@ -53,7 +53,7 @@ function closeNav() {
 <div id="page-content-wrapper">
 <div class="container">
 <!-- Siderab starts-->
-<div id="mySidenav" class="sidenav" >
+<div id="mySidenav" class="sidenav">
 <ul class="nav nav-pills nav-stacked">
 
   <li> <a href="javascript:void(0)" class="expandbtn" onclick="closeNav()"><span class="glyphicon glyphicon-align-justify"></span></a></li>

@@ -257,6 +257,19 @@ if(isset($_GET['rr']))
 }
 ?>
 <!--Data Grid header-->
+<?php
+  if(isset($_GET['rr']))
+  {
+    $result = $dalRemunerationIndividual->getTeacherInfo($teacherId);
+    while ($res = mysqli_fetch_assoc($result))
+    {
+      $tName = $res['fullName'];
+      $tDesignation = $res['designation'];
+      $tAddress = $res['address'];
+      $tDept = $res['deptName'];
+    }
+  }
+?>
 <div id="table">
 <center>
   <h2> খুলনা বিশ্ববিদ্যালয়, খুলনা </h3>
@@ -267,19 +280,70 @@ if(isset($_GET['rr']))
   <div class="col-lg-12">
     <table class="table table-bordered">
       <tr>
-        <td>নাম </td>
-        <td colspan="2">যে ডিসিপ্লিনের পরীক্ষা</td>
+        <td>নাম :
+          <?php
+            if(isset($_GET['rr']))
+            {
+              echo $tName;
+            }
+          ?>
+        </td>
+        <td colspan="2">যে ডিসিপ্লিনের পরীক্ষা :
+           <?php
+            if(isset($_GET['rr']))
+            {
+              echo $bllRemunerationIndividual->getDeptName($deptId);
+            }
+          ?>
+        </td>
       </tr>
       <tr>
-        <td>পদবী </td>
-        <td>বর্ষ </td><td>শিক্ষাবর্ষ </td>
+        <td>পদবী : <?php
+            if(isset($_GET['rr']))
+            {
+              echo $tDesignation;
+            }
+          ?></td>
+        <td>বর্ষ : <?php
+            if(isset($_GET['rr']))
+            {
+              echo $_GET['yearSelected'];
+            }
+          ?></td><td>শিক্ষাবর্ষ : 
+          <?php
+            if(isset($_GET['rr']))
+            {
+              echo $bllRemunerationIndividual->getSessionName($_GET['sessionSelected']);
+            }
+          ?>
+          </td>
       </tr>
       <tr>
-        <td>ডিসিপ্লিন/বিভাগ </td>
-        <td>টার্ম </td><td> স্পেশাল টার্ম পরীক্ষা</td>
+        <td>ডিসিপ্লিন/বিভাগ :
+          <?php
+            if(isset($_GET['rr']))
+            {
+              echo $tDept;
+            }
+          ?>
+        </td>
+        <td colspan="2">টার্ম : <?php
+            if(isset($_GET['rr']))
+            {
+              echo $_GET['termSelected'];
+            }
+          ?>
+           / স্পেশাল টার্ম পরীক্ষা</td>
       </tr>
        <tr>
-        <td>ঠিকানা </td>
+        <td>ঠিকানা :
+          <?php
+            if(isset($_GET['rr']))
+            {
+              echo $tAddress;
+            }
+          ?>
+        </td>
         <td colspan="2">পরীক্ষা অনুষ্ঠানের তারিখ .... থেকে .... পর্যন্ত </td>
       </tr>
        
@@ -593,7 +657,7 @@ if(isset($_GET['rr']))
             <td><input type="text" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
-              echo $bllRemunerationIndividual->getRateTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
+              echo $bllRemunerationIndividual->getRate($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
             <td><input type="text" class="text-right" style="border:none" value="<?php
@@ -623,7 +687,7 @@ if(isset($_GET['rr']))
             <td><input type="text" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
-              echo $bllRemunerationIndividual->getRateTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
+              echo $bllRemunerationIndividual->getRate($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
             <td><input type="text" class="text-right" style="border:none" value="<?php
@@ -653,7 +717,7 @@ if(isset($_GET['rr']))
             <td><input type="text" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
-              echo $bllRemunerationIndividual->getRateTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
+              echo $bllRemunerationIndividual->getRate($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
             <td><input type="text" class="text-right" style="border:none" value="<?php
@@ -683,7 +747,7 @@ if(isset($_GET['rr']))
             <td><input type="text" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
-              echo $bllRemunerationIndividual->getRateTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
+              echo $bllRemunerationIndividual->getRate($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
             <td><input type="text" class="text-right" style="border:none" value="<?php
@@ -713,7 +777,7 @@ if(isset($_GET['rr']))
             <td><input type="text" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
-              echo $bllRemunerationIndividual->getRateTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
+              echo $bllRemunerationIndividual->getRate($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
             <td><input type="text" class="text-right" style="border:none" value="<?php
@@ -743,7 +807,7 @@ if(isset($_GET['rr']))
             <td><input type="text" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
-              echo $bllRemunerationIndividual->getRateTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
+              echo $bllRemunerationIndividual->getRate($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
             <td><input type="text" class="text-right" style="border:none" value="<?php
@@ -765,11 +829,15 @@ if(isset($_GET['rr']))
           </tr>
            <!-- Footer 2 -->
           <tr>
-            <td colspan="7">সর্বমোট টাকার পরিমাণ (কথায়) : <?php
+            <td colspan="7">সর্বমোট টাকার পরিমাণ (কথায়) : 
+            <b>
+            <?php
             if(isset($_GET['rr']))
             {
-              echo $bllRemunerationIndividual->getSubTotalInWord($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
-            }?></td> 
+              echo $bllRemunerationIndividual->getSubTotalInWord($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId)." Only.";
+            }?>
+            <b>
+          </td> 
           </tr>
           
           
@@ -837,7 +905,16 @@ if(isset($_GET['rr']))
   <center><h3><u> অর্থ ও হিসাব বিভাগে ব্যবহারের জন্য</u></h3></center>
   <div class="col-lg-12">
     <br><b>
-    পরীক্ষান্তে বর্নিত পারিতোষিক বিল বাবদ ..................... কথায়ঃ (.................................) মাত্র পরিশোধের জন্য ছাড়া হল। 
+    পরীক্ষান্তে বর্নিত পারিতোষিক বিল বাবদ  <?php
+            if(isset($_GET['rr']))
+            {
+              echo $bllRemunerationIndividual->getSubTotal($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId)." Tk.";
+            }?> 
+            কথায়ঃ (<?php
+            if(isset($_GET['rr']))
+            {
+              echo $bllRemunerationIndividual->getSubTotalInWord($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
+            }?>) মাত্র পরিশোধের জন্য ছাড়া হল। 
   </b>
     <br>
     <br>
@@ -856,7 +933,12 @@ if(isset($_GET['rr']))
   </div>
   <div class="col-lg-12" style="border: 2px dotted; padding: 5px;">
     <p>
-        এই বিল পরিশোধে কোন আপত্তি নেই নিরীক্ষান্তে .............................. টাকার বিলটি পরিশোধের সুপারিশ করা হলো। 
+        এই বিল পরিশোধে কোন আপত্তি নেই নিরীক্ষান্তে <b><?php
+            if(isset($_GET['rr']))
+            {
+              echo $bllRemunerationIndividual->getSubTotal($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId)." ";
+            }?></b>
+             টাকার বিলটি পরিশোধের সুপারিশ করা হলো। 
     </p>
     <ul class="list-inline">
       <li class="list-item overline">
@@ -875,7 +957,10 @@ if(isset($_GET['rr']))
 <br>
   <div class="col-lg-8">
     <p style="border: 2px solid; padding: 5px;" class="bnk">
-      ব্যাংক আডভাইস/চেক নং .......................... তারিখঃ........................ 
+      ব্যাংক আডভাইস/চেক নং- 0200004758299 তারিখঃ
+              <?php
+              echo date("D,d-m-Y");
+              ?>
     </p>
   </div>
 <!-- Data end -->
@@ -900,7 +985,6 @@ if(isset($_GET['rr']))
         WinPrint.close();
         prtContent.innerHTML = strOldOne;
     }
-   
 </script>
 
 <style type="text/css">
