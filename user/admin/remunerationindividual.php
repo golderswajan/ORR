@@ -436,20 +436,20 @@ if(isset($_GET['rr']))
               echo $bllRemunerationIndividual->getAnswerScriptEvaluation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-center" style="border:none" value="<?php
+            <td><input type="text" id="nASE" class="text-center" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getNoAnswerScriptEvaluation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
             <td></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="rASE" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getRateAnswerScriptEvaluation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="tASE" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getTotalAnswerScriptEvaluation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
@@ -466,20 +466,20 @@ if(isset($_GET['rr']))
               echo $bllRemunerationIndividual->getClassTest($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-center" style="border:none" value="<?php
+            <td><input type="text" id="nCT" class="text-center" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getNoClassTest($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
             <td></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="rCT" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getRateClassTest($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="tCT" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getTotalClassTest($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
@@ -496,20 +496,20 @@ if(isset($_GET['rr']))
               echo $bllRemunerationIndividual->getSessional($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-center" style="border:none" value="<?php
+            <td><input type="text" id="nS" class="text-center" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getNoSessional($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
             <td></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="rS" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getRateSessional($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="tS" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getTotalSessional($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
@@ -527,20 +527,20 @@ if(isset($_GET['rr']))
               echo $bllRemunerationIndividual->getSessionalViva($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-center" style="border:none" value="<?php
+            <td><input type="text" id="nSV" class="text-center" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getNoSessionalViva($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
             <td></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="rSV" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getRateSessionalViva($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="tSV" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getTotalSessionalViva($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
@@ -557,20 +557,20 @@ if(isset($_GET['rr']))
               echo $bllRemunerationIndividual->getIndustrial($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-center" style="border:none" value="<?php
+            <td><input type="text"  id="nI" class="text-center" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getNoIndustrial($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
             <td></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text"  id="rI" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getRateIndustrial($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="tI" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getTotalIndustrial($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
@@ -587,20 +587,20 @@ if(isset($_GET['rr']))
               echo $bllRemunerationIndividual->getAnswerScriptExamination($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-center" style="border:none" value="<?php
+            <td><input type="text"  id="nASEx" class="text-center" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getNoAnswerScriptExamination($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
             <td></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="rASEx" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getRateAnswerScriptExamination($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="tASEx" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getTotalAnswerScriptExamination($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
@@ -611,26 +611,26 @@ if(isset($_GET['rr']))
           <tr>
             <td>৯</td>
             <td>টেবুলেশন </td>
-            <td><input type="text" style="border:none" value="<?php
+            <td><input type="text"   style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-center" style="border:none" value="<?php
+            <td><input type="text" id="nT" class="text-center" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getNoTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
             <td></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="rT" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getRateTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="tT" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getTotalTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
@@ -647,20 +647,20 @@ if(isset($_GET['rr']))
               echo $bllRemunerationIndividual->getTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-center" style="border:none" value="<?php
+            <td><input type="text" id="nD" class="text-center" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getNoTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
             <td></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="rD" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getRate($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="tD" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getTotalTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
@@ -677,20 +677,20 @@ if(isset($_GET['rr']))
               echo $bllRemunerationIndividual->getTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-center" style="border:none" value="<?php
+            <td><input type="text" id="nH" class="text-center" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getNoTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
             <td></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="rH" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getRate($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="tH" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getTotalTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
@@ -707,20 +707,20 @@ if(isset($_GET['rr']))
               echo $bllRemunerationIndividual->getTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-center" style="border:none" value="<?php
+            <td><input type="text" id="nCI" class="text-center" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getNoTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
             <td></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="rCI" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getRate($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="tCI" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getTotalTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
@@ -737,20 +737,20 @@ if(isset($_GET['rr']))
               echo $bllRemunerationIndividual->getTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-center" style="border:none" value="<?php
+            <td><input type="text" id="nTh" class="text-center" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getNoTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
             <td></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="rTh" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getRate($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="tTh" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getTotalTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
@@ -767,20 +767,20 @@ if(isset($_GET['rr']))
               echo $bllRemunerationIndividual->getTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-center" style="border:none" value="<?php
+            <td><input type="text" id="nCO" class="text-center" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getNoTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
             <td></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="rCO" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getRate($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text" id="tCO" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getTotalTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
@@ -797,20 +797,20 @@ if(isset($_GET['rr']))
               echo $bllRemunerationIndividual->getTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-center" style="border:none" value="<?php
+            <td><input type="text" id="nO" class="text-center" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getNoTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
             <td></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text"  id="rO" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getRate($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
             }
             ?>"></td>
-            <td><input type="text" class="text-right" style="border:none" value="<?php
+            <td><input type="text"  id="tO" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getTotalTabulation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
@@ -820,7 +820,7 @@ if(isset($_GET['rr']))
            <!-- Footer 1 -->
           <tr>
             <td colspan="6" class="text-right">সর্বমোট টাকার পরিমাণ :</td> 
-          <td><input type="text" class="text-right" style="border:none" value="<?php
+          <td><input type="text" id="subTotal" class="text-right" style="border:none" value="<?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getSubTotal($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
@@ -830,7 +830,7 @@ if(isset($_GET['rr']))
            <!-- Footer 2 -->
           <tr>
             <td colspan="7">সর্বমোট টাকার পরিমাণ (কথায়) : 
-            <b>
+            <b id="totalInWord">
             <?php
             if(isset($_GET['rr']))
             {
@@ -904,18 +904,20 @@ if(isset($_GET['rr']))
   <hr>
   <center><h3><u> অর্থ ও হিসাব বিভাগে ব্যবহারের জন্য</u></h3></center>
   <div class="col-lg-12">
-    <br><b>
-    পরীক্ষান্তে বর্নিত পারিতোষিক বিল বাবদ  <?php
+    <br>
+    পরীক্ষান্তে বর্নিত পারিতোষিক বিল বাবদ <b id="calcTotalDigit"> <?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getSubTotal($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId)." Tk.";
             }?> 
-            কথায়ঃ (<?php
+          </b>
+            কথায়ঃ (<b id="calcTotalWord"><?php
+
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getSubTotalInWord($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
-            }?>) মাত্র পরিশোধের জন্য ছাড়া হল। 
-  </b>
+            }?>) </b> )মাত্র পরিশোধের জন্য ছাড়া হল। 
+  
     <br>
     <br>
     <ul class="list-inline">
@@ -933,7 +935,7 @@ if(isset($_GET['rr']))
   </div>
   <div class="col-lg-12" style="border: 2px dotted; padding: 5px;">
     <p>
-        এই বিল পরিশোধে কোন আপত্তি নেই নিরীক্ষান্তে <b><?php
+        এই বিল পরিশোধে কোন আপত্তি নেই নিরীক্ষান্তে <b id="finalTotalDigit"><?php
             if(isset($_GET['rr']))
             {
               echo $bllRemunerationIndividual->getSubTotal($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId)." ";
@@ -983,8 +985,242 @@ $("#nQM , #rQM").bind("input change", function() {
   var num = $('#nQM').val();
   $("#tQM").val(rate*num);
 });
-</script>
+// Anser script evaluation
+$("#nASE , #rASE").bind("input change", function() {
+  var rate = $('#rASE').val();
+  var num = $('#nASE').val();
+  $("#tASE").val(rate*num);
+});
 
+// Class test
+$("#nCT , #rCT").bind("input change", function() {
+  var rate = $('#rCT').val();
+  var num = $('#nCT').val();
+  $("#tCT").val(rate*num);
+});
+
+// Sessional
+$("#nS , #rS").bind("input change", function() {
+  var rate = $('#rS').val();
+  var num = $('#nS').val();
+  $("#tS").val(rate*num);
+});
+// Sessional viva
+$("#nSV , #rSV").bind("input change", function() {
+  var rate = $('#rSV').val();
+  var num = $('#nSV').val();
+  $("#tSV").val(rate*num);
+});
+// Industrial
+$("#nI , #rI").bind("input change", function() {
+  var rate = $('#rI').val();
+  var num = $('#nI').val();
+  $("#tI").val(rate*num);
+});
+// Anser script examination
+$("#nASEx , #rASEx").bind("input change", function() {
+  var rate = $('#rASEx').val();
+  var num = $('#nASEx').val();
+  $("#tASEx").val(rate*num);
+});
+// Tabulation
+$("#nT , #rT").bind("input change", function() {
+  var rate = $('#rT').val();
+  var num = $('#nT').val();
+  $("#tT").val(rate*num);
+});
+
+// Drawing
+$("#nD , #rD").bind("input change", function() {
+  var rate = $('#rD').val();
+  var num = $('#nD').val();
+  $("#tD").val(rate*num);
+});
+
+// Chairman/Head of exm. com.
+$("#nH , #rH").bind("input change", function() {
+  var rate = $('#rH').val();
+  var num = $('#nH').val();
+  $("#tH").val(rate*num);
+});
+
+// Chief invisialtor
+$("#nCI , #rCI").bind("input change", function() {
+  var rate = $('#rCI').val();
+  var num = $('#nCI').val();
+  $("#tCI").val(rate*num);
+});
+
+// Thesis
+$("#nTh , #rTh").bind("input change", function() {
+  var rate = $('#rTh').val();
+  var num = $('#nTh').val();
+  $("#tTh").val(rate*num);
+});
+
+// Computer Operator
+$("#nCO , #rCO").bind("input change", function() {
+  var rate = $('#rCO').val();
+  var num = $('#nCO').val();
+  $("#tCO").val(rate*num);
+});
+
+// Others
+$("#nO , #rO").bind("input change", function() {
+  var rate = $('#rO').val();
+  var num = $('#nO').val();
+  $("#tO").val(rate*num);
+});
+
+$(window).click(function(){
+  var t = parseInt($("#tQC").val());
+  t += parseInt($("#tQM").val());
+  t += parseInt($("#tASE").val());
+  t += parseInt($("#tCT").val());
+  t += parseInt($("#tS").val());
+  t += parseInt($("#tSV").val());
+  t += parseInt($("#tI").val());
+  t += parseInt($("#tASEx").val());
+  t += parseInt($("#tT").val());
+  t += parseInt($("#tD").val());
+  t += parseInt($("#tH").val());
+  t += parseInt($("#tCI").val());
+  t += parseInt($("#tTh").val());
+  t += parseInt($("#tCO").val());
+  t += parseInt($("#tO").val());
+  //alert(t);
+  $("#subTotal").val(t);
+   document.getElementById('calcTotalDigit').innerHTML ="<b>"+ t +" </b> ";
+   document.getElementById('finalTotalDigit').innerHTML ="<b>"+ t +" </b> ";
+  // display in word
+  NumToWord(t,'totalInWord');
+  NumToWord(t,'calcTotalWord');
+});
+</script>
+<!-- Digit to word conversion -->
+ <script  type="text/javascript">
+      function onlyNumbers(evt) {
+    var e = event || evt; // For trans-browser compatibility
+    var charCode = e.which || e.keyCode;
+
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+}
+
+function NumToWord(inputNumber, outputControl) {
+    var str = new String(inputNumber)
+    var splt = str.split("");
+    var rev = splt.reverse();
+    var once = ['Zero', ' One', ' Two', ' Three', ' Four', ' Five', ' Six', ' Seven', ' Eight', ' Nine'];
+    var twos = ['Ten', ' Eleven', ' Twelve', ' Thirteen', ' Fourteen', ' Fifteen', ' Sixteen', ' Seventeen', ' Eighteen', ' Nineteen'];
+    var tens = ['', 'Ten', ' Twenty', ' Thirty', ' Forty', ' Fifty', ' Sixty', ' Seventy', ' Eighty', ' Ninety'];
+
+    numLength = rev.length;
+    var word = new Array();
+    var j = 0;
+
+    for (i = 0; i < numLength; i++) {
+        switch (i) {
+
+            case 0:
+                if ((rev[i] == 0) || (rev[i + 1] == 1)) {
+                    word[j] = '';
+                }
+                else {
+                    word[j] = '' + once[rev[i]];
+                }
+                word[j] = word[j];
+                break;
+
+            case 1:
+                aboveTens();
+                break;
+
+            case 2:
+                if (rev[i] == 0) {
+                    word[j] = '';
+                }
+                else if ((rev[i - 1] == 0) || (rev[i - 2] == 0)) {
+                    word[j] = once[rev[i]] + " Hundred ";
+                }
+                else {
+                    word[j] = once[rev[i]] + " Hundred and";
+                }
+                break;
+
+            case 3:
+                if (rev[i] == 0 || rev[i + 1] == 1) {
+                    word[j] = '';
+                }
+                else {
+                    word[j] = once[rev[i]];
+                }
+                if ((rev[i + 1] != 0) || (rev[i] > 0)) {
+                    word[j] = word[j] + " Thousand";
+                }
+                break;
+
+                
+            case 4:
+                aboveTens();
+                break;
+
+            case 5:
+                if ((rev[i] == 0) || (rev[i + 1] == 1)) {
+                    word[j] = '';
+                }
+                else {
+                    word[j] = once[rev[i]];
+                }
+                if (rev[i + 1] !== '0' || rev[i] > '0') {
+                    word[j] = word[j] + " Lakh";
+                }
+                 
+                break;
+
+            case 6:
+                aboveTens();
+                break;
+
+            case 7:
+                if ((rev[i] == 0) || (rev[i + 1] == 1)) {
+                    word[j] = '';
+                }
+                else {
+                    word[j] = once[rev[i]];
+                }
+                if (rev[i + 1] !== '0' || rev[i] > '0') {
+                    word[j] = word[j] + " Crore";
+                }                
+                break;
+
+            case 8:
+                aboveTens();
+                break;
+
+            default: break;
+        }
+        j++;
+    }
+
+    function aboveTens() {
+        if (rev[i] == 0) { word[j] = ''; }
+        else if (rev[i] == 1) { word[j] = twos[rev[i - 1]]; }
+        else { word[j] = tens[rev[i]]; }
+    }
+
+    word.reverse();
+    var finalOutput = '';
+    for (i = 0; i < numLength; i++) {
+        finalOutput = finalOutput + word[i];
+    }
+    document.getElementById(outputControl).innerHTML ="<b>"+ finalOutput +" Only.</b> ";
+ 
+
+}
+</script>
+<!-- Digit to word end -->
 
 
 <!--Including the js files-->
