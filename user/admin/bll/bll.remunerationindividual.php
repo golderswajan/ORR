@@ -82,24 +82,25 @@ class BLLRemunerationIndividual
 
 	public function getNoQuestionsComposition($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId)
 	{
-		$data = "";
+		$data =0;
 		$dalRemunerationIndividual = new DALRemunerationIndividual();
 		$result = $dalRemunerationIndividual->getNoQuestionsComposition($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
 		while($res = mysqli_fetch_assoc($result))
 		{
-			$data .= $res['noQuestions'];
+			$data += $res['noQuestions'];
 		}
 		return $data;
 	}
 	public function getRateQuestionsComposition($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId)
 	{
-		$data = "";
+		$data = 0;
 		$dalRemunerationIndividual = new DALRemunerationIndividual();
 		$result = $dalRemunerationIndividual->getRate($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId,"Question Composition");
 		while($res = mysqli_fetch_assoc($result))
 		{
-			$data .= $res['amount'];
+			$data += $res['amount'];
 		}
+
 		return $data;
 	}
 	public function getTotalQuestionsComposition($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId)
@@ -126,12 +127,12 @@ class BLLRemunerationIndividual
 	}
 	public function getRateQuestionsModaration($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId)
 	{
-		$data = "";
+		$data = 0;
 		$dalRemunerationIndividual = new DALRemunerationIndividual();
 		$result = $dalRemunerationIndividual->getRate($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId,"Question Modaration");
 		while($res = mysqli_fetch_assoc($result))
 		{
-			$data .= $res['amount'];
+			$data += $res['amount'];
 		}
 		return $data;
 	}
@@ -183,12 +184,12 @@ class BLLRemunerationIndividual
 	}
 	public function getRateAnswerScriptEvaluation($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId)
 	{
-		$data = "";
+		$data = 0;
 		$dalRemunerationIndividual = new DALRemunerationIndividual();
 		$result = $dalRemunerationIndividual->getRate($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId,"Answer Script Evaluation");
 		while($res = mysqli_fetch_assoc($result))
 		{
-			$data .= $res['amount'];
+			$data += $res['amount'];
 		}
 		return $data;
 	}
@@ -281,12 +282,12 @@ class BLLRemunerationIndividual
 
 	public function getNoSessional($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId)
 	{
-		$data = "";
+		$data = 0;
 		$dalRemunerationIndividual = new DALRemunerationIndividual();
 		$result = $dalRemunerationIndividual->getSessional($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
 		while($res = mysqli_fetch_assoc($result))
 		{
-			$data .= $res['noScripts'];
+			$data += $res['noScripts'];
 		}
 		
 		return $data;
@@ -328,12 +329,12 @@ class BLLRemunerationIndividual
 
 	public function getNoSessionalViva($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId)
 	{
-		$data = "";
+		$data = 0;
 		$dalRemunerationIndividual = new DALRemunerationIndividual();
 		$result = $dalRemunerationIndividual->getSessionalViva($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId);
 		while($res = mysqli_fetch_assoc($result))
 		{
-			$data .= $res['noScripts'];
+			$data += $res['noScripts'];
 		}
 	}
 	public function getRateSessionalViva($varsityDeptId,$degreeId,$sessionId,$yearId,$termId,$teacherId)

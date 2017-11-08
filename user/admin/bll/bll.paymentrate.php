@@ -48,33 +48,30 @@ class BLLPaymentRate
 		$result = $dalPaymentRate->loadPaymentRate($sessionSelected,$degreeSelected,$yearSelected,$termSelected,$varsityDeptId);
 
 		$data = "";
-		if($row = mysqli_fetch_array( $result))
-		{
-			$sl = 1;
-			while ($res = mysqli_fetch_assoc($result))
-			{	
-			 	$data.="<tr>";
+		$sl = 1;
+		while ($res = mysqli_fetch_assoc($result))
+		{	
+		 	$data.="<tr>";
 
-			 	$data.="<td>";
-			 	$data.= $sl++;
-			 	$data.="</td>";
+		 	$data.="<td>";
+		 	$data.= $sl++;
+		 	$data.="</td>";
 
-			 	$data.="<td>";
-			 	$data.= $res['fieldName'];
-			 	$data.="</td>";
+		 	$data.="<td>";
+		 	$data.= $res['fieldName'];
+		 	$data.="</td>";
 
-			 	$data.="<td>";
-			 	$data.= $res['amount'];
-			 	$data.="</td>";
-			 	$data.="</tr>";
+		 	$data.="<td>";
+		 	$data.= $res['amount'];
+		 	$data.="</td>";
+		 	$data.="</tr>";
 
-			}
 		}
-		else
+		if(!$row = mysqli_fetch_array( $result)>0)
 		{
 			$data.="<tr>";
 		 	$data.="<td colspan='3'>";
-		 	$data.= "No data found! &nbsp;&nbsp;&nbsp; Create new payment rate? <a href='newpaymentrate.php'>Click Here</a>";
+		 	$data.= "Create new payment rate? <a href='newpaymentrate.php'>Click Here</a>";
 		 	$data.="</td>";
 		 	$data.="</tr>";
 		}

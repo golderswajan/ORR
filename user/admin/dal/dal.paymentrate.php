@@ -79,7 +79,7 @@
 			global $con;
 			$sql = "SELECT paymentrate.* FROM paymentrate,offeredterm WHERE paymentrate.offeredtermId = offeredterm.id && offeredterm.varsityDeptId = $varsityDeptId && offeredterm.degreeId = $degreeId && offeredterm.sessionId = $sessionId && offeredterm.yearId  = $yearId && offeredterm.termId = $termId ORDER BY paymentrate.id DESC";
 			$result = mysqli_query($con,$sql);
-
+			//echo $sql;
 			return $result;
 		}
 
@@ -87,6 +87,15 @@
 		{
 			global $con;
 			$sql = "INSERT INTO `paymentrate`(`id`, `fieldName`, `amount`, `offeredtermId`) VALUES ('','$fieldName',$amount,(SELECT offeredterm.id FROM offeredterm WHERE offeredterm.varsityDeptId = $varsityDeptId && offeredterm.degreeId = $degreeId && offeredterm.sessionId = $sessionId && offeredterm.yearId = $yearId && offeredterm.termId  = $termId))";
+			$result = mysqli_query($con,$sql);
+
+			return $result;
+		}
+		public function getPaymentRateFields()
+		{
+			
+			global $con;
+			$sql = "SELECT * FROM `paymentrate` GROUP BY paymentrate.fieldName";
 			$result = mysqli_query($con,$sql);
 
 			return $result;

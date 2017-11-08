@@ -186,7 +186,6 @@ class DALRemunerationIndividual
 		global $con;
 			$sql = "SELECT amount FROM paymentrate WHERE paymentrate.fieldName LIKE '%".$fieldName."%'";
 			$result = mysqli_query($con,$sql);
-
 			return $result;
 	}
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

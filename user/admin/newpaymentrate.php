@@ -178,13 +178,13 @@ if(isset($_SESSION['message']))
 ?>
 <!--Data Grid Chairman-->
       <script>
-         function addMore() {
+         function addMore(nRows) {
              var table = document.getElementById("myTable");
              var row = table.insertRow(-1);
              var cell1 = row.insertCell(-1);
              var cell2 = row.insertCell(-1);
          
-         var x = document.getElementById("myTable").rows[1].cells;
+         var x = document.getElementById("myTable").rows[nRows].cells;
             
              cell1.innerHTML =  x[0].innerHTML;
              cell2.innerHTML = x[1].innerHTML;
@@ -218,8 +218,24 @@ if(isset($_SESSION['message']))
                <th>Field Name</th>
                <th>Amount (Tk.)</th>
             </tr>
+             <?php
+                $data = "";
+                $nRows = 0;
+                $result = $dalPaymentRate->getPaymentRateFields();
+                while ($res = mysqli_fetch_assoc($result))
+                {
+                  $nRows++;
+                  $data .= "<tr>";
+                  $data.= '<td> <input type="text" class="form-control" name="fieldName[]" value="'.$res['fieldName'].'">  </td>';
+                  $data.='<td> <input type="text" class="form-control" name="amount[]" required></td>';
+                  $data .= "</tr>";
+                }
+              
+
+                echo $data;
+              ?>
             <tr>
-               <td > <input type="text" class="form-control" name="fieldName[]" required>       
+               <td> <input type="text" class="form-control" name="fieldName[]" required>       
                </td>
                <td> <input type="text" class="form-control" name="amount[]" required></td>
             </tr>
@@ -233,7 +249,7 @@ if(isset($_SESSION['message']))
       <br>
       <table>
          <tr>
-            <td><button class="btn-primary btn" onclick="addMore()">Add Row</button></td>
+            <td><button class="btn-primary btn" onclick="addMore(<?php echo $nRows+1;?>)">Add Row</button></td>
             <td><button class="btn btn-primary" onclick="removeLast()">Remove Last Row</button></td>
          </tr>
       </table>
