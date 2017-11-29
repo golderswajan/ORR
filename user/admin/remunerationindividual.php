@@ -10,7 +10,7 @@ if(isset($_SESSION['message']))
   unset($_SESSION['message']);
 }
 ?>
-<h3 class="alert alert-info text-center">Individual RemunerationIndividual</h3>
+<h3 class="alert alert-info text-center">Individual s</h3>
 <ul class="list-inline">
 <li class="list-item">
 <!--Session Selection-->
